@@ -5,7 +5,7 @@ const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 function setTheme(isDark) {
   document.body.classList.toggle('dark-theme', isDark);
-  icon.textContent = isDark ? '🌙' : '☀️'; // Show moon in dark mode (to switch to day), sun in light mode (to switch to night)
+  if (icon) icon.textContent = isDark ? '🌙' : '☀️';
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
@@ -19,7 +19,9 @@ function setTheme(isDark) {
   }
 })();
 
-toggleBtn.addEventListener('click', () => {
-  const isDark = !document.body.classList.contains('dark-theme');
-  setTheme(isDark);
-}); 
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark-theme');
+    setTheme(isDark);
+  });
+} 

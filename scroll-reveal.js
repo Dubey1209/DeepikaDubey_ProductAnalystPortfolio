@@ -2,19 +2,14 @@
   var sections = document.querySelectorAll('main .section:not(#home)');
   if (!sections.length) return;
 
-  function revealInView() {
+  function revealAll() {
     sections.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.92 && r.bottom > 0) {
-        el.classList.add('reveal-in');
-      }
+      el.classList.add('reveal-in');
     });
   }
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    sections.forEach(function (el) {
-      el.classList.add('reveal-in');
-    });
+    revealAll();
     return;
   }
 
@@ -33,9 +28,8 @@
     io.observe(el);
   });
 
-  window.addEventListener('load', revealInView);
-  window.addEventListener('pageshow', revealInView);
-  setTimeout(revealInView, 80);
-  /* Portfolio lock: when shell becomes visible, reveal sections already on screen */
-  setTimeout(revealInView, 2600);
+  document.addEventListener('portfolio-unlocked', revealAll, { once: true });
+
+  /* Fallback if unlock event never fires (e.g. lock disabled) */
+  setTimeout(revealAll, 4000);
 })();

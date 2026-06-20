@@ -63,26 +63,8 @@
     padding: 0 0.5rem;
   }
   
-  .skill-card-pm {
-    padding: 1rem 1.2rem;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .skill-card {
-    padding: 0.7rem 1rem;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .skill-card-large {
-    padding: 0.8rem 1.1rem;
+  .skill-interactive-card {
+    padding: 0;
     min-width: 0;
     max-width: none;
     width: 100%;
@@ -203,7 +185,7 @@
   .home-left {
     text-align: center;
     padding: 1rem 0 1rem 0;
-    margin-top: 8rem;
+    margin-top: 1.25rem;
   }
   
   .home-title {
@@ -306,7 +288,7 @@
   }
   
   .about-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -399,13 +381,13 @@
   }
   
   .skills-cards-row {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
-  .skill-card-pm {
+  .skill-interactive-card {
     width: 100%;
-    padding: 1.5rem;
+    padding: 0;
   }
   
   .skill-card-header {
@@ -436,43 +418,9 @@
   .experience-section {
     padding: 3rem 0;
   }
-  
-  .experience-title {
-    font-size: 1.8rem;
-  }
-  
-  .experience-timeline {
-    padding: 0 1rem;
-  }
-  
-  .experience-card {
-    padding: 1rem;
-  }
-  
-  .experience-date {
-    flex: none;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 0.5rem;
-  }
-  
-  .experience-content {
-    margin-left: 0;
-    padding: 1.5rem;
-  }
-  
-  .experience-title {
-    font-size: 1.1rem;
-  }
-  
-  .experience-company {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .experience-description {
-    font-size: 0.9rem;
+
+  .exp-spotlight-inner {
+    padding: 1.25rem 1rem;
   }
   
   /* Education Section */
@@ -566,25 +514,16 @@
   }
   
   /* Portfolio Lock */
-  .lock-container {
-    padding: 2rem 1rem;
+  .portfolio-lock .lock-container {
+    padding: 1.85rem 1.35rem 1.65rem;
   }
-  
-  .lock-title {
-    font-size: 1.5rem;
-  }
-  
-  .lock-subtitle {
-    font-size: 0.95rem;
-  }
-  
+
   .unlock-form {
     width: 100%;
-    max-width: 350px;
   }
-  
-  .unlock-btn {
-    padding: 0.875rem 2rem;
+
+  .portfolio-lock .unlock-btn {
+    padding: 0.9rem 1.15rem;
     font-size: 0.95rem;
   }
 }
@@ -616,26 +555,8 @@
     gap: 1.3rem;
   }
   
-  .skill-card-pm {
-    padding: 1.4rem 1.6rem;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .skill-card {
-    padding: 0.9rem 1.2rem;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .skill-card-large {
-    padding: 1.2rem 1.4rem;
+  .skill-interactive-card {
+    padding: 0;
     min-width: 0;
     max-width: none;
     width: 100%;
@@ -719,26 +640,8 @@
     gap: 1.4rem;
   }
   
-  .skill-card-pm {
-    padding: 1.5rem 1.6rem;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .skill-card {
-    padding: 1rem 1.3rem;
-    min-width: 0;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .skill-card-large {
-    padding: 1.3rem 1.5rem;
+  .skill-interactive-card {
+    padding: 0;
     min-width: 0;
     max-width: none;
     width: 100%;
@@ -845,10 +748,22 @@
 @media (max-height: 500px) and (orientation: landscape) {
   
   /* Better landscape layout */
-  .lock-container {
-    padding: 1rem;
+  .portfolio-lock .lock-container {
+    padding: 1.15rem 1.35rem;
+    max-height: calc(100dvh - 1.5rem);
+    overflow-y: auto;
   }
-  
+
+  .portfolio-lock .lock-icon-wrap {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0.75rem;
+  }
+
+  .portfolio-lock .lock-subtitle {
+    margin-bottom: 1rem;
+  }
+
   .home-container {
     flex-direction: row;
     gap: 2rem;
@@ -862,14 +777,7 @@
   .section {
     padding: 2rem 0;
   }
-  .lock-container {
-    padding: 1rem;
-  }
-  
-  .lock-title {
-    font-size: 1.3rem;
-  }
-  
+
   .home-section {
     padding: 2rem 0;
   }
@@ -977,6 +885,242 @@ table {
   
   .visible-lg {
     display: block !important;
+  }
+}
+
+/* ===== UNIFIED RESPONSIVE OVERRIDES (final pass) ===== */
+
+@media (max-width: 991px) {
+  .experience-rail-scroll {
+    scroll-snap-type: x mandatory;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-right {
+    flex: none;
+    width: min(220px, 58vw);
+    height: min(220px, 58vw);
+    margin: 0 auto;
+  }
+
+  .home-desc {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-btns {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .home-btns .btn {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .about-image {
+    width: min(240px, 72vw);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-details {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  h2,
+  .about-title,
+  .skills-title,
+  .projects-title,
+  .education-title,
+  .contact-title,
+  .certifications-title,
+  .fun-facts-title,
+  .experience-title {
+    font-size: clamp(1.35rem, 5vw, 1.8rem) !important;
+  }
+
+  .certifications-cards-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .certification-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .fun-facts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .education-card {
+    padding: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .education-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .contact-detail,
+  .contact-list a,
+  .contact-info-desc,
+  .contact-list li {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-row .form-group {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .footer-social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .scroll-top-btn,
+  .floating-contact-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .portfolio-lock .unlock-form input,
+  .portfolio-lock #visitor-name {
+    font-size: 1rem;
+    min-height: 44px;
+    padding: 0.95rem 1rem 0.95rem 2.75rem;
+  }
+
+  .portfolio-lock .unlock-btn {
+    min-height: 44px;
+    padding: 0.9rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .my-story-hero {
+    padding: 5rem 0 2rem;
+  }
+
+  .my-story-hero-title {
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    line-height: 1.35;
+  }
+
+  .my-story-hero-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    line-height: 1.5;
+  }
+
+  .my-story-scroll-card {
+    padding: 0 0 0 calc(var(--story-rail, 1.35rem) + 0.35rem) !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .my-story-chapter h2 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .my-story-chapter p,
+  .my-story-chapter div {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .modal-content {
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    margin: 1rem;
+    padding: 1.5rem 1.25rem;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 575px) {
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .footer-social-links .social-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .navbar-container > .theme-toggle-btn {
+    display: none;
+  }
+
+  .section {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .projects-subtitle,
+  .skills-subtitle,
+  .about-subtitle,
+  .contact-subtitle,
+  .certifications-subtitle,
+  .fun-facts-subtitle {
+    padding: 0 0.25rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-title {
+    font-size: 1.65rem !important;
+  }
+
+  .logo {
+    font-size: 0.95rem !important;
+  }
+
+  .project-card,
+  .skill-interactive-card,
+  .certification-card,
+  .fun-fact-card {
+    padding: 1rem !important;
   }
 }
 

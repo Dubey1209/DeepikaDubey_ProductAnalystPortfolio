@@ -2,53 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>My Story - Deepika Dubey | Product Professional</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="polish.css">
+  <link rel="stylesheet" href="my-story.css">
+  <script>document.documentElement.classList.add('js-scroll-reveal');</script>
 </head>
-<body>
+<body class="my-story-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
-      <div class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
-      <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
-        <span id="theme-toggle-icon">🌙</span>
+      <a href="index.html#home" class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-icon"></span>
+        <span class="sr-only">Menu</span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
+        <li class="drawer-close-btn-li">
+          <button class="drawer-close-btn" aria-label="Close menu">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close menu</span>
+          </button>
+        </li>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#about">About</a></li>
         <li class="dropdown">
           <a href="#" class="dropbtn">Projects</a>
           <div class="dropdown-content">
+            <a href="index.html#case-studies">Product (Case Studies)</a>
+            <a href="index.html#design-projects">Design</a>
             <a href="index.html#technical-projects">Technical Projects</a>
-            <a href="index.html#design-projects">Design Projects</a>
           </div>
         </li>
         <li><a href="index.html#skills">Skills</a></li>
         <li><a href="index.html#certifications">Certifications</a></li>
         <li><a href="index.html#education">Education</a></li>
         <li><a href="index.html#contact">Contact</a></li>
+        <li class="drawer-theme-toggle-li">
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
+            <span class="theme-toggle-icon-wrapper">
+              <span id="theme-toggle-icon">🌙</span>
+            </span>
+          </button>
+        </li>
       </ul>
+      <div class="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
     </div>
   </nav>
   <section class="my-story-hero">
-    <div class="my-story-hero-bg"></div>
+    <div class="my-story-hero-mesh"></div>
+    <div class="my-story-hero-orbs" aria-hidden="true">
+      <span class="my-story-orb my-story-orb--1"></span>
+      <span class="my-story-orb my-story-orb--2"></span>
+    </div>
     <div class="container my-story-hero-content">
+      <span class="my-story-hero-badge">✨ Read My Story</span>
       <div class="my-story-hero-img-wrapper">
         <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="my-story-hero-img" loading="lazy" />
       </div>
       <div class="my-story-hero-text">
         <h1 class="my-story-hero-title">💬 From a Curious Girl to an Engineer</h1>
-        <div class="my-story-hero-subtitle">Curiosity. Creativity. Growth. This is my journey.</div>
+        <p class="my-story-hero-tagline">A story of curiosity, courage, and a girl who chose the harder path — and never stopped believing.</p>
+        <div class="my-story-hero-chips">
+          <span>Curious</span>
+          <span>Relentless</span>
+          <span>Still Dreaming</span>
+        </div>
+        <a href="#story-start" class="my-story-scroll-hint">Scroll into my journey ↓</a>
       </div>
     </div>
   </section>
-  <main id="main-content" role="main">
-    <div class="container my-story-scroll-container">
+  <main id="main-content" class="my-story-main" role="main">
+    <div class="my-story-timeline-wrap" id="story-start">
+      <div class="my-story-timeline-line" aria-hidden="true"></div>
+      <div class="container my-story-scroll-container">
       <div class="my-story-scroll-card">
-        <div class="my-story-chapter">
+        <div class="my-story-chapter my-story-chapter--intro">
           <div>You know what?<br>
           That one kid who just couldn't stop asking questions?
 Yep — that was me. 😄
@@ -200,10 +231,178 @@ And just when I thought things couldn’t get cooler... <b>Android walked into m
   </p>
 </div>
 
+        <div class="my-story-act-divider">
+          <span class="my-story-act-label">Act II — The Unseen Fight</span>
+          <h3>The chapter nobody posts on LinkedIn</h3>
+          <p>Nobody knows the person behind the resume — just a piece of paper with bullet points. Not the nights. Not the fear. Not the girl who kept going anyway.</p>
+          <p>Rejections. Silence. Self-doubt. And a decision that scared everyone — except the girl who made it.</p>
+        </div>
+
+        <div class="my-story-chapter my-story-finale">
+          <h2>⚖️ When I Chose the Harder Right</h2>
+          <blockquote class="my-story-quote">
+            “I always choose the harder right over the easier wrong.”
+            <span class="my-story-quote-tag">Not a quote I hang on a wall — a rule I live by, every single day.</span>
+          </blockquote>
+          <p>
+            In college, placement season arrived like a festival — companies on campus, seniors celebrating offers, everyone asking <em>“tumhara kya scene hai?”</em>
+            Companies did come. Doors did open.
+            But every time I looked closer, something in my chest said <strong>no</strong>.
+          </p>
+          <p>
+            Not enough learning. Not enough respect for someone who shows up hungry — someone who genuinely wants to <em>become</em> something, not just collect a salary slip.
+            I had zeal. Fire. The kind that doesn’t let you sleep peacefully if you know you’re settling.
+          </p>
+          <p class="my-story-emphasis">
+            So I took the scariest decision of my life: I chose <strong>not</strong> to sit for on-campus placements.
+          </p>
+          <p>
+            People thought I was crazy. Maybe I was — by their definition.
+            My college wasn’t a “wow” brand. On paper, it was below average.
+            But my dreams? My discipline? My willingness to outwork the room?
+            <strong>Those were never below average.</strong>
+          </p>
+          <p>
+            I knew the road would be lonely. Harder. Longer.
+            I chose it anyway — because compromising on my future felt heavier than any rejection ever could.
+          </p>
+        </div>
+
+        <div class="my-story-chapter my-story-finale">
+          <h2>🏘️ The Questions Everyone Keeps Asking</h2>
+          <p>
+            And then there was the other battle — the one that never showed up on my resume.
+            Relatives. Neighbors. That one uncle at every function.
+            <em>“Beta, job lag gayi?”</em> &nbsp; <em>“Placement hui?”</em> &nbsp; <em>“Ab kya plan hai?”</em>
+          </p>
+          <p>
+            Some asked with love. Some asked with curiosity.
+            And some — let’s be honest — asked like it was entertainment.
+            A little laugh here. A raised eyebrow there.
+            That phase was brutal in a way interviews never were — because you couldn’t prepare answers for shame.
+          </p>
+          <p>
+            On the outside, I smiled. On the inside, some days I felt like I was drowning in slow motion.
+            You learn to perform calm when your chest is tight and your future feels like a question mark.
+          </p>
+          <p class="my-story-emphasis">
+            But somewhere in that mess, I found something unexpected:
+            <strong>“Pressure is a privilege.”</strong>
+            Because pressure means you still have something worth fighting for — a dream that hasn’t let go of you yet.
+          </p>
+        </div>
+
+        <div class="my-story-chapter my-story-finale">
+          <h2>🌧️ The Off-Campus Marathon</h2>
+          <p>
+            Off-campus? That’s a different world.
+            No hand-holding. No campus buffer. Just you, your resume, and the internet — and a whole lot of silence.
+            I applied everywhere I could — and only a handful ever called back.
+          </p>
+          <p>
+            And even then — I said no to many.
+            Because I wasn’t desperate for <em>a</em> job. I was fighting for the <em>right</em> one — where I could learn, grow, and feel seen.
+          </p>
+          <p>
+            Slowly, painfully, beautifully — I cracked strong internships. Did two of them. Grew sharper. Got hungrier.
+            Each one whispered: <em>“You’re on the right path. Keep going.”</em>
+          </p>
+          <p>
+            Then came the real storm: full-time job hunt after my last internship.
+            Product Management — competitive, brutal, unpredictable.
+            Some days I questioned everything. Some nights I cried and still opened my laptop.
+          </p>
+          <div class="my-story-marathon-grid">
+          <div class="my-story-aside">
+            <p>
+              <strong>Plot twist nobody warns you about:</strong> I practiced mock interviews every single day — out loud, serious, full sweat-mode.
+              My daily partner? <strong>Claude.</strong> Patient. Smart. Never once rolled its eyes at my "umm… let me think" moments. 😄
+            </p>
+            <p>
+              But you know what's funny? (And by funny, I mean <em>personally offensive</em>.)
+              The second things got real — peak prep week, actual interview tomorrow —
+              <strong>Claude's limit would exhaust.</strong> Done. Blocked. "Try again later."
+              There I'd be, mid-practice, emotionally ready to conquer the world… and my AI study buddy had clocked out.
+            </p>
+            <p>
+              Plan B? YouTube. Of course.
+              Except tutorial videos come with ads — and those ads hit at the <em>worst</em> possible time.
+              I'm in the middle of answering "How would you prioritize a roadmap?" with full confidence…
+              and suddenly it's a 15-second unskippable ad about something I absolutely do not need. 😭
+              Focus gone. Mood gone. Back to practicing. The hustle was real — the comedy was accidental.
+            </p>
+          </div>
+          <blockquote class="my-story-quote">
+            “Work so relentlessly that even 0.1% of your success becomes proof you’re still moving forward — because when you’ve poured your everything into the fight, no win is too small to matter. That’s not luck. That’s momentum you built with your own hands.”
+          </blockquote>
+          </div>
+          <p>
+            But I never, <strong>never</strong> gave up.
+            I kept applying. Kept learning. Kept showing up when showing up was the hardest thing to do.
+            I got interviews at good companies — but the <strong>spark</strong> wasn’t there yet.
+            That gut feeling of <em>“yes… this is mine.”</em> Still waiting.
+          </p>
+          <p>
+            And through all of it — I didn’t break.
+            I bent. I bruised. I doubted.
+            But I didn’t quit.
+            <strong>That’s the part I’m most proud of.</strong>
+          </p>
+        </div>
+
+        <div class="my-story-chapter my-story-finale my-story-spark">
+          <h2>✨ 9:34 PM — My First Spark</h2>
+          <div class="my-story-spark-layout">
+            <div class="my-story-moment">
+              <span class="my-story-clock">9:34 PM</span>
+              <span class="my-story-clock-label">evening sky · phone glow · heart racing · one message</span>
+            </div>
+            <div class="my-story-spark-copy">
+              <p>
+                And then — on what felt like just another exhausting evening — the universe finally whispered back.
+              </p>
+              <p>
+                An offer.
+                Not loud. Not dramatic. Just… real.
+                My first <strong>spark</strong> — the kind you feel in your bones before your brain even processes it.
+              </p>
+              <p>
+                Every rejection. Every “we’ll get back to you.” Every night I wondered if I made the wrong call by skipping placements.
+                All of it led to this one moment — and suddenly, it made sense.
+              </p>
+              <p>
+                Today, I’m here — learning, leading, discussing, communicating, building, changing.
+                I have the spark now. I’m holding it with both hands.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-story-dream-close">
+          <h2>🌟 This Is Just the Beginning</h2>
+          <p>
+            If you’ve read this far — thank you. Truly.
+            You didn’t just read a portfolio story. You walked through the parts of my life I don’t always say out loud.
+          </p>
+          <p>
+            I’m not “done.” I’m not “arrived.”
+            This is only the start — and I have <strong>so many dreams</strong> left to turn real.
+            Bigger roles. Bigger impact. Bigger versions of the girl who once asked why the moon follows the car.
+          </p>
+          <p class="my-story-dream-line">
+            Watch me. I’m just getting started. 🔥
+          </p>
+        </div>
+
+        <div class="my-story-back-wrap">
         <a href="index.html" class="btn btn-primary my-story-back-btn"><span style="font-size:1.2em;vertical-align:middle;">&#8592;</span> Back to Home</a>
+        </div>
       </div>
     </div>
+    </div>
   </main>
+  <script src="script.js"></script>
   <script src="theme-toggle.js"></script>
+  <script src="my-story-reveal.js"></script>
 </body>
 </html> 

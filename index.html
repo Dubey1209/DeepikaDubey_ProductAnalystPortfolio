@@ -20,47 +20,79 @@
   <link rel="stylesheet" href="polish.css">
   <script>document.documentElement.classList.add('js-scroll-reveal');</script>
   <script src="portfolio-lock.js" defer></script>
-  <script src="skill-persona.js" defer></script>
 </head>
 <body>
     <!-- Portfolio Lock Screen -->
-    <div id="portfolio-lock" class="portfolio-lock">
+    <div id="portfolio-lock" class="portfolio-lock" role="dialog" aria-modal="true" aria-labelledby="lock-title">
+      <div class="lock-scene" aria-hidden="true">
+        <div class="lock-scene-mesh"></div>
+        <div class="lock-scene-orbs">
+          <span class="lock-orb lock-orb--1"></span>
+          <span class="lock-orb lock-orb--2"></span>
+          <span class="lock-orb lock-orb--3"></span>
+        </div>
+        <div class="lock-scene-grid"></div>
+      </div>
       <div class="lock-overlay"></div>
-      <div class="lock-container">
+      <div class="lock-fx" id="lock-fx" aria-hidden="true">
+        <div class="lock-fx-bloom" id="lock-fx-bloom"></div>
+        <div class="lock-fx-ripples" id="lock-fx-ripples"></div>
+        <div class="lock-fx-flash" id="lock-fx-flash"></div>
+        <div class="lock-fx-crack" id="lock-fx-crack"></div>
+        <div class="lock-fx-shards" id="lock-fx-shards"></div>
+        <div class="lock-fx-sparkles" id="lock-fx-sparkles"></div>
+      </div>
+      <div class="lock-container" id="lock-card">
+        <div class="lock-card-glow" aria-hidden="true"></div>
         <div class="lock-content">
-          <div class="lock-icon">🔒</div>
-          <h2 class="lock-title">Portfolio Locked</h2>
-          <p class="lock-subtitle">Enter your name to unlock Deepika's portfolio</p>
-          
+          <div class="lock-brand">
+            <span class="lock-badge">Private Access</span>
+            <span class="lock-brand-mark">P<span class="lock-brand-brace">&#123; &#125;</span></span>
+          </div>
+
+          <div class="lock-icon-wrap">
+            <div class="lock-icon-ring" aria-hidden="true"></div>
+            <svg class="lock-icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12" cy="16" r="1.25" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <h1 class="lock-title" id="lock-title">Portfolio Locked</h1>
+          <p class="lock-subtitle">Tell me your name — I'll unlock Deepika's product world for you.</p>
+
           <form id="unlock-form" class="unlock-form">
-            <div class="form-group">
-              <input type="text" id="visitor-name" placeholder="Your Name" required>
+            <div class="form-group lock-input-group">
+              <label for="visitor-name" class="lock-input-label">Your name</label>
+              <div class="lock-input-wrap">
+                <svg class="lock-input-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M5 20c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <input type="text" id="visitor-name" name="name" placeholder="e.g. Alex" required autocomplete="name">
+              </div>
             </div>
-            
+
             <button type="submit" class="unlock-btn">
               <span class="btn-text">Unlock Portfolio</span>
-              <span class="btn-loader" style="display: none;">Get Ready......</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="btn-loader" style="display: none;">Opening doors…</span>
             </button>
           </form>
-          
-          <p class="lock-note">✨I would love to know your name!🌙 </p>
+
+          <p class="lock-note">
+            <span class="lock-note-dot" aria-hidden="true"></span>
+            I'd love to know who stopped by — takes two seconds.
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Main Content (Initially Hidden) -->
     <div id="site-shell" class="main-content" style="display: none;">
-      <div class="glass-shatter">
-        <div class="piece1"></div>
-        <div class="piece2"></div>
-        <div class="piece3"></div>
-        <div class="piece4"></div>
-        <div class="piece5"></div>
-        <div class="piece6"></div>
-        <div class="piece7"></div>
-        <div class="piece8"></div>
-      </div>
-      <div class="screen-crack"></div>
       <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
@@ -113,7 +145,13 @@
         <div class="home-desc">I'm a product-obsessed engineer who transforms user problems into impactful solutions. With hands-on experience across product management, product analytics, and technical execution, I bridge the gap between vision and reality. I've built products from scratch, analyzed user behavior and metrics, and crafted roadmaps that drive growth. My superpower? Combining technical depth with product intuition to create experiences users love while delivering business results.</div>
         <div class="home-btns">
           <a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" class="btn btn-outline">Download Resume</a>
-          <a href="my-story.html" class="btn btn-outline">Read My Story</a>
+          <span class="story-btn-wrap">
+            <a href="my-story.html" class="btn btn-outline story-btn">Read My Story</a>
+            <span class="story-btn-hint" role="tooltip">
+              <span class="story-btn-hint-emoji" aria-hidden="true">👀✨</span>
+              Wanna know the real me — beyond the resume?
+            </span>
+          </span>
         </div>
       </div>
       <div class="home-right">
@@ -131,7 +169,7 @@
         </div>
         <div class="about-details">
           <h3 class="about-headline">Product-First Mindset. Data-Driven Execution.</h3>
-          <p>Hey, I'm Deepika Dubey — a product professional with a unique blend of technical depth and product intuition. Currently in my final year at AKGEC (2022–2026, CGPA 8.2), I've spent the last few years building products, conducting user research, analyzing product metrics, and crafting strategies that solve real problems. What sets me apart? I don't just think like a product person — I've built products from scratch, designed user flows, analyzed metrics and data, created roadmaps that drive impact, and worked across product management, analytics, and strategy roles. My technical background gives me the ability to work closely with engineering teams, while my product mindset ensures we're always building the right thing. I'm passionate about turning user problems and business challenges into solutions that deliver value, and I'm ready to bring that energy to your team.</p>
+          <p>Hey, I'm Deepika Dubey — a product professional with a unique blend of technical depth and product intuition. Currently in my final year at AKGEC (2022–2026, CGPA 8.3), I've spent the last few years building products, conducting user research, analyzing product metrics, and crafting strategies that solve real problems. What sets me apart? I don't just think like a product person — I've built products from scratch, designed user flows, analyzed metrics and data, created roadmaps that drive impact, and worked across product management, analytics, and strategy roles. My technical background gives me the ability to work closely with engineering teams, while my product mindset ensures we're always building the right thing. I'm passionate about turning user problems and business challenges into solutions that deliver value, and I'm ready to bring that energy to your team.</p>
           <div class="about-cards">
             <div class="about-card"><span class="about-card-main">5+</span><br><span class="about-card-label">Product Case Studies</span></div>
             <div class="about-card"><span class="about-card-main">8+</span><br><span class="about-card-label">Products Built</span></div>
@@ -327,7 +365,6 @@
               <div class="project-meta-content">
                 <span class="project-category case-study">Hawkins Cookers | Product Strategy</span>
                 <span class="project-tag">UX Audit & Growth Strategy</span>
-                <span class="project-label-recent">Recent</span>
               </div>
             </div>
             <h3 class="case-study-title">Revitalizing Hawkins Cookers Limited — Product Strategy Case Study</h3>
@@ -352,6 +389,41 @@
                     <path d="M8 21L12 17L16 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   View Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Pay Case Study -->
+        <div class="project-card interactive-card" style="--card-bg:#e8fff4;" data-project="whatsapp-pay-case-study">
+          <div class="project-front">
+            <div class="project-meta">
+              <div class="project-meta-content">
+                <span class="project-category case-study">WhatsApp Pay | Product Management</span>
+                <span class="project-tag">Fintech / UPI</span>
+              </div>
+            </div>
+            <h3 class="case-study-title">WhatsApp Pay — Why Growth Went Flat</h3>
+            <div class="project-desc">
+              <ul>
+                <li><strong>Problem Diagnosis:</strong> Challenged the awareness narrative — identified zero marginal utility vs GPay/PhonePe and positive onboarding cost as core blockers behind ~1% UPI market share despite 500M+ Indian users</li>
+                <li><strong>Three-Layer Blocker Model:</strong> Mapped funnel drop-offs across re-registration fatigue, recipient confidence gaps, and lack of conversational payment context using persona research (urban UPI user + kirana merchant)</li>
+                <li><strong>Product Solutions:</strong> Prioritized UPI Bridge onboarding, in-chat recipient verification signals, and contextual payment triggers — RICE-scored and sequenced across a phased roadmap</li>
+                <li><strong>User Flows & Metrics:</strong> Designed first-time setup, send-money-in-chat, and merchant QR flows with 6-month targets for onboarding completion (60%), Day-7 retention (55%), and chat-initiated transactions (35%)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-actions">
+            <div class="project-actions-content">
+              <h4>View Case Study</h4>
+              <div class="project-buttons">
+                <a href="https://drive.google.com/file/d/1504_FuemcCrieZDYHSnq1wGENSo2y_dE/view?usp=sharing" class="project-btn live-btn" target="_blank" rel="noopener">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 13V6A2 2 0 0 0 16 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H16A2 2 0 0 0 18 18V13Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 21L12 17L16 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  View Case Study PDF
                 </a>
               </div>
             </div>
@@ -766,282 +838,252 @@
     <div class="container">
       <h2 class="skills-title">Product Skills & Expertise</h2>
       <p class="skills-subtitle">Core product capabilities across strategy, analytics, design, and technical execution</p>
-      
+
       <div class="skills-cards-row">
-        <!-- Product Strategy & Planning Card -->
-        <div class="skill-card-pm" style="--delay: 1; position: relative;">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">🎯</div>
-            <h3>Strategy & Planning</h3>
+        <div class="project-card skill-interactive-card" style="--card-bg:#f5f0ff; --delay:1">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">🎯</div>
+              <div class="skill-heading">
+                <span class="project-category">Product Core</span>
+                <h3 class="skill-title">Strategy & Planning</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Product Strategy</span>
+              <span class="skill-tag">Roadmapping</span>
+              <span class="skill-tag">Competitive Analysis</span>
+              <span class="skill-tag">Go-to-Market</span>
+              <span class="skill-tag">Market Research</span>
+              <span class="skill-tag">Product Vision</span>
+              <span class="skill-tag">Business Models</span>
+              <span class="skill-tag">Strategic Planning</span>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Product Strategy</span>
-            <span class="skill-tag">Roadmapping</span>
-            <span class="skill-tag">Competitive Analysis</span>
-            <span class="skill-tag">Go-to-Market</span>
-            <span class="skill-tag">Market Research</span>
-            <span class="skill-tag">Product Vision</span>
-            <span class="skill-tag">Business Models</span>
-            <span class="skill-tag">Strategic Planning</span>
-          </div>
-          <div style="
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            transform: translateY(-50%);
-            width: 250px;
-            background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 14px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            margin-left: 20px;
-            box-shadow: 0 10px 30px rgba(42, 122, 226, 0.3);
-          " onmouseover="this.style.opacity='1'; this.style.visibility='visible'; this.style.transform='translateY(-50%) translateX(10px)';" onmouseout="this.style.opacity='0'; this.style.visibility='hidden'; this.style.transform='translateY(-50%)';">
-            <span style="position: absolute; top: -10px; right: 10px; font-size: 20px; opacity: 0.7;">💭</span>
-            I'm your strategic compass! I help Deepika create winning product strategies and build roadmaps that lead to success!
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm your strategic compass! I help Deepika create winning product strategies and build roadmaps that lead to success!</p>
+            </div>
           </div>
         </div>
 
-        <!-- Product Execution & Delivery Card -->
-        <div class="skill-card-pm" style="--delay: 2" data-skill-persona="I'm the execution engine! I turn Deepika's brilliant ideas into reality through agile processes, sprint planning, and flawless delivery. I make sure products ship on time and exceed expectations!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">⚡</div>
-            <h3>Execution & Delivery</h3>
+        <div class="project-card skill-interactive-card" style="--card-bg:#f8e6ff; --delay:2">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">⚡</div>
+              <div class="skill-heading">
+                <span class="project-category">Product Core</span>
+                <h3 class="skill-title">Execution & Delivery</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Agile</span>
+              <span class="skill-tag">Scrum</span>
+              <span class="skill-tag">PRD Writing</span>
+              <span class="skill-tag">User Stories</span>
+              <span class="skill-tag">Feature Prioritization</span>
+              <span class="skill-tag">Sprint Planning</span>
+              <span class="skill-tag">Stakeholder Management</span>
+              <span class="skill-tag">Cross-functional Collaboration</span>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Agile</span>
-            <span class="skill-tag">Scrum</span>
-            <span class="skill-tag">PRD Writing</span>
-            <span class="skill-tag">User Stories</span>
-            <span class="skill-tag">Feature Prioritization</span>
-            <span class="skill-tag">Sprint Planning</span>
-            <span class="skill-tag">Stakeholder Management</span>
-            <span class="skill-tag">Cross-functional Collaboration</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the execution engine! I turn Deepika's brilliant ideas into reality through agile processes, sprint planning, and flawless delivery. I make sure products ship on time and exceed expectations!</div>
-          </div>
-        </div>
-
-        <!-- Product Analytics & Growth Card -->
-        <div class="skill-card-pm" style="--delay: 3" data-skill-persona="I'm the growth detective! I help Deepika uncover user insights, run experiments, and analyze data to make products better. I transform numbers into stories that drive product success!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">📊</div>
-            <h3>Analytics & Growth</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Metrics & Analytics</span>
-            <span class="skill-tag">A/B Testing</span>
-            <span class="skill-tag">User Research</span>
-            <span class="skill-tag">User Journey Mapping</span>
-            <span class="skill-tag">Data Analysis</span>
-            <span class="skill-tag">Product Metrics</span>
-            <span class="skill-tag">Growth Hacking</span>
-            <span class="skill-tag">User Testing</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the growth detective! I help Deepika uncover user insights, run experiments, and analyze data to make products better. I transform numbers into stories that drive product success!</div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the execution engine! I turn Deepika's brilliant ideas into reality through agile processes, sprint planning, and flawless delivery.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Design & UX -->
-        <div class="skill-card-pm" style="--delay: 4" data-skill-persona="I'm the creative heartbeat! I help Deepika design beautiful, intuitive experiences that users love. I turn ideas into stunning visuals and smooth interactions that make products delightful!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">🎨</div>
-            <h3>Design & UX</h3>
+        <div class="project-card skill-interactive-card" style="--card-bg:#e6ffe9; --delay:3">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">📊</div>
+              <div class="skill-heading">
+                <span class="project-category">Product Core</span>
+                <h3 class="skill-title">Analytics & Growth</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Metrics & Analytics</span>
+              <span class="skill-tag">A/B Testing</span>
+              <span class="skill-tag">User Research</span>
+              <span class="skill-tag">User Journey Mapping</span>
+              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">Product Metrics</span>
+              <span class="skill-tag">Growth Hacking</span>
+              <span class="skill-tag">User Testing</span>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Canva</span>
-            <span class="skill-tag">UI/UX</span>
-            <span class="skill-tag">Wireframing</span>
-            <span class="skill-tag">Prototyping</span>
-            <span class="skill-tag">User Flows</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the creative heartbeat! I help Deepika design beautiful, intuitive experiences that users love. I turn ideas into stunning visuals and smooth interactions that make products delightful!</div>
-          </div>
-        </div>
-
-        <!-- Mobile Development -->
-        <div class="skill-card-pm" style="--delay: 5" data-skill-persona="I'm the mobile architect! I help Deepika build powerful Android apps that users can't put down. I turn code into smooth, responsive experiences that work perfectly on every device!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">📱</div>
-            <h3>Mobile Development</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Android</span>
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Jetpack Compose</span>
-            <span class="skill-tag">XML UI</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the mobile architect! I help Deepika build powerful Android apps that users can't put down. I turn code into smooth, responsive experiences that work perfectly on every device!</div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the growth detective! I uncover user insights, run experiments, and transform numbers into stories that drive product success.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Web Development -->
-        <div class="skill-card-pm" style="--delay: 6" data-skill-persona="I'm the web wizard! I help Deepika create stunning websites and web applications that captivate users. I transform ideas into interactive experiences that work beautifully across all browsers!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">🌐</div>
-            <h3>Web Development</h3>
+        <div class="project-card skill-interactive-card" style="--card-bg:#fff0f6; --delay:4">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">🎨</div>
+              <div class="skill-heading">
+                <span class="project-category">Design</span>
+                <h3 class="skill-title">Design & UX</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">UI/UX</span>
+              <span class="skill-tag">Wireframing</span>
+              <span class="skill-tag">Prototyping</span>
+              <span class="skill-tag">User Flows</span>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the web wizard! I help Deepika create stunning websites and web applications that captivate users. I transform ideas into interactive experiences that work beautifully across all browsers!</div>
-          </div>
-        </div>
-
-        <!-- Programming Languages -->
-        <div class="skill-card-pm" style="--delay: 7" data-skill-persona="I'm the language master! I help Deepika speak fluently with computers through multiple programming languages. I'm the bridge between human ideas and machine execution!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">💻</div>
-            <h3>Programming</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the language master! I help Deepika speak fluently with computers through multiple programming languages. I'm the bridge between human ideas and machine execution!</div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the creative heartbeat! I help design beautiful, intuitive experiences users love — stunning visuals and smooth interactions.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Version Control -->
-        <div class="skill-card-pm" style="--delay: 8" data-skill-persona="I'm the time traveler! I help Deepika track every change, collaborate seamlessly, and never lose work. I'm the safety net that ensures code evolution is always under control!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">📚</div>
-            <h3>Version Control</h3>
+        <div class="project-card skill-interactive-card" style="--card-bg:#e6f7ff; --delay:5">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">📱</div>
+              <div class="skill-heading">
+                <span class="project-category">Technical</span>
+                <h3 class="skill-title">Mobile Development</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Android</span>
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Jetpack Compose</span>
+              <span class="skill-tag">XML UI</span>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-          </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the time traveler! I help Deepika track every change, collaborate seamlessly, and never lose work. I'm the safety net that ensures code evolution is always under control!</div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the mobile architect! I build powerful Android apps with smooth, responsive experiences on every device.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Product Management Tools -->
-        <div class="skill-card-pm" style="--delay: 9" data-skill-persona="I'm the Swiss Army knife! I'm Deepika's complete toolkit for product success. From JIRA to Notion, I provide all the tools needed to manage products like a pro!">
-          <div class="skill-card-header">
-            <div class="skill-card-icon">🛠️</div>
-            <h3>Product Management Tools</h3>
+        <div class="project-card skill-interactive-card" style="--card-bg:#f0f7ff; --delay:6">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">🌐</div>
+              <div class="skill-heading">
+                <span class="project-category">Technical</span>
+                <h3 class="skill-title">Web Development</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">JIRA</span>
-            <span class="skill-tag">Mixpanel</span>
-            <span class="skill-tag">QA Testing</span>
-            <span class="skill-tag">Dashboard Analytics</span>
-            <span class="skill-tag">Miro</span>
-            <span class="skill-tag">Notion</span>
-            <span class="skill-tag">Slack</span>
-            <span class="skill-tag">Loom</span>
-            <span class="skill-tag">Confluence</span>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the web wizard! I create captivating websites and interactive experiences that work beautifully across browsers.</p>
+            </div>
           </div>
-          <div class="skill-persona-popup" style="display: none;">
-            <div class="popup-arrow"></div>
-            <div class="popup-emoji">💭</div>
-            <div class="popup-text">I'm the Swiss Army knife! I'm Deepika's complete toolkit for product success. From JIRA to Notion, I provide all the tools needed to manage products like a pro!</div>
+        </div>
+
+        <div class="project-card skill-interactive-card" style="--card-bg:#fff7e6; --delay:7">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">💻</div>
+              <div class="skill-heading">
+                <span class="project-category">Technical</span>
+                <h3 class="skill-title">Programming</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C</span>
+            </div>
+          </div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the language master! I bridge human ideas and machine execution through multiple programming languages.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card skill-interactive-card" style="--card-bg:#e6e6ff; --delay:8">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">📚</div>
+              <div class="skill-heading">
+                <span class="project-category">Technical</span>
+                <h3 class="skill-title">Version Control</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">Bitbucket</span>
+            </div>
+          </div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the time traveler! I track every change and keep collaboration seamless — the safety net for code evolution.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card skill-interactive-card" style="--card-bg:#e0f7fa; --delay:9">
+          <div class="skill-front project-front">
+            <div class="skill-card-header">
+              <div class="skill-card-icon">🛠️</div>
+              <div class="skill-heading">
+                <span class="project-category">Toolkit</span>
+                <h3 class="skill-title">Product Management Tools</h3>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">JIRA</span>
+              <span class="skill-tag">Mixpanel</span>
+              <span class="skill-tag">QA Testing</span>
+              <span class="skill-tag">Dashboard Analytics</span>
+              <span class="skill-tag">Miro</span>
+              <span class="skill-tag">Notion</span>
+              <span class="skill-tag">Slack</span>
+              <span class="skill-tag">Loom</span>
+              <span class="skill-tag">Confluence</span>
+            </div>
+          </div>
+          <div class="skill-persona-panel">
+            <div class="skill-persona-content">
+              <span class="skill-persona-emoji" aria-hidden="true">💭</span>
+              <h4>Skill Persona</h4>
+              <p>I'm the Swiss Army knife! From JIRA to Notion — everything needed to manage products like a pro.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <script>
-    // Simple Skill Persona Hover - Direct CSS Approach
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Setting up simple skill persona hover...');
-      
-      const style = document.createElement('style');
-      style.textContent = `
-        .skill-card-pm {
-          position: relative !important;
-        }
-        
-        .skill-persona-popup {
-          position: absolute;
-          top: 50%;
-          left: 100%;
-          transform: translateY(-50%);
-          width: 280px;
-          background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
-          color: white;
-          padding: 1rem;
-          border-radius: 12px;
-          font-size: 0.85rem;
-          line-height: 1.4;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.3s ease;
-          z-index: 1000;
-          box-shadow: 0 10px 30px rgba(42, 122, 226, 0.3);
-          margin-left: 1rem;
-          pointer-events: none;
-        }
-        
-        .skill-persona-popup::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: -8px;
-          transform: translateY(-50%);
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 8px 8px 8px 0;
-          border-color: transparent #2a7ae2 transparent transparent;
-        }
-        
-        .skill-persona-popup .popup-emoji {
-          position: absolute;
-          top: -10px;
-          right: 10px;
-          font-size: 1.2rem;
-          opacity: 0.7;
-        }
-        
-        .skill-card-pm:hover .skill-persona-popup {
-          opacity: 1 !important;
-          visibility: visible !important;
-          transform: translateY(-50%) translateX(10px) !important;
-        }
-        
-        .skill-card-pm:hover {
-          box-shadow: 0 15px 35px rgba(42, 122, 226, 0.15) !important;
-          transform: translateY(-5px) scale(1.02) !important;
-        }
-      `;
-      document.head.appendChild(style);
-      
-      console.log('Skill persona CSS added successfully!');
-    });
-  </script>
   <section id="certifications" class="section certifications-section">
     <div class="container">
       <h2 class="certifications-title">Certifications</h2>
@@ -1207,13 +1249,13 @@
           <div class="education-icon">&#127891;</div>
           <div>
             <div class="education-degree">Bachelor of Technology</div>
-            <div class="education-specialization"><a href="#" class="edu-link">Artificial Intelligence &amp; Machine Learning</a></div>
+            <div class="education-specialization"><span class="edu-link">Artificial Intelligence &amp; Machine Learning</span></div>
             <div class="education-college">Ajay Kumar Garg Engineering College</div>
           </div>
         </div>
         <div class="education-info-row">
           <div class="education-info-box cgpa-box">
-            <div class="education-info-main">8.25/10</div>
+            <div class="education-info-main">8.3/10</div>
             <div class="education-info-label">Current CGPA</div>
           </div>
           <div class="education-info-box duration-box">
@@ -1261,66 +1303,21 @@
         <p class="section-description">Building products and driving impact through strategic product management</p>
       </div>
       
-      <div class="experience-timeline">
-        <!-- Experience 1: Tnumber -->
-        <div class="experience-card" data-experience="tnumber">
-          <div class="experience-date">
-            <span class="experience-year">Jan 2026 to April 2026</span>
-          </div>
-          <div class="experience-content">
-            <h3 class="experience-title">Associate Product Manager Intern</h3>
-            <div class="experience-company">
-              <span class="company-name">Tnumber</span>
-              <span class="company-type">Communication Platform</span>
-            </div>
-            <p class="experience-description">
-              Led end-to-end execution of product features across web dashboards and mobile applications, coordinating with engineers to deliver usability improvements that resulted in 30% reduction in support tickets.
-            </p>
-            <button class="experience-read-more" onclick="openExperienceModal('tnumber')">
-              Read More <span>→</span>
-            </button>
+      <div class="experience-showcase" id="experienceShowcase">
+        <div class="experience-rail-header">
+          <p class="experience-rail-hint">Select a role to explore the journey</p>
+          <div class="experience-rail-controls">
+            <button type="button" class="exp-rail-nav" id="expPrev" aria-label="Previous role">‹</button>
+            <button type="button" class="exp-rail-nav" id="expNext" aria-label="Next role">›</button>
           </div>
         </div>
-
-        <!-- Experience 2: THATha -->
-        <div class="experience-card" data-experience="thatha">
-          <div class="experience-date">
-            <span class="experience-year">Jul 2025 to Nov 2025</span>
-          </div>
-          <div class="experience-content">
-            <h3 class="experience-title">Product Lead Intern</h3>
-            <div class="experience-company">
-              <span class="company-name">THATha Business Development</span>
-              <span class="company-type">Early-stage SaaS Startup</span>
-            </div>
-            <p class="experience-description">
-              Owned roadmap planning and backlog prioritization for a multi-tenant SaaS product, aligning delivery with customer success goals, resulting in 20% increase in user engagement.
-            </p>
-            <button class="experience-read-more" onclick="openExperienceModal('thatha')">
-              Read More <span>→</span>
-            </button>
-          </div>
+        <div class="experience-rail-scroll">
+          <div class="experience-rail" id="experienceRail" role="tablist"></div>
         </div>
-
-        <!-- Experience 3: SDC SI -->
-        <div class="experience-card" data-experience="sdc-si">
-          <div class="experience-date">
-            <span class="experience-year">Aug 2023 to Nov 2023</span>
-          </div>
-          <div class="experience-content">
-            <h3 class="experience-title">Android Developer</h3>
-            <div class="experience-company">
-              <span class="company-name">Software Incubator (SDC SI)</span>
-              <span class="company-type">Mobile Product Development</span>
-            </div>
-            <p class="experience-description">
-              Developed Android UI screens using XML layouts, integrating backend REST APIs to ensure smooth data retrieval and interaction, leading to 10% improvement in app responsiveness.
-            </p>
-            <button class="experience-read-more" onclick="openExperienceModal('sdc-si')">
-              Read More <span>→</span>
-            </button>
-          </div>
+        <div class="experience-progress" aria-hidden="true">
+          <div class="experience-progress-fill" id="experienceProgressFill"></div>
         </div>
+        <div class="experience-spotlight" id="experienceSpotlight" role="tabpanel" aria-live="polite"></div>
       </div>
     </div>
   </section>
@@ -1491,7 +1488,7 @@
       <div class="footer-col footer-resources">
         <div class="footer-title">Resources</div>
         <ul>
-          <li><a href="DeepikaDubey.pdf" download>Resume</a></li>
+          <li><a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
           <!-- <li><a href="#">Case Studies</a></li> -->
           <!-- <li><a href="#">Blog</a></li> -->
           <li><a href="#certifications">Certifications</a></li>
