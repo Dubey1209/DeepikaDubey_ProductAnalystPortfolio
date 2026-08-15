@@ -61,7 +61,7 @@
         })
         .then(function () {
           formStatus.innerHTML =
-            '<div class="success-message">Message sent successfully! I\'ll get back to you soon. 😊</div>';
+            '<div class="success-message">Message sent. I will get back to you soon.</div>';
           form.reset();
         })
         .catch(function (error) {

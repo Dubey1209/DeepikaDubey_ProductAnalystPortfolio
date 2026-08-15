@@ -951,15 +951,20 @@
   </section>
   
   <section id="skills" class="section skills-section">
-    <div class="container">
-      <p class="atelier-label">Skills</p>
-      <h2 class="skills-title atelier-do-lead">The mix I actually use.</h2>
+    <div class="container atelier-skills">
+      <div class="atelier-skills-intro">
+        <p class="atelier-label">My skills</p>
+        <h2 class="skills-title">Building products for humans.</h2>
+        <p class="atelier-skills-blurb">Strategy, research, design, and enough engineering to sit with the people who build it. Then ship.</p>
+      </div>
 
-      <div class="atelier-do-grid atelier-skills-grid">
-        <article class="atelier-do-card">
+      <div class="atelier-skills-grid">
+        <article class="atelier-skill-card">
+          <span class="atelier-skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="22" cy="10" r="7" fill="currentColor" opacity="0.12"/><path d="M5 22l7-7 5 4 10-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
           <h3>Product</h3>
-          <p>How I decide what ships.</p>
-          <ul class="atelier-skill-list">
+          <ul class="atelier-skill-tags">
             <li>Product Strategy</li>
             <li>Roadmapping</li>
             <li>Go-to-Market</li>
@@ -976,10 +981,12 @@
             <li>Product Analytics</li>
           </ul>
         </article>
-        <article class="atelier-do-card">
+        <article class="atelier-skill-card">
+          <span class="atelier-skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="10" cy="22" r="7" fill="currentColor" opacity="0.12"/><rect x="6" y="7" width="20" height="16" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 13l-3 3 3 3M20 13l3 3-3 3M17 12l-2 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
           <h3>Technical</h3>
-          <p>Enough engineering to sit with builders.</p>
-          <ul class="atelier-skill-list">
+          <ul class="atelier-skill-tags">
             <li>Android</li>
             <li>Kotlin</li>
             <li>Jetpack Compose</li>
@@ -995,10 +1002,12 @@
             <li>Bitbucket</li>
           </ul>
         </article>
-        <article class="atelier-do-card">
+        <article class="atelier-skill-card">
+          <span class="atelier-skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="23" cy="21" r="7" fill="currentColor" opacity="0.12"/><path d="M8 24l3.2-10.5a2 2 0 0 1 1.9-1.4H22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M18 8l6 2.2-8.5 8.5-3.2.8.8-3.2L18 8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
           <h3>Design</h3>
-          <p>So it feels considered, not assembled.</p>
-          <ul class="atelier-skill-list">
+          <ul class="atelier-skill-tags">
             <li>Figma</li>
             <li>Canva</li>
             <li>UI/UX</li>
@@ -1007,10 +1016,12 @@
             <li>User Flows</li>
           </ul>
         </article>
-        <article class="atelier-do-card">
+        <article class="atelier-skill-card">
+          <span class="atelier-skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="11" cy="11" r="7" fill="currentColor" opacity="0.12"/><rect x="7" y="7" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.8"/><rect x="18" y="7" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.8"/><rect x="7" y="18" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.8"/><rect x="18" y="18" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
           <h3>Toolkit</h3>
-          <p>Where research, delivery, and the team live.</p>
-          <ul class="atelier-skill-list">
+          <ul class="atelier-skill-tags">
             <li>JIRA</li>
             <li>Mixpanel</li>
             <li>QA Testing</li>
@@ -1118,29 +1129,9 @@
   <!-- Experience Section -->
   <section id="experience" class="section experience-section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Professional Journey</span>
-        <h2 class="section-title">Work Experience</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">Building products and driving impact through strategic product management</p>
-      </div>
-      
-      <div class="experience-showcase" id="experienceShowcase">
-        <div class="experience-rail-header">
-          <p class="experience-rail-hint">Select a role to explore the journey</p>
-          <div class="experience-rail-controls">
-            <button type="button" class="exp-rail-nav" id="expPrev" aria-label="Previous role">‹</button>
-            <button type="button" class="exp-rail-nav" id="expNext" aria-label="Next role">›</button>
-          </div>
-        </div>
-        <div class="experience-rail-scroll">
-          <div class="experience-rail" id="experienceRail" role="tablist"></div>
-        </div>
-        <div class="experience-progress" aria-hidden="true">
-          <div class="experience-progress-fill" id="experienceProgressFill"></div>
-        </div>
-        <div class="experience-spotlight" id="experienceSpotlight" role="tabpanel" aria-live="polite"></div>
-      </div>
+      <p class="atelier-label">Experience</p>
+      <h2 class="experience-title atelier-do-lead">Roles I actually shipped in.</h2>
+      <div class="atelier-exp" id="atelier-exp"></div>
     </div>
   </section>
 
@@ -1157,180 +1148,154 @@
     </div>
   </div>
 
-  <!-- Experience Modal -->
-  <div id="experienceModal" class="experience-modal">
-    <div class="modal-overlay" onclick="closeExperienceModal()"></div>
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeExperienceModal()">&times;</button>
-      <div id="modal-body"></div>
-    </div>
-  </div>
-  
-  <!-- Fun Facts Section -->
   <section id="fun-facts" class="section fun-facts-section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Get to Know Me</span>
-        <h2 class="section-title">Beyond the Code</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">A little peek into my world beyond the screen</p>
-      </div>
-      
-      <div class="fun-facts-grid">
-        <div class="fun-fact-card" data-emoji="☕✨">
-          <div class="fun-fact-emoji">☕✨</div>
-          <div class="fun-fact-content">
-            <h3>Coffee Connoisseur</h3>
-            <p>My day doesn't start until I've had my perfect cup of coffee! Always on the hunt for the richest, most flavorful brews.</p>
-          </div>
-        </div>
-        
-        <div class="fun-fact-card" data-emoji="🎧🎶">
-          <div class="fun-fact-emoji">🎧🎶</div>
-          <div class="fun-fact-content">
-            <h3>Melody Chaser</h3>
-            <p>Life's better with a soundtrack! You'll always find me with my headphones on, coding to the rhythm.</p>
-          </div>
-        </div>
-        
-        <div class="fun-fact-card" data-emoji="🎬🕵️‍♀️">
-          <div class="fun-fact-emoji">🎬🕵️‍♀️</div>
-          <div class="fun-fact-content">
-            <h3>Spy Thriller Fanatic</h3>
-            <p>Obsessed with spy movies and their mind-bending plots. The more unexpected the twist, the better!</p>
-          </div>
-        </div>
-        
-        <div class="fun-fact-card" data-emoji="📺🤩">
-          <div class="fun-fact-emoji">📺🤩</div>
-          <div class="fun-fact-content">
-            <h3>YouTube Explorer</h3>
-            <p>From tech tutorials to travel vlogs, I'm always down a YouTube rabbit hole learning something new!</p>
-          </div>
-        </div>
-        
-        <div class="fun-fact-card" data-emoji="👩‍🍳🔥">
-          <div class="fun-fact-emoji">👩‍🍳🔥</div>
-          <div class="fun-fact-content">
-            <h3>Culinary Artist</h3>
-            <p>My kitchen is my lab, and every recipe is an experiment waiting to happen. Warning: Results may vary!</p>
-          </div>
-        </div>
-        
-        <div class="fun-fact-card" data-emoji="👗💫">
-          <div class="fun-fact-emoji">👗💫</div>
-          <div class="fun-fact-content">
-            <h3>Style Storyteller</h3>
-            <p>Fashion is my language, and I love telling stories through my unique style combinations!</p>
-          </div>
-        </div>
+      <p class="atelier-label">Fun facts</p>
+      <h2 class="fun-facts-title atelier-do-lead">The rest of me.</h2>
+
+      <div class="atelier-notes">
+        <article class="atelier-note atelier-note--wide">
+          <span class="atelier-note-kicker">Brew</span>
+          <h3>Coffee Connoisseur</h3>
+          <p>My day doesn't start until I've had my perfect cup of coffee! Always on the hunt for the richest, most flavorful brews.</p>
+        </article>
+        <article class="atelier-note">
+          <span class="atelier-note-kicker">Sound</span>
+          <h3>Melody Chaser</h3>
+          <p>Life's better with a soundtrack! You'll always find me with my headphones on, coding to the rhythm.</p>
+        </article>
+        <article class="atelier-note">
+          <span class="atelier-note-kicker">Plot</span>
+          <h3>Spy Thriller Fanatic</h3>
+          <p>Obsessed with spy movies and their mind-bending plots. The more unexpected the twist, the better!</p>
+        </article>
+        <article class="atelier-note atelier-note--wide">
+          <span class="atelier-note-kicker">Rabbit hole</span>
+          <h3>YouTube Explorer</h3>
+          <p>From tech tutorials to travel vlogs, I'm always down a YouTube rabbit hole learning something new!</p>
+        </article>
+        <article class="atelier-note atelier-note--wide">
+          <span class="atelier-note-kicker">Kitchen</span>
+          <h3>Culinary Artist</h3>
+          <p>My kitchen is my lab, and every recipe is an experiment waiting to happen. Warning: Results may vary!</p>
+        </article>
+        <article class="atelier-note">
+          <span class="atelier-note-kicker">Style</span>
+          <h3>Style Storyteller</h3>
+          <p>Fashion is my language, and I love telling stories through my unique style combinations!</p>
+        </article>
       </div>
     </div>
   </section>
   <section id="contact" class="section contact-section">
-    <div class="container contact-container">
-      <h2 class="contact-title">Let's Connect</h2>
-      <p class="contact-subtitle">Ready to discuss opportunities, collaborate on projects, or just chat about product management. Hiring for product? I can think and ship.</p>
-      <div class="contact-content-row">
-        <div class="contact-info">
-          <h3 class="contact-info-title">Let's Build Something Great</h3>
-          <p class="contact-info-desc">I'm actively seeking Product Management opportunities where I can combine my technical background with product intuition to build impactful products. With hands-on experience in product strategy, user research, and end-to-end product development, I'm ready to contribute from day one. Open to Product roles across different levels. Let's connect and discuss how we can create products that users love!</p>
-          <ul class="contact-list">
-            <li><a class="contact-link" href="mailto:dubeydeepika1209@gmail.com"><span class="contact-icon contact-icon-email"></span><span class="contact-heading">Email</span><span class="contact-detail">dubeydeepika1209@gmail.com</span></a></li>
-            <li><a class="contact-link" href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener"><span class="contact-icon contact-icon-linkedin" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#e3f0fc;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">LinkedIn</span><span class="contact-detail">linkedin.com/in/deepika-dubey-6384a2255</span></a></li>
-            <li><a class="contact-link" href="https://github.com/Dubey1209" target="_blank" rel="noopener"><span class="contact-icon contact-icon-github" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#24292f;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">GitHub</span><span class="contact-detail">github.com/Dubey1209</span></a></li>
+    <div class="container">
+      <p class="atelier-label">Contact</p>
+      <h2 class="contact-title atelier-do-lead">Hiring for product? I can think and ship.</h2>
+
+      <div class="atelier-contact">
+        <div class="atelier-contact-copy">
+          <p class="atelier-contact-status">Open to product roles</p>
+          <p>I like messy first questions, clear specs, and shipping the thing. Write if you want to talk roles, collabs, or a product problem.</p>
+          <ul class="atelier-contact-links">
+            <li>
+              <a href="mailto:dubeydeepika1209@gmail.com">
+                <span>Email</span>
+                <span class="atelier-contact-leader" aria-hidden="true"></span>
+                <span>dubeydeepika1209@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener">
+                <span>LinkedIn</span>
+                <span class="atelier-contact-leader" aria-hidden="true"></span>
+                <span>/deepika-dubey</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Dubey1209" target="_blank" rel="noopener">
+                <span>GitHub</span>
+                <span class="atelier-contact-leader" aria-hidden="true"></span>
+                <span>/Dubey1209</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://leetcode.com/u/krishn_sakkhiiiii/" target="_blank" rel="noopener">
+                <span>LeetCode</span>
+                <span class="atelier-contact-leader" aria-hidden="true"></span>
+                <span>/krishn_sakkhiiiii</span>
+              </a>
+            </li>
           </ul>
-          <div class="contact-social-title">Connect on Social</div>
-          <div class="contact-social-links">
-            <a href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" class="social-btn social-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="https://github.com/Dubey1209" class="social-btn social-github" aria-label="GitHub" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="mailto:dubeydeepika1209@gmail.com" class="social-btn social-email" aria-label="Email">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#6c63ff"/><path d="M6 8l6 5 6-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="8" width="12" height="8" rx="2" stroke="white" stroke-width="1.5"/></svg>
-            </a>
-            <a href="https://leetcode.com/u/krishn_sakkhiiiii/" class="social-btn social-leetcode" aria-label="LeetCode" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#FFA116"/><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0z" fill="white"/></svg>
-            </a>
+        </div>
+
+        <form class="atelier-contact-form contact-form" id="contactForm">
+          <h3>Send a note</h3>
+          <div id="form-status" class="form-status"></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
           </div>
-        </div>
-        <div class="contact-form-card">
-          <form class="contact-form" id="contactForm">
-            <h3 class="contact-form-title">Send a Message</h3>
-            <div id="form-status" class="form-status"></div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" placeholder="Your Company">
-            </div>
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" placeholder="Tell me about the opportunity or what you'd like to discuss..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-btn">Send Message</button>
-          </form>
-        </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Optional">
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="The role, the problem, or just hello." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-btn">Send message</button>
+        </form>
       </div>
     </div>
   </section>
   </main>
-  <footer class="footer-section">
-    <div class="footer-container">
-      <div class="footer-col footer-brand">
-        <div class="footer-logo">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
-        <div class="footer-desc">I’m always open to opportunities where I can blend tech, design, and product thinking to solve real problems.
-          If you're hiring for Product role & growth role  - let’s build something meaningful together!
-          
-          </div>
-        <div class="footer-social-title">Connect on Social</div>
-        <div class="footer-social-links">
-          <a href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" class="social-btn social-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="https://github.com/Dubey1209" class="social-btn social-github" aria-label="GitHub" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="mailto:dubeydeepika1209@gmail.com" class="social-btn social-email" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#6c63ff"/><path d="M6 8l6 5 6-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="8" width="12" height="8" rx="2" stroke="white" stroke-width="1.5"/></svg>
-          </a>
-          <a href="https://leetcode.com/u/krishn_sakkhiiiii/" class="social-btn social-leetcode" aria-label="LeetCode" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#FFA116"/><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0z" fill="white"/></svg>
-          </a>
+  <footer class="footer-section atelier-footer">
+    <div class="container">
+      <div class="atelier-footer-grid">
+        <div class="atelier-footer-brand">
+          <a href="#home" class="atelier-footer-logo">P<span class="logo-brace">{ }</span></a>
+          <p>I blend tech, design, and product thinking to ship things people actually use.</p>
+        </div>
+        <div>
+          <p class="atelier-footer-label">Site</p>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="atelier-footer-label">Work</p>
+          <ul>
+            <li><a href="#case-studies">Case studies</a></li>
+            <li><a href="#design-projects">Design</a></li>
+            <li><a href="#technical-projects">Projects</a></li>
+            <li><a href="my-story.html">Story</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="atelier-footer-label">Elsewhere</p>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
+            <li><a href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/Dubey1209" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:dubeydeepika1209@gmail.com">Email</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-col footer-links">
-        <div class="footer-title">Quick Links</div>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#technical-projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-resources">
-        <div class="footer-title">Resources</div>
-        <ul>
-          <li><a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-        </ul>
+      <div class="atelier-footer-bottom">
+        <p>© 2026 Deepika Dubey</p>
+        <a href="#home">Back to top</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copyright"> 2026 Portfolio. All rights reserved.</div>
-    </div>
-    <button class="scroll-top-btn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <button class="scroll-top-btn" type="button" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   </footer>
   </div>
 

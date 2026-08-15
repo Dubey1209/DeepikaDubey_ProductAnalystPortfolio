@@ -157,14 +157,10 @@ const experienceOrder = ['zyra', 'tnumber', 'thatha', 'sdc-si'];
 const experienceData = {
   zyra: {
     title: 'Junior Technical Product Manager',
-    shortTitle: 'Technical PM',
     company: 'Zyra',
-    companyFull: 'Zyra',
     type: 'Technology & Software',
     period: 'Jun 2026 - Present',
     periodShort: 'Now',
-    emoji: '⚡',
-    accent: '#6366f1',
     highlight: 'Shipping features end-to-end',
     tags: ['Technical PM', 'Rapid Prototyping', 'Team Lead'],
     summary:
@@ -182,14 +178,10 @@ const experienceData = {
   },
   tnumber: {
     title: 'Associate Product Management Intern',
-    shortTitle: 'APM Intern',
     company: 'Tnumber',
-    companyFull: 'Tnumber',
     type: 'Communication Platform',
     period: 'Jan 2026 - Apr 2026',
     periodShort: '2026',
-    emoji: '📱',
-    accent: '#2a7ae2',
     highlight: '30% fewer support tickets',
     tags: ['Product Execution', 'JIRA', 'QA'],
     summary:
@@ -206,17 +198,12 @@ const experienceData = {
   },
   thatha: {
     title: 'Product Lead Intern',
-    shortTitle: 'Product Lead',
     company: 'THATha',
-    companyFull: 'THATha Business Development',
     type: 'Early-stage SaaS Startup',
     period: 'Jul 2025 - Nov 2025',
     periodShort: '2025',
-    emoji: '🚀',
-    accent: '#a259ff',
     highlight: '20% user engagement lift',
     tags: ['Roadmapping', 'Usability Testing', 'SaaS'],
-    location: 'Bangalore, India',
     summary:
       'Owned roadmap planning and backlog prioritization for a multi-tenant SaaS product, aligning delivery with customer success goals.',
     description: `
@@ -233,17 +220,12 @@ const experienceData = {
   },
   'sdc-si': {
     title: 'Android Developer',
-    shortTitle: 'Android Dev',
     company: 'SDC SI',
-    companyFull: 'Software Incubator (SDC SI)',
     type: 'Mobile Product Development',
     period: 'Aug 2023 - Nov 2023',
     periodShort: '2023',
-    emoji: '🤖',
-    accent: '#43e97b',
     highlight: '10% faster app response',
     tags: ['Kotlin', 'REST APIs', 'Android UI'],
-    location: 'Ghaziabad, India',
     summary:
       'Developed Android UI screens using XML layouts and integrated backend REST APIs for smooth data retrieval and interaction.',
     description: `
@@ -256,217 +238,84 @@ const experienceData = {
   },
 };
 
-function openExperienceModal(experienceId) {
-  const modal = document.getElementById('experienceModal');
-  const modalBody = document.getElementById('modal-body');
-  const data = experienceData[experienceId];
-
-  if (!modal || !modalBody || !data) return;
-
-  modalBody.innerHTML = `
-    <h3>${data.title}</h3>
-    <div class="company-info">
-      <span class="company-name">${data.companyFull || data.company}</span>
-      <span class="company-type">${data.type}</span>
-      <span class="experience-period">${data.period}</span>
-      ${data.location ? `<span class="experience-period">${data.location}</span>` : ''}
-    </div>
-    <div class="full-description">${data.description}</div>
-  `;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeExperienceModal() {
-  const modal = document.getElementById('experienceModal');
-  if (!modal) return;
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeExperienceModal();
-  }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
-  const experienceModal = document.getElementById('experienceModal');
-  if (experienceModal) {
-    experienceModal.addEventListener('click', (e) => {
-      if (e.target === experienceModal) {
-        closeExperienceModal();
-      }
-    });
-  }
-
   initExperienceShowcase();
 });
 
 function initExperienceShowcase() {
-  const rail = document.getElementById('experienceRail');
-  const spotlight = document.getElementById('experienceSpotlight');
-  const progressFill = document.getElementById('experienceProgressFill');
-  const prevBtn = document.getElementById('expPrev');
-  const nextBtn = document.getElementById('expNext');
+  var root = document.getElementById('atelier-exp');
+  if (!root || !experienceOrder.length) return;
 
-  if (!rail || !spotlight || !experienceOrder.length) return;
+  root.innerHTML = experienceOrder
+    .map(function (id, index) {
+      var d = experienceData[id];
+      var open = index === 0;
+      var tags = (d.tags || [])
+        .map(function (tag) {
+          return '<li>' + tag + '</li>';
+        })
+        .join('');
+      return (
+        '<article class="atelier-exp-item' +
+        (open ? ' is-open' : '') +
+        '" data-exp="' +
+        id +
+        '">' +
+        '<button type="button" class="atelier-exp-row" aria-expanded="' +
+        open +
+        '">' +
+        '<span class="atelier-exp-year">' +
+        d.periodShort +
+        '</span>' +
+        '<span class="atelier-exp-role">' +
+        d.title +
+        '</span>' +
+        '<span class="atelier-exp-leader" aria-hidden="true"></span>' +
+        '<span class="atelier-exp-co">' +
+        d.company +
+        '</span>' +
+        '<span class="atelier-exp-toggle" aria-hidden="true"></span>' +
+        '</button>' +
+        '<div class="atelier-exp-paper" data-year="' +
+        d.periodShort +
+        '">' +
+        '<p class="atelier-exp-period">' +
+        d.period +
+        ' · ' +
+        d.type +
+        '</p>' +
+        '<p class="atelier-exp-hook">' +
+        d.highlight +
+        '</p>' +
+        '<p class="atelier-exp-summary">' +
+        d.summary +
+        '</p>' +
+        '<div class="atelier-exp-body">' +
+        d.description +
+        '</div>' +
+        (tags ? '<ul class="atelier-exp-tags">' + tags + '</ul>' : '') +
+        '</div>' +
+        '</article>'
+      );
+    })
+    .join('');
 
-  let activeId = experienceOrder[0];
-
-  function updateProgress(index) {
-    if (!progressFill) return;
-    const pct = experienceOrder.length <= 1 ? 100 : (index / (experienceOrder.length - 1)) * 100;
-    progressFill.style.width = pct + '%';
-  }
-
-  function renderRail() {
-    rail.innerHTML = experienceOrder
-      .map(function (id) {
-        var d = experienceData[id];
-        var isActive = id === activeId;
-        return (
-          '<button type="button" class="exp-pill' +
-          (isActive ? ' is-active' : '') +
-          '" role="tab" aria-selected="' +
-          isActive +
-          '" data-exp="' +
-          id +
-          '" style="--exp-accent:' +
-          d.accent +
-          '">' +
-          '<span class="exp-pill-emoji" aria-hidden="true">' +
-          d.emoji +
-          '</span>' +
-          '<span class="exp-pill-body">' +
-          '<span class="exp-pill-company">' +
-          d.company +
-          '</span>' +
-          '<span class="exp-pill-role">' +
-          d.shortTitle +
-          '</span>' +
-          '</span>' +
-          '<span class="exp-pill-year">' +
-          d.periodShort +
-          '</span>' +
-          '</button>'
-        );
-      })
-      .join('');
-
-    rail.querySelectorAll('.exp-pill').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        selectExperience(btn.dataset.exp);
+  root.querySelectorAll('.atelier-exp-item').forEach(function (item) {
+    var btn = item.querySelector('.atelier-exp-row');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var wasOpen = item.classList.contains('is-open');
+      root.querySelectorAll('.atelier-exp-item').forEach(function (other) {
+        other.classList.remove('is-open');
+        var otherBtn = other.querySelector('.atelier-exp-row');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
       });
+      if (!wasOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
-  }
-
-  function renderSpotlight() {
-    var d = experienceData[activeId];
-    var idx = experienceOrder.indexOf(activeId);
-    var tagsHtml = (d.tags || [])
-      .map(function (tag) {
-        return '<span class="exp-tag">' + tag + '</span>';
-      })
-      .join('');
-
-    spotlight.style.setProperty('--exp-accent', d.accent);
-    spotlight.classList.add('is-switching');
-    spotlight.innerHTML =
-      '<div class="exp-spotlight-inner">' +
-      '<div class="exp-spotlight-badge" aria-hidden="true">' +
-      d.emoji +
-      '</div>' +
-      '<div class="exp-spotlight-main">' +
-      '<div class="exp-spotlight-meta">' +
-      '<span class="exp-spotlight-period">' +
-      d.period +
-      '</span>' +
-      '<span class="exp-spotlight-highlight">' +
-      d.highlight +
-      '</span>' +
-      '</div>' +
-      '<h3 class="exp-spotlight-title">' +
-      d.title +
-      '</h3>' +
-      '<div class="exp-spotlight-company">' +
-      '<span class="company-name">' +
-      (d.companyFull || d.company) +
-      '</span>' +
-      '<span class="company-type">' +
-      d.type +
-      '</span>' +
-      (d.location ? '<span class="exp-spotlight-location">' + d.location + '</span>' : '') +
-      '</div>' +
-      '<p class="exp-spotlight-summary">' +
-      d.summary +
-      '</p>' +
-      (tagsHtml ? '<div class="exp-spotlight-tags">' + tagsHtml + '</div>' : '') +
-      '<div class="exp-spotlight-actions">' +
-      '<button type="button" class="experience-read-more exp-read-full" data-exp="' +
-      activeId +
-      '">Full Story <span>→</span></button>' +
-      '<div class="exp-spotlight-nav">' +
-      '<button type="button" class="exp-step-nav" data-dir="prev"' +
-      (idx === 0 ? ' disabled' : '') +
-      '>← Prev</button>' +
-      '<span class="exp-step-count">' +
-      (idx + 1) +
-      ' / ' +
-      experienceOrder.length +
-      '</span>' +
-      '<button type="button" class="exp-step-nav" data-dir="next"' +
-      (idx === experienceOrder.length - 1 ? ' disabled' : '') +
-      '>Next →</button>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>';
-
-    requestAnimationFrame(function () {
-      spotlight.classList.remove('is-switching');
-    });
-
-    spotlight.querySelector('.exp-read-full').addEventListener('click', function () {
-      openExperienceModal(activeId);
-    });
-
-    spotlight.querySelectorAll('.exp-step-nav').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (btn.disabled) return;
-        var dir = btn.dataset.dir;
-        var nextIdx = dir === 'prev' ? idx - 1 : idx + 1;
-        selectExperience(experienceOrder[nextIdx]);
-      });
-    });
-
-    updateProgress(idx);
-
-    var activePill = rail.querySelector('[data-exp="' + activeId + '"]');
-    if (activePill) {
-      activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-  }
-
-  function selectExperience(id) {
-    if (!experienceData[id] || id === activeId) return;
-    activeId = id;
-    renderRail();
-    renderSpotlight();
-  }
-
-  function stepExperience(dir) {
-    var idx = experienceOrder.indexOf(activeId);
-    var nextIdx = dir === 'prev' ? idx - 1 : idx + 1;
-    if (nextIdx < 0 || nextIdx >= experienceOrder.length) return;
-    selectExperience(experienceOrder[nextIdx]);
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', function () { stepExperience('prev'); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { stepExperience('next'); });
-
-  renderRail();
-  renderSpotlight();
+  });
 }
 
 (function () {

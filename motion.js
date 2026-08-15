@@ -32,7 +32,7 @@
   }
 
   document
-    .querySelectorAll('.interactive-card, .fun-fact-card')
+    .querySelectorAll('.interactive-card')
     .forEach(bindSpotlight);
 
   function bindTilt(photo, wrap) {

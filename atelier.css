@@ -42,6 +42,7 @@ html.atelier .about-title,
 html.atelier .skills-title,
 html.atelier .projects-title,
 html.atelier .education-title,
+html.atelier .experience-title,
 html.atelier .contact-title,
 html.atelier .fun-facts-title,
 html.atelier .section-title,
@@ -289,12 +290,19 @@ html.atelier .atelier-do-card p {
 
 html.atelier h2.skills-title.atelier-do-lead,
 html.atelier h2.certifications-title.atelier-do-lead,
-html.atelier h2.education-title.atelier-do-lead {
+html.atelier h2.education-title.atelier-do-lead,
+html.atelier h2.experience-title.atelier-do-lead,
+html.atelier h2.fun-facts-title.atelier-do-lead,
+html.atelier h2.contact-title.atelier-do-lead,
+html.atelier h2.section-title.atelier-do-lead {
   left: auto !important;
   transform: none !important;
   display: block !important;
   background: none !important;
+  background-image: none !important;
   -webkit-text-fill-color: var(--ink) !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
   text-shadow: none !important;
   font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
   font-weight: 560;
@@ -302,34 +310,134 @@ html.atelier h2.education-title.atelier-do-lead {
   margin: 0 0 2.5rem !important;
 }
 
+html.atelier .atelier-skills {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.82fr) minmax(0, 1.35fr);
+  gap: 2.6rem 3.4rem;
+  align-items: start;
+}
+
+html.atelier .atelier-skills-intro {
+  position: sticky;
+  top: 5.5rem;
+  padding-top: 0.2rem;
+}
+
+html.atelier .atelier-skills-intro .skills-title {
+  position: static !important;
+  left: auto !important;
+  transform: none !important;
+  display: block !important;
+  max-width: 8.4em;
+  margin: 0 0 1.25rem !important;
+  font-size: clamp(2.15rem, 4.6vw, 3.45rem) !important;
+  line-height: 1.05 !important;
+  font-weight: 600;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow: none !important;
+}
+
+html.atelier .atelier-skills-blurb {
+  margin: 0;
+  max-width: 21rem;
+  padding-left: 1.05rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted) !important;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
 html.atelier .atelier-skills-grid {
-  grid-template-columns: 1fr 1fr;
-}
-
-html.atelier .atelier-skills-grid .atelier-do-card {
-  min-height: 0;
-}
-
-html.atelier .atelier-skill-list {
-  list-style: none;
-  margin: 1.15rem 0 0;
-  padding: 1.1rem 0 0;
-  border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.38rem 1rem;
+  gap: 1rem;
+  align-items: stretch;
 }
 
-html.atelier .atelier-skill-list li {
-  margin: 0;
-  padding: 0;
+html.atelier .atelier-skill-card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.2rem;
+  padding: 1.35rem 1.3rem 1.4rem;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+html.atelier .atelier-skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 8px 0 var(--ink);
+  border-color: var(--ink);
+}
+
+html.atelier .atelier-skill-icon {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin: 0 0 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--paper);
   color: var(--ink);
-  font-size: 0.9rem;
-  line-height: 1.4;
+}
+
+html.atelier .atelier-skill-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: block;
+}
+
+html.atelier .atelier-skill-card h3 {
+  margin: 0 0 0.9rem;
+  font-size: 1.32rem !important;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+  letter-spacing: -0.03em;
+}
+
+html.atelier .atelier-skill-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: auto 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+html.atelier .atelier-skill-tags li {
+  margin: 0;
+  padding: 0.26rem 0.62rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted) !important;
+  background: transparent;
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.35;
   font-family: var(--sans);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
+  html.atelier .atelier-skills {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  html.atelier .atelier-skills-intro {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
   html.atelier .atelier-skills-grid {
     grid-template-columns: 1fr;
   }
@@ -577,6 +685,358 @@ html.atelier .atelier-edu-courses li {
   }
 }
 
+html.atelier .atelier-exp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+html.atelier .atelier-exp-item {
+  border-top: 1px solid var(--line);
+}
+
+html.atelier .atelier-exp-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+html.atelier .atelier-exp-row {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding: 1.15rem 0.15rem;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+html.atelier .atelier-exp-year {
+  flex: 0 0 4.2rem;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--accent);
+}
+
+html.atelier .atelier-exp-role {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+html.atelier .atelier-exp-leader {
+  flex: 1 1 auto;
+  min-width: 2.2rem;
+  border-bottom: 1.5px dotted color-mix(in srgb, var(--ink) 28%, transparent);
+  transform: translateY(-0.28rem);
+}
+
+html.atelier .atelier-exp-co {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+html.atelier .atelier-exp-toggle {
+  flex: 0 0 auto;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 0.15rem;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  position: relative;
+}
+
+html.atelier .atelier-exp-toggle::before,
+html.atelier .atelier-exp-toggle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+
+html.atelier .atelier-exp-toggle::before {
+  width: 8px;
+  height: 1.5px;
+}
+
+html.atelier .atelier-exp-toggle::after {
+  width: 1.5px;
+  height: 8px;
+}
+
+html.atelier .atelier-exp-item.is-open .atelier-exp-toggle {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+html.atelier .atelier-exp-item.is-open .atelier-exp-toggle::before,
+html.atelier .atelier-exp-item.is-open .atelier-exp-toggle::after {
+  background: var(--paper);
+}
+
+html.atelier .atelier-exp-item.is-open .atelier-exp-toggle::after {
+  display: none;
+}
+
+html.atelier .atelier-exp-row:hover .atelier-exp-role,
+html.atelier .atelier-exp-item.is-open .atelier-exp-role {
+  color: var(--accent);
+}
+
+html.atelier .atelier-exp-item.is-open .atelier-exp-co {
+  color: var(--ink);
+}
+
+html.atelier .atelier-exp-paper {
+  display: none;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.15rem;
+  padding: 1.35rem 1.4rem 1.45rem;
+  margin: 0 0 1.15rem;
+  position: relative;
+  overflow: hidden;
+}
+
+html.atelier .atelier-exp-item.is-open .atelier-exp-paper {
+  display: block;
+  box-shadow: 6px 8px 0 var(--ink);
+  border-color: var(--ink);
+}
+
+html.atelier .atelier-exp-paper::before {
+  content: attr(data-year);
+  position: absolute;
+  right: 0.7rem;
+  top: -0.35rem;
+  font-family: var(--serif);
+  font-size: clamp(4rem, 8vw, 6.2rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+html.atelier .atelier-exp-period {
+  margin: 0 0 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+html.atelier .atelier-exp-hook {
+  margin: 0 0 0.85rem;
+  max-width: 36rem;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 560;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+html.atelier .atelier-exp-summary {
+  margin: 0 0 1.1rem;
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+html.atelier .atelier-exp-body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+html.atelier .atelier-exp-body li {
+  margin: 0;
+  padding: 0.7rem 0 0.7rem 1.05rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  position: relative;
+}
+
+html.atelier .atelier-exp-body li:last-child {
+  border-bottom: 0;
+}
+
+html.atelier .atelier-exp-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+html.atelier .atelier-exp-body strong {
+  font-weight: 650;
+  color: var(--ink);
+}
+
+html.atelier .atelier-exp-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.05rem 0 0;
+  padding: 0;
+}
+
+html.atelier .atelier-exp-tags li {
+  margin: 0;
+  padding: 0.28rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  html.atelier .atelier-exp-row {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.7rem;
+    padding: 1rem 0.1rem;
+  }
+
+  html.atelier .atelier-exp-year {
+    flex-basis: 100%;
+    font-size: 1.2rem;
+  }
+
+  html.atelier .atelier-exp-leader {
+    display: none;
+  }
+
+  html.atelier .atelier-exp-role {
+    flex: 1 1 auto;
+  }
+}
+
+html.atelier .atelier-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+html.atelier .atelier-note {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.15rem;
+  padding: 1.35rem 1.35rem 1.5rem;
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+html.atelier .atelier-note--wide {
+  grid-column: span 2;
+}
+
+html.atelier .atelier-note:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 8px 0 var(--ink);
+  border-color: var(--ink);
+}
+
+html.atelier .atelier-note-kicker {
+  display: block;
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+html.atelier .atelier-note-kicker::after {
+  content: '';
+  display: block;
+  width: 1.35rem;
+  height: 1.5px;
+  background: var(--ink);
+  margin-top: 0.55rem;
+  opacity: 0.22;
+}
+
+html.atelier .atelier-note h3 {
+  margin: 0 0 0.7rem;
+  font-family: var(--serif) !important;
+  font-size: 1.4rem !important;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  color: var(--ink) !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  text-align: left !important;
+}
+
+html.atelier .atelier-note--wide h3 {
+  font-size: clamp(1.65rem, 3vw, 2.1rem) !important;
+}
+
+html.atelier .atelier-note p {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--muted) !important;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: left !important;
+  display: block !important;
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: none !important;
+}
+
+@media (max-width: 800px) {
+  html.atelier .atelier-notes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  html.atelier .atelier-note,
+  html.atelier .atelier-note--wide {
+    grid-column: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  html.atelier .atelier-notes {
+    grid-template-columns: 1fr;
+  }
+}
+
 html.atelier main .section:not(.home-section) {
   padding-top: 4.5rem;
   padding-bottom: 3.5rem;
@@ -586,11 +1046,18 @@ html.atelier h2.about-title,
 html.atelier h2.skills-title,
 html.atelier h2.projects-title,
 html.atelier h2.education-title,
+html.atelier h2.experience-title,
 html.atelier h2.contact-title,
 html.atelier .fun-facts-title,
 html.atelier .section-title {
   font-size: clamp(2rem, 4vw, 3rem) !important;
   color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow: none !important;
   text-align: left !important;
   margin-bottom: 0.6rem !important;
 }
@@ -622,59 +1089,335 @@ html.atelier .fun-fact-card p {
   color: var(--muted) !important;
 }
 
-html.atelier .about-details p,
-html.atelier .contact-info-desc {
+html.atelier .about-details p {
   color: var(--ink);
   line-height: 1.75;
 }
 
 html.atelier .contact-section {
-  background: var(--ink) !important;
-  color: var(--paper) !important;
-  border-radius: 2rem;
-  margin: 1rem auto 3rem;
-  width: min(92vw, 1120px);
-  padding: 4rem 2.5rem !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  border-radius: 0;
+  margin: 0 auto;
+  width: auto;
+  padding-top: 4.5rem;
+  padding-bottom: 3.5rem;
 }
 
 html.atelier .contact-title,
 html.atelier .contact-info-title,
 html.atelier body.dark-theme .contact-title {
-  color: var(--paper) !important;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
 }
 
-html.atelier .contact-subtitle,
-html.atelier .contact-info-desc,
-html.atelier .contact-detail,
-html.atelier .contact-heading {
-  color: rgba(243, 238, 228, 0.78) !important;
+html.atelier .atelier-contact {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 2.4rem 3rem;
+  align-items: start;
+}
+
+html.atelier .atelier-contact-copy > p:not(.atelier-contact-status) {
+  margin: 0 0 1.6rem;
+  max-width: 28rem;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+html.atelier .atelier-contact-status {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.28rem 0.75rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+html.atelier .atelier-contact-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+html.atelier .atelier-contact-links a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.85rem 0.05rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+html.atelier .atelier-contact-links a > span:first-child {
+  flex: 0 0 auto;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+html.atelier .atelier-contact-leader {
+  flex: 1 1 auto;
+  min-width: 1.4rem;
+  border-bottom: 1.5px dotted color-mix(in srgb, var(--ink) 28%, transparent);
+  transform: translateY(-0.22rem);
+}
+
+html.atelier .atelier-contact-links a > span:last-child {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+html.atelier .atelier-contact-links a:hover > span:last-child {
+  color: var(--ink);
+}
+
+html.atelier .atelier-contact-form {
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 1.15rem;
+  padding: 1.45rem 1.45rem 1.5rem;
+  max-width: none;
+  width: 100%;
+  box-shadow: 6px 8px 0 var(--ink);
+  transition: none;
+}
+
+html.atelier .atelier-contact-form h3,
+html.atelier .contact-form-title {
+  margin: 0 0 1.1rem;
+  font-family: var(--serif) !important;
+  font-size: 1.55rem !important;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  color: var(--ink) !important;
+}
+
+html.atelier .atelier-contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+html.atelier .atelier-contact-form .form-group {
+  margin-bottom: 0.9rem;
+}
+
+html.atelier .atelier-contact-form label {
+  display: block;
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 html.atelier .contact-section input,
 html.atelier .contact-section textarea {
-  background: rgba(243, 238, 228, 0.08) !important;
-  border: 1px solid rgba(243, 238, 228, 0.2) !important;
-  color: var(--paper) !important;
+  width: 100%;
+  background: var(--paper) !important;
+  border: 1.5px solid var(--line) !important;
+  color: var(--ink) !important;
+  border-radius: 0.85rem;
+  padding: 0.72rem 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+html.atelier .contact-section input::placeholder,
+html.atelier .contact-section textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+html.atelier .contact-section input:focus,
+html.atelier .contact-section textarea:focus {
+  outline: none !important;
+  border-color: var(--ink) !important;
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+
+html.atelier .contact-section textarea {
+  min-height: 8.5rem;
+  max-height: none !important;
+  resize: vertical;
 }
 
 html.atelier .contact-section .btn,
 html.atelier .contact-section button[type="submit"] {
-  background: var(--paper) !important;
-  color: #1a1713 !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important;
   border: 0 !important;
   border-radius: 999px;
+  padding: 0.78rem 1.35rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
 }
 
-html.atelier .footer-section {
+html.atelier .contact-section button[type="submit"]:hover {
+  transform: translateY(-1px);
+}
+
+html.atelier .contact-section .success-message,
+html.atelier .contact-section .error-message {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+html.atelier .contact-section .success-message {
+  background: color-mix(in srgb, var(--accent) 10%, var(--card));
+  color: var(--ink);
+}
+
+html.atelier .contact-section .error-message {
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+}
+
+html.atelier .contact-section .error-message a {
+  color: var(--accent);
+}
+
+@media (max-width: 800px) {
+  html.atelier .atelier-contact {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  html.atelier .atelier-contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  html.atelier .atelier-contact-leader {
+    display: none;
+  }
+}
+
+html.atelier .footer-section,
+html.atelier .atelier-footer {
   background: transparent !important;
   color: var(--ink) !important;
+  border-top: 1.5px solid var(--line);
+  margin-top: 1.5rem;
+  padding: 3rem 0 1.5rem !important;
 }
 
-html.atelier .footer-title,
-html.atelier .footer-copyright,
-html.atelier .footer-links a,
-html.atelier .footer-resources a {
+html.atelier .atelier-footer-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.7fr 0.7fr 0.85fr;
+  gap: 2rem 1.6rem;
+  align-items: start;
+}
+
+html.atelier .atelier-footer-logo {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+html.atelier .atelier-footer-brand p {
+  margin: 0.85rem 0 0;
+  max-width: 22rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+html.atelier .atelier-footer-label {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+html.atelier .atelier-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html.atelier .atelier-footer li {
+  margin: 0 0 0.42rem;
+}
+
+html.atelier .atelier-footer a {
   color: var(--ink) !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+html.atelier .atelier-footer .logo-brace {
+  color: var(--accent) !important;
+}
+
+html.atelier .atelier-footer a:hover {
+  color: var(--accent) !important;
+}
+
+html.atelier .atelier-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted) !important;
+  font-size: 0.88rem;
+}
+
+html.atelier .atelier-footer-bottom p {
+  margin: 0;
+  color: var(--muted) !important;
+}
+
+html.atelier .atelier-footer-bottom a {
+  color: var(--muted) !important;
+}
+
+html.atelier .atelier-footer-bottom a:hover {
+  color: var(--ink) !important;
+}
+
+@media (max-width: 760px) {
+  html.atelier .atelier-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  html.atelier .atelier-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  html.atelier .atelier-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 html.atelier .scroll-top-btn {
@@ -757,7 +1500,8 @@ html.atelier .fun-facts-section,
 html.atelier .certifications-section,
 html.atelier .education-section,
 html.atelier .about-section,
-html.atelier .case-studies-section {
+html.atelier .case-studies-section,
+html.atelier .contact-section {
   background: transparent !important;
   overflow: visible !important;
 }
@@ -773,7 +1517,11 @@ html.atelier .section-header {
 }
 
 html.atelier .project-title,
-html.atelier .certifications-title {
+html.atelier .certifications-title,
+html.atelier .experience-title,
+html.atelier .fun-facts-title,
+html.atelier .contact-title,
+html.atelier .skills-title {
   font-family: var(--serif) !important;
   color: var(--ink) !important;
   -webkit-text-fill-color: var(--ink) !important;
@@ -801,43 +1549,15 @@ html.atelier .fun-facts-grid {
   grid-auto-rows: auto !important;
 }
 
-html.atelier .fun-fact-card {
+html.atelier .fun-fact-card,
+html.atelier .atelier-note {
   max-width: none !important;
   height: auto !important;
   overflow: visible !important;
 }
 
-html.atelier .exp-pill {
-  background: var(--card) !important;
-  border: 1.5px solid var(--line) !important;
-  color: var(--ink) !important;
-  box-shadow: none !important;
-}
-
-html.atelier .exp-pill.is-active,
-html.atelier .exp-pill:hover {
-  background: var(--ink) !important;
-  color: var(--paper) !important;
-  border-color: var(--ink) !important;
-}
-
-html.atelier .exp-rail-nav {
-  background: var(--card) !important;
-  border-color: var(--ink) !important;
-  color: var(--ink) !important;
-}
-
-html.atelier .experience-spotlight,
-html.atelier .experience-rail-hint,
 html.atelier .section-description {
   color: var(--muted) !important;
-}
-
-html.atelier .experience-spotlight {
-  background: var(--card) !important;
-  border: 1.5px solid var(--line);
-  border-radius: 1.2rem;
-  padding: 1.4rem;
 }
 
 html.atelier .about-image img {
@@ -857,10 +1577,6 @@ html.atelier .about-card-label {
 
 html.atelier .project-btn {
   color: var(--accent) !important;
-}
-
-html.atelier .contact-info-desc {
-  color: rgba(243, 238, 228, 0.82) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -893,10 +1609,6 @@ html.atelier .contact-info-desc {
   html.atelier h2.contact-title,
   html.atelier .section-title {
     text-align: left !important;
-  }
-
-  html.atelier .contact-section {
-  padding: 2.4rem 1.2rem !important;
   }
 }
 
@@ -1008,7 +1720,8 @@ html.atelier body.dark-theme .skills-section,
 html.atelier body.dark-theme .case-studies-section,
 html.atelier body.dark-theme .projects-section,
 html.atelier body.dark-theme .fun-facts-section,
-html.atelier body.dark-theme .experience-section {
+html.atelier body.dark-theme .experience-section,
+html.atelier body.dark-theme .contact-section {
   background: transparent !important;
 }
 
@@ -1308,6 +2021,65 @@ body.dark-theme .work-modal-actions {
   .work-modal-panel {
     animation: none;
   }
+}
+
+html.atelier body.dark-theme h1,
+html.atelier body.dark-theme h2,
+html.atelier body.dark-theme h3,
+html.atelier body.dark-theme h4,
+html.atelier body.dark-theme .home-title,
+html.atelier body.dark-theme .about-title,
+html.atelier body.dark-theme .skills-title,
+html.atelier body.dark-theme .projects-title,
+html.atelier body.dark-theme .education-title,
+html.atelier body.dark-theme .experience-title,
+html.atelier body.dark-theme .fun-facts-title,
+html.atelier body.dark-theme .certifications-title,
+html.atelier body.dark-theme .contact-title,
+html.atelier body.dark-theme .section-title,
+html.atelier body.dark-theme .atelier-do-lead,
+html.atelier body.dark-theme .case-study-title,
+html.atelier body.dark-theme .project-title,
+html.atelier body.dark-theme .atelier-skill-card h3,
+html.atelier body.dark-theme .atelier-note h3,
+html.atelier body.dark-theme .atelier-exp-role,
+html.atelier body.dark-theme .atelier-edu-main h3 {
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow: none !important;
+}
+
+html.atelier body.dark-theme .atelier-label,
+html.atelier body.dark-theme .home-kicker,
+html.atelier body.dark-theme .atelier-note-kicker,
+html.atelier body.dark-theme .atelier-edu-spec,
+html.atelier body.dark-theme .atelier-edu-course-label,
+html.atelier body.dark-theme .atelier-exp-period,
+html.atelier body.dark-theme .atelier-contact-status,
+html.atelier body.dark-theme .atelier-contact-form label,
+html.atelier body.dark-theme .atelier-footer-label {
+  color: var(--accent) !important;
+}
+
+html.atelier body.dark-theme .atelier-skills-blurb,
+html.atelier body.dark-theme .atelier-do-card p,
+html.atelier body.dark-theme .atelier-note p,
+html.atelier body.dark-theme .atelier-skill-tags li,
+html.atelier body.dark-theme .atelier-exp-summary,
+html.atelier body.dark-theme .atelier-exp-co,
+html.atelier body.dark-theme .atelier-contact-copy > p:not(.atelier-contact-status),
+html.atelier body.dark-theme .atelier-contact-links a > span:last-child,
+html.atelier body.dark-theme .home-subtitle,
+html.atelier body.dark-theme .about-subtitle,
+html.atelier body.dark-theme .projects-subtitle,
+html.atelier body.dark-theme .atelier-footer-brand p,
+html.atelier body.dark-theme .atelier-footer-bottom,
+html.atelier body.dark-theme .atelier-footer-bottom p {
+  color: var(--muted) !important;
 }
 
 
