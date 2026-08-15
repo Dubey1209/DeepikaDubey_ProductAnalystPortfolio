@@ -48,7 +48,6 @@ html.atelier .experience-title,
 html.atelier .contact-title,
 html.atelier .fun-facts-title,
 html.atelier .section-title,
-html.atelier .about-headline,
 html.atelier .case-study-title {
   font-family: var(--serif) !important;
   letter-spacing: -0.03em;
@@ -219,6 +218,10 @@ html.atelier .home-btns .story-btn:hover {
   box-shadow: none !important;
 }
 
+html.atelier .home-right {
+  overflow: visible;
+}
+
 html.atelier .home-photo {
   width: 300px !important;
   height: 380px !important;
@@ -227,18 +230,18 @@ html.atelier .home-photo {
   padding: 0 !important;
   margin: 0 !important;
   object-fit: cover;
-  transform: rotate(-3.5deg);
+  transform: rotate(-3.5deg) scale(1);
   transform-origin: center center;
   box-shadow: var(--shadow) !important;
   background: var(--card) !important;
   animation: none !important;
   cursor: pointer;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.45s ease;
+  will-change: transform;
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.atelier .home-photo:hover {
-  transform: rotate(-1.5deg) scale(1.1);
+  transform: rotate(-3.5deg) scale(1.08);
   filter: none !important;
 }
 
@@ -1257,7 +1260,6 @@ html.atelier .section-title {
   margin-bottom: 0.6rem !important;
 }
 
-html.atelier .about-subtitle,
 html.atelier .projects-subtitle,
 html.atelier .contact-subtitle,
 html.atelier .fun-facts-subtitle,
@@ -1270,23 +1272,10 @@ html.atelier .section-subtitle {
 }
 
 html.atelier .project-category,
-html.atelier .case-study-title,
-html.atelier .fun-fact-card h3 {
+html.atelier .case-study-title {
   color: var(--ink) !important;
   -webkit-text-fill-color: var(--ink) !important;
   background: none !important;
-}
-
-html.atelier .fun-fact-card p {
-  display: block !important;
-  overflow: visible !important;
-  height: auto !important;
-  color: var(--muted) !important;
-}
-
-html.atelier .about-details p {
-  color: var(--ink);
-  line-height: 1.75;
 }
 
 html.atelier .contact-section {
@@ -1622,6 +1611,54 @@ html.atelier .scroll-top-btn {
 
 html.atelier .story-btn-hint {
   font-family: var(--sans);
+  color: var(--ink) !important;
+  background: var(--card) !important;
+  background-image: none !important;
+  border: 1.5px solid var(--ink) !important;
+  border-radius: 1rem !important;
+  box-shadow: 5px 6px 0 var(--ink) !important;
+  padding: 0.7rem 0.95rem 0.75rem !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+  max-width: min(220px, 78vw);
+  transform: translateX(-50%) translateY(10px);
+  transition:
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.4s;
+}
+
+html.atelier .story-btn-hint-kicker {
+  display: block;
+  margin-bottom: 0.28rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+html.atelier .scroll-progress {
+  background: var(--accent) !important;
+  height: 2px;
+}
+
+html.atelier .story-btn-hint::after {
+  background: var(--card) !important;
+  border-right: 1.5px solid var(--ink) !important;
+  border-bottom: 1.5px solid var(--ink) !important;
+}
+
+html.atelier .story-btn-wrap:hover .story-btn-hint,
+html.atelier .story-btn-wrap:focus-within .story-btn-hint {
+  transform: translateX(-50%) translateY(0);
+}
+
+html.atelier .story-btn-wrap:hover .story-btn,
+html.atelier .story-btn-wrap:focus-within .story-btn {
+  box-shadow: none !important;
 }
 
 html.atelier .navbar-container {
@@ -1740,11 +1777,6 @@ html.atelier .project-desc li {
   max-height: none !important;
 }
 
-html.atelier .fun-facts-grid {
-  grid-auto-rows: auto !important;
-}
-
-html.atelier .fun-fact-card,
 html.atelier .atelier-note {
   max-width: none !important;
   height: auto !important;
@@ -1752,21 +1784,6 @@ html.atelier .atelier-note {
 }
 
 html.atelier .section-description {
-  color: var(--muted) !important;
-}
-
-html.atelier .about-image img {
-  border-radius: 1.4rem;
-  box-shadow: var(--shadow);
-  border: 0 !important;
-}
-
-html.atelier .about-card-main {
-  font-family: var(--serif);
-  color: var(--accent) !important;
-}
-
-html.atelier .about-card-label {
   color: var(--muted) !important;
 }
 
@@ -1814,6 +1831,17 @@ html.atelier .project-btn {
     max-width: 22rem;
   }
 
+  html.atelier .story-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  html.atelier .story-hero-frame {
+    order: -1;
+    justify-self: center;
+    text-align: center;
+  }
+
   html.atelier .home-photo {
     width: 240px !important;
     height: 300px !important;
@@ -1833,9 +1861,7 @@ html.atelier .project-btn {
 
 /* —— Unify leftover old-portfolio cards to atelier —— */
 html.atelier .project-card,
-html.atelier .interactive-card,
-html.atelier .fun-fact-card,
-html.atelier .about-card {
+html.atelier .interactive-card {
   background: var(--card) !important;
   background-image: none !important;
   border: 1.5px solid var(--line) !important;
@@ -1845,9 +1871,7 @@ html.atelier .about-card {
 }
 
 html.atelier .project-card:nth-child(n):hover,
-html.atelier .interactive-card:nth-child(n):hover,
-html.atelier .fun-fact-card:hover,
-html.atelier .about-card:hover {
+html.atelier .interactive-card:nth-child(n):hover {
   background: var(--card) !important;
   background-image: none !important;
   transform: translateY(-4px) !important;
@@ -1894,8 +1918,6 @@ html.atelier .project-btn:hover {
   color: var(--paper) !important;
 }
 
-html.atelier .fun-fact-card::before,
-html.atelier .fun-fact-card::after,
 html.atelier .interactive-card::after,
 html.atelier .project-card::before,
 html.atelier .project-card::after {
@@ -1916,12 +1938,6 @@ html.atelier .project-tag {
   font-family: var(--sans) !important;
   font-weight: 600 !important;
   letter-spacing: 0.02em;
-}
-
-html.atelier .fun-fact-emoji {
-  background: var(--paper) !important;
-  box-shadow: none !important;
-  border: 1.5px solid var(--line);
 }
 
 html.atelier .projects-cards-row {
@@ -1950,33 +1966,297 @@ html.atelier body.my-story-page {
   background: var(--paper) !important;
 }
 
-html.atelier .my-story-hero-mesh,
-html.atelier .my-story-hero-orbs {
-  display: none !important;
+html.atelier .story-hero {
+  padding: 4.5rem 0 2.5rem;
 }
 
-html.atelier .my-story-hero {
-  background: transparent !important;
+html.atelier .story-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.75fr);
+  gap: 3.5rem;
+  align-items: start;
 }
 
-html.atelier .my-story-hero-title,
-html.atelier .my-story-chapter h2 {
+html.atelier .story-hero-title {
   font-family: var(--serif) !important;
+  font-size: clamp(2.8rem, 7vw, 5.2rem) !important;
+  line-height: 0.94 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.04em;
   color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  margin: 0 0 1rem !important;
+  max-width: 12ch;
 }
 
-html.atelier .my-story-hero-tagline,
-html.atelier .my-story-chapter p {
+html.atelier .story-hero-lede {
+  max-width: 28rem;
+  margin: 0 0 2rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+html.atelier .story-toc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.4rem;
+  max-width: 36rem;
+}
+
+html.atelier .story-toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.42rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+html.atelier .story-toc a:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+html.atelier .story-toc a > span:first-child {
+  flex: 0 0 1.8rem;
+  font-family: var(--serif);
+  color: var(--accent);
+  font-weight: 560;
+}
+
+html.atelier .story-toc-leader {
+  flex: 1 1 auto;
+  min-width: 1.2rem;
+  border-bottom: 1.5px dotted color-mix(in srgb, var(--ink) 28%, transparent);
+  transform: translateY(-0.22rem);
+}
+
+html.atelier .story-toc a:hover {
+  color: var(--accent);
+}
+
+html.atelier .story-hero-frame {
+  margin: 0;
+}
+
+html.atelier .story-hero-photo {
+  display: block;
+  width: 260px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  transform: rotate(-3deg) scale(1);
+  transform-origin: center center;
+  background: var(--card);
+  will-change: transform;
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.atelier .story-hero-frame:hover .story-hero-photo {
+  transform: rotate(-3deg) scale(1.08);
+}
+
+html.atelier .story-hero-frame figcaption {
+  margin-top: 1rem;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+html.atelier .story-body {
+  padding-bottom: 4.5rem;
+  max-width: 46rem;
+}
+
+html.atelier .story-chapter {
+  display: grid;
+  grid-template-columns: 3.6rem minmax(0, 1fr);
+  gap: 1.2rem;
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 5.5rem;
+}
+
+html.atelier .story-chapter:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+
+html.atelier .story-num {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  line-height: 1.2;
+  padding-top: 0.2rem;
+}
+
+html.atelier .story-chapter h2 {
+  margin: 0 0 0.9rem;
+  font-family: var(--serif) !important;
+  font-size: clamp(1.55rem, 3vw, 2.05rem) !important;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+}
+
+html.atelier .story-chapter p {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+html.atelier .story-chapter p:last-child {
+  margin-bottom: 0;
+}
+
+html.atelier .story-chapter em {
+  font-family: var(--serif);
+  font-style: italic;
   color: var(--ink);
 }
 
-html.atelier .my-story-chapter,
-html.atelier .my-story-quote {
-  background: var(--card) !important;
-  border: 1.5px solid var(--line) !important;
-  border-radius: 1.2rem;
-  box-shadow: none !important;
+html.atelier .story-pull {
+  margin: 1.3rem 0 1.1rem;
+  padding: 0;
+  border: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+  font-style: italic;
+  font-weight: 560;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  color: var(--spin) !important;
+  -webkit-text-fill-color: var(--spin) !important;
+}
+
+html.atelier .story-clock {
+  font-family: var(--serif) !important;
+  font-size: clamp(2.6rem, 8vw, 4.2rem) !important;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--spin) !important;
+  -webkit-text-fill-color: var(--spin) !important;
+  margin: 0 0 1rem !important;
+}
+
+html.atelier .story-close-line {
+  font-family: var(--serif);
+  font-size: 1.35rem !important;
+  font-style: italic;
   color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+}
+
+html.atelier .story-pull-tag {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted) !important;
+  -webkit-text-fill-color: var(--muted) !important;
+}
+
+html.atelier .story-emphasis {
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+}
+
+html.atelier .story-beats {
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0;
+}
+
+html.atelier .story-beats li {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--ink);
+  padding: 0.15rem 0;
+}
+
+html.atelier .story-aside {
+  margin: 1.2rem 0 1.4rem;
+  padding: 1.2rem 1.25rem 1.15rem;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.15rem;
+  box-shadow: 6px 8px 0 var(--ink);
+}
+
+html.atelier .story-aside p {
+  font-size: 0.98rem !important;
+}
+
+html.atelier .story-act {
+  margin: 1.2rem 0 0.4rem;
+  padding: 2rem 0 1.4rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 5.5rem;
+}
+
+html.atelier .story-act h2 {
+  margin: 0 0 0.9rem;
+  font-family: var(--serif) !important;
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem) !important;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+}
+
+html.atelier .story-act p {
+  margin: 0 0 0.8rem;
+  max-width: 38rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+html.atelier .story-clock-label {
+  margin: -0.4rem 0 1.1rem !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted) !important;
+}
+
+html.atelier .story-back {
+  display: inline-flex;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+html.atelier .story-back:hover {
+  text-decoration: underline;
+}
+
+html.js-scroll-reveal .story-chapter:not(.reveal-in),
+html.js-scroll-reveal .story-act:not(.reveal-in) {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+}
+
+html.js-scroll-reveal .story-chapter.reveal-in,
+html.js-scroll-reveal .story-act.reveal-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.atelier .case-studies-section .projects-cards-row,
@@ -2292,11 +2572,17 @@ html.atelier body.dark-theme .atelier-exp-summary,
 html.atelier body.dark-theme .atelier-exp-co,
 html.atelier body.dark-theme .atelier-contact-copy > p:not(.atelier-contact-status),
 html.atelier body.dark-theme .atelier-contact-links a > span:last-child,
+html.atelier body.dark-theme .story-hero-lede,
+html.atelier body.dark-theme .story-chapter p:not(.story-clock):not(.story-close-line):not(.story-emphasis),
+html.atelier body.dark-theme .story-hero-frame figcaption,
+html.atelier body.dark-theme .story-act p,
+html.atelier body.dark-theme .story-aside p,
+html.atelier body.dark-theme .story-pull-tag,
+html.atelier body.dark-theme .story-clock-label,
 html.atelier body.dark-theme .home-subtitle,
 html.atelier body.dark-theme .atelier-about-lede,
 html.atelier body.dark-theme .atelier-about-notes p,
 html.atelier body.dark-theme .atelier-about-frame figcaption,
-html.atelier body.dark-theme .about-subtitle,
 html.atelier body.dark-theme .projects-subtitle,
 html.atelier body.dark-theme .atelier-footer-brand p,
 html.atelier body.dark-theme .atelier-footer-bottom,
@@ -2316,9 +2602,9 @@ html.atelier body {
   html.atelier .atelier-edu-stat:hover,
   html.atelier .project-card:nth-child(n):hover,
   html.atelier .interactive-card:nth-child(n):hover,
-  html.atelier .about-card:hover,
   html.atelier .home-photo:hover,
-  html.atelier .atelier-about-frame:hover .atelier-about-photo {
+  html.atelier .atelier-about-frame:hover .atelier-about-photo,
+  html.atelier .story-hero-frame:hover .story-hero-photo {
     transform: none !important;
     box-shadow: none !important;
   }
@@ -2329,6 +2615,10 @@ html.atelier body {
 
   html.atelier .atelier-about-frame:hover .atelier-about-photo {
     transform: rotate(2.5deg) !important;
+  }
+
+  html.atelier .story-hero-frame:hover .story-hero-photo {
+    transform: rotate(-3deg) !important;
   }
 }
 
@@ -2552,6 +2842,30 @@ html.atelier body {
   html.atelier .atelier-about-pull {
     max-width: none;
     font-size: clamp(1.55rem, 7vw, 2.1rem);
+  }
+
+  html.atelier .story-hero {
+    padding: 1.3rem 0 0.6rem;
+  }
+
+  html.atelier .story-hero-photo {
+    width: 168px;
+    height: 214px;
+  }
+
+  html.atelier .story-toc {
+    max-width: none;
+    grid-template-columns: 1fr;
+  }
+
+  html.atelier .story-chapter {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 0.7rem;
+    padding: 1.6rem 0;
+  }
+
+  html.atelier .story-body {
+    padding-bottom: 3rem;
   }
 
   html.atelier .atelier-cert-gallery {

@@ -1,7 +1,5 @@
 (function () {
-  var items = document.querySelectorAll(
-    '.my-story-chapter, .my-story-act-divider, .my-story-dream-close'
-  );
+  var items = document.querySelectorAll('.story-chapter, .story-act');
   if (!items.length) return;
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

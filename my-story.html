@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="polish.css">
-  <link rel="stylesheet" href="my-story.css">
   <link rel="stylesheet" href="motion.css">
   <link rel="stylesheet" href="atelier.css">
   <script>document.documentElement.classList.add('js-scroll-reveal');</script>
@@ -58,360 +57,269 @@
       <div class="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
     </div>
   </nav>
-  <section class="my-story-hero">
-    <div class="my-story-hero-mesh"></div>
-    <div class="my-story-hero-orbs" aria-hidden="true">
-      <span class="my-story-orb my-story-orb--1"></span>
-      <span class="my-story-orb my-story-orb--2"></span>
-    </div>
-    <div class="container my-story-hero-content">
-      <span class="my-story-hero-badge">✨ Read My Story</span>
-      <div class="my-story-hero-img-wrapper">
-        <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="my-story-hero-img" fetchpriority="high" decoding="async" />
+
+  <main id="main-content" role="main">
+    <header class="story-hero">
+      <div class="container story-hero-grid">
+        <div class="story-hero-copy">
+          <p class="atelier-label">Story</p>
+          <h1 class="story-hero-title">The long version.</h1>
+          <p class="story-hero-lede">Curiosity, a skipped safe path, and a quiet evening at 9:34 PM.</p>
+          <nav class="story-toc" aria-label="Chapters">
+            <a href="#ch-curious"><span>01</span><span class="story-toc-leader" aria-hidden="true"></span><span>Curious</span></a>
+            <a href="#ch-websites"><span>02</span><span class="story-toc-leader" aria-hidden="true"></span><span>Websites</span></a>
+            <a href="#ch-android"><span>03</span><span class="story-toc-leader" aria-hidden="true"></span><span>Android</span></a>
+            <a href="#ch-ui"><span>04</span><span class="story-toc-leader" aria-hidden="true"></span><span>UI/UX</span></a>
+            <a href="#ch-product"><span>05</span><span class="story-toc-leader" aria-hidden="true"></span><span>Product</span></a>
+            <a href="#ch-pressure"><span>06</span><span class="story-toc-leader" aria-hidden="true"></span><span>Pressure</span></a>
+            <a href="#ch-juggle"><span>07</span><span class="story-toc-leader" aria-hidden="true"></span><span>Juggling</span></a>
+            <a href="#ch-realize"><span>08</span><span class="story-toc-leader" aria-hidden="true"></span><span>Realization</span></a>
+            <a href="#ch-engineer"><span>09</span><span class="story-toc-leader" aria-hidden="true"></span><span>Engineer</span></a>
+            <a href="#ch-right"><span>10</span><span class="story-toc-leader" aria-hidden="true"></span><span>Harder right</span></a>
+            <a href="#ch-questions"><span>11</span><span class="story-toc-leader" aria-hidden="true"></span><span>The questions</span></a>
+            <a href="#ch-marathon"><span>12</span><span class="story-toc-leader" aria-hidden="true"></span><span>Off-campus</span></a>
+            <a href="#ch-spark"><span>13</span><span class="story-toc-leader" aria-hidden="true"></span><span>9:34 PM</span></a>
+            <a href="#ch-begin"><span>14</span><span class="story-toc-leader" aria-hidden="true"></span><span>Beginning</span></a>
+          </nav>
+        </div>
+        <figure class="story-hero-frame">
+          <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="story-hero-photo" fetchpriority="high" decoding="async">
+          <figcaption>The person behind the resume.</figcaption>
+        </figure>
       </div>
-      <div class="my-story-hero-text">
-        <h1 class="my-story-hero-title">💬 From a Curious Girl to an Engineer</h1>
-        <p class="my-story-hero-tagline">A story of curiosity, courage, and a girl who chose the harder path - and never stopped believing.</p>
-        <div class="my-story-hero-chips">
-          <span>Curious</span>
-          <span>Relentless</span>
-          <span>Still Dreaming</span>
+    </header>
+
+    <div class="container story-body">
+      <article class="story-chapter" id="ch-curious">
+        <span class="story-num">01</span>
+        <div class="story-chapter-copy">
+          <h2>You know what?</h2>
+          <p>That one kid who just couldn't stop asking questions? Yep - that was me. 😄 Why is the moon following us? What's inside the TV? Can I build my own robot?</p>
+          <p>Papa-Mummy were my first search engines. Grandparents? The OG storytellers. And my teachers? Well... let's just say they earned their salaries 😂</p>
+          <p>(Also - fun fact: I survived childhood without ChatGPT. I deserve an award for that, right?)</p>
+          <p>Fast forward a bit - my curiosity met science, and boom! Engineering happened. But here's the twist - I didn't just want to study tech. I wanted to use it to build stuff. Stuff that makes people's lives easier. Prettier. Smarter.</p>
+          <p>That's how I found myself diving into Android development, sketching UI ideas at 2 AM, exploring product thinking, and yes - breaking things, fixing them, then breaking them again (because, code 😅).</p>
+          <p>And guess what? Every "wait, how does this work?" turned into a project. Every "there has to be a better way" became a new idea. And that's kind of my thing now - building digital stuff that feels like it just gets the user.</p>
         </div>
-        <a href="#story-start" class="my-story-scroll-hint">Scroll into my journey ↓</a>
+      </article>
+
+      <article class="story-chapter" id="ch-websites">
+        <span class="story-num">02</span>
+        <div class="story-chapter-copy">
+          <h2>My first tech crush: websites</h2>
+          <p>I still remember the moment it hit me - <em>"Wait... I can actually build a website?!"</em></p>
+          <p>No tech mentor, no big sibling in CS, not even a clue where to start. Just me, my curiosity, and a bunch of tabs open at once. 😄</p>
+          <p>I dove into frontend development headfirst - built my first page, broke it, fixed it, broke it again... but each tiny "It works!" moment felt like magic. It wasn't just code - it was creating something out of nothing. That's what got me hooked.</p>
+          <p>And just when I thought things couldn't get cooler... <strong>Android walked into my YouTube recommendations.</strong></p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-android">
+        <span class="story-num">03</span>
+        <div class="story-chapter-copy">
+          <h2>And then... Android happened</h2>
+          <p>One casual scroll, one random YouTube video: <em>"Why I Love Android?"</em> - I clicked it. Just curiosity at first... but boom - instant connection. Suddenly I was knee-deep in Kotlin tutorials and lowkey arguing with XML like it owed me money. 😅</p>
+          <p>No mentor. No roadmap. Just me vs. Gradle errors (spoiler: Gradle won... often). But that joy when the app <em>finally</em> ran? Chef's kiss. ✨</p>
+          <p><strong>That's when I knew - this is my thing.</strong></p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-ui">
+        <span class="story-num">04</span>
+        <div class="story-chapter-copy">
+          <h2>UI/UX? Total accident. Total obsession.</h2>
+          <p>During a project, our designer fractured her hand. Chaos. Deadline. Panic. "Deepika, can you try the UI?" they asked - and just like that, I was handed the wheel... with no map.</p>
+          <p>I opened Android Studio and started designing screens in XML (don't do that 😅). Most of it was a mess, honestly. But something sparked.</p>
+          <p>When I finally explored what UI/UX <em>actually</em> meant, I was hooked. It looked simple... until it wasn't. And then it became addictive. Now? I'm obsessed with clean, meaningful design - and keep learning with every screen I build.</p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-product">
+        <span class="story-num">05</span>
+        <div class="story-chapter-copy">
+          <h2>Product management? That spark again</h2>
+          <p>One day, I stumbled on a LinkedIn post about Product Management - and boom, it clicked. It felt like everything I loved - design, tech, logic, curiosity - all rolled into one.</p>
+          <p>My brain, obviously: "Okay, this looks fun. Let's dive in!" 😄 And just like that, a new door opened - one that led straight to the heart of building things <em>that matter</em>.</p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-pressure">
+        <span class="story-num">06</span>
+        <div class="story-chapter-copy">
+          <h2>The pressure phase (yep, it hit me too)</h2>
+          <p>When final year arrived, the buzzword was "placements." And suddenly, it felt like everyone wanted a specialist - someone who's <em>super</em> into just one thing.</p>
+          <p>That's when the self-doubt crept in: "Wait... I've explored Android, UI/UX, Product, Git... but am I <em>really</em> great at any one thing?"</p>
+          <p>And yeah - I'll admit it - DSA sometimes ended up at the bottom of my to-do list. Which I regret. Because honestly? I find DSA beautiful. It's not just about cracking interviews - it <em>clicks</em> with my logical side.</p>
+          <p>So I went back at it - fully committed to mastering it, while still embracing my explorer mindset. :)</p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-juggle">
+        <span class="story-num">07</span>
+        <div class="story-chapter-copy">
+          <h2>Juggling it all (and loving it)</h2>
+          <p>Frontend. Android. UI/UX. Product thinking. DSA. It's a lot - and no, it's not always smooth sailing.</p>
+          <p>But curiosity has this weird grip on me - it never lets me sit still. So I keep learning, building, breaking, fixing... and then doing it all over again.</p>
+          <p>Along the way, I've learned something powerful: <strong>how to prioritize without burning out</strong> - giving space to each passion while still growing every day.</p>
+          <p>And hey, while you're reading this, I might be behind the scenes, updating this very portfolio 🐥. So yeah - you might spot something new... or maybe notice a card, a link, or an element that's not working (yet!). Just know - I'm probably in the background like a mechanic, fixing bugs and building stuff in real time. 🔧✨</p>
+          <p><strong>That's how I juggle!</strong></p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-realize">
+        <span class="story-num">08</span>
+        <div class="story-chapter-copy">
+          <h2>My biggest realization?</h2>
+          <p>I may not be the "top" in one box - but I'm at peace. And proud. Why? Because I never stopped being curious.</p>
+          <p>I didn't shut doors on myself with "you can't." I gave myself permission to explore, to fail, to grow - and to come back stronger.</p>
+          <p>That's what makes me, <em>me</em> - a curious mind, a fast learner, and someone who's always excited to figure things out.</p>
+        </div>
+      </article>
+
+      <article class="story-chapter" id="ch-engineer">
+        <span class="story-num">09</span>
+        <div class="story-chapter-copy">
+          <h2>And hey... isn't that what engineers do?</h2>
+          <ul class="story-beats">
+            <li>Explore.</li>
+            <li>Ask questions.</li>
+            <li>Try things.</li>
+            <li>Break stuff.</li>
+            <li>Fix stuff.</li>
+            <li>And yep... code. 😄</li>
+          </ul>
+          <p>So maybe I'm not a master of one - but I'm a curious, ever-evolving, ever-building engineer. And honestly? I'm really proud of that.</p>
+        </div>
+      </article>
+
+      <div class="story-act" id="ch-act2">
+        <p class="atelier-label">Act II - The unseen fight</p>
+        <h2>The chapter nobody posts on LinkedIn</h2>
+        <p>Nobody knows the person behind the resume - just a piece of paper with bullet points. Not the nights. Not the fear. Not the girl who kept going anyway.</p>
+        <p>Rejections. Silence. Self-doubt. And a decision that scared everyone - except the girl who made it.</p>
       </div>
-    </div>
-  </section>
-  <main id="main-content" class="my-story-main" role="main">
-    <div class="my-story-timeline-wrap" id="story-start">
-      <div class="my-story-timeline-line" aria-hidden="true"></div>
-      <div class="container my-story-scroll-container">
-      <div class="my-story-scroll-card">
-        <div class="my-story-chapter my-story-chapter--intro">
-          <div>You know what?<br>
-          That one kid who just couldn't stop asking questions?
-Yep - that was me. 😄
-Why is the moon following us? What’s inside the TV? Can I build my own robot?
-Papa-Mummy were my first search engines. Grandparents? The OG storytellers. And my teachers? Well... let’s just say they earned their salaries 😂
 
-(Also - fun fact: I survived childhood without ChatGPT. I deserve an award for that, right?)
-
-Fast forward a bit - my curiosity met science, and boom!
-Engineering happened.
-But here's the twist - I didn’t just want to study tech. I wanted to use it to build stuff.
-Stuff that makes people’s lives easier. Prettier. Smarter.
-
-That’s how I found myself diving into Android development, sketching UI ideas at 2 AM, exploring product thinking, and yes - breaking things, fixing them, then breaking them again (because, code 😅).
-
-And guess what? Every “wait, how does this work?” turned into a project.
-Every “there has to be a better way” became a new idea.
-And that’s kind of my thing now - building digital stuff that feels like it just gets the user.</div>
-        </div>
-        <div class="my-story-chapter">
-         <h2>🖥️ My First Tech Crush: Websites!</h2>
-<p>
-I still remember the moment it hit me - <i>“Wait... I can actually build a website?!”</i><br>
-No tech mentor, no big sibling in CS, not even a clue where to start. Just me, my curiosity, and a bunch of tabs open at once. 😄  
-<br><br>
-I dove into frontend development headfirst - built my first page, broke it, fixed it, broke it again… but each tiny “It works!” moment felt like magic.  
-It wasn’t just code - it was creating something out of nothing. That’s what got me hooked.
-<br><br>
-And just when I thought things couldn’t get cooler... <b>Android walked into my YouTube recommendations.</b>
-</p>
- </div>
-
-
-        <div class="my-story-chapter">
-  <h2>📱 And Then... Android Happened</h2>
-  <p>
-    One casual scroll, one random YouTube video: <em>“Why I Love Android?”</em> - I clicked it.  
-    Just curiosity at first… but boom - instant connection.  
-    Suddenly I was knee-deep in Kotlin tutorials and lowkey arguing with XML like it owed me money. 😅
-  </p>
-  <p>
-    No mentor. No roadmap. Just me vs. Gradle errors (spoiler: Gradle won... often).  
-    But that joy when the app *finally* ran? Chef’s kiss. ✨  
-    <strong>That’s when I knew - this is my thing.</strong>
-  </p>
-</div>
-
-
-       <div class="my-story-chapter">
-  <h2>🎨 UI/UX? Total Accident. Total Obsession.</h2>
-  <p>
-    During a project, our designer fractured her hand. Chaos. Deadline. Panic.  
-    “Deepika, can you try the UI?” they asked - and just like that, I was handed the wheel… with no map.
-  </p>
-  <p>
-    I opened Android Studio and started designing screens in XML (don’t do that 😅).  
-    Most of it was a mess, honestly. But something sparked.
-  </p>
-  <p>
-    When I finally explored what UI/UX *actually* meant, I was hooked.  
-    It looked simple… until it wasn’t. And then it became addictive.  
-    Now? I’m obsessed with clean, meaningful design - and keep learning with every screen I build.
-  </p>
-</div>
-<div class="my-story-chapter">
-  <h2>🧠 Product Management? That Spark Again!</h2>
-  <p>
-    One day, I stumbled on a LinkedIn post about Product Management - and boom, it clicked.  
-    It felt like everything I loved - design, tech, logic, curiosity - all rolled into one.
-  </p>
-  <p>
-    My brain, obviously: “Okay, this looks fun. Let’s dive in!” 😄  
-    And just like that, a new door opened - one that led straight to the heart of building things *that matter*.
-  </p>
-</div>
-
-        <div class="my-story-chapter">
-  <h2>🛣️ The Pressure Phase (Yep, It Hit Me Too)</h2>
-  <p>
-    Now that I’m in my final year, the buzzword is “placements.”  
-    And suddenly, it feels like everyone wants a specialist - someone who’s *super* into just one thing.
-  </p>
-  <p>
-    That’s when the self-doubt crept in: “Wait... I’ve explored Android, UI/UX, Product, Git... but am I *really* great at any one thing?”
-  </p>
-  <p>
-    And yeah - I’ll admit it - DSA sometimes ended up at the bottom of my to-do list.  
-    Which I regret. Because honestly? I find DSA beautiful. It’s not just about cracking interviews - it *clicks* with my logical side.
-  </p>
-  <p>
-    So now, I’m back at it - fully committed to mastering it, while still embracing my explorer mindset. :)
-  </p>
-</div>
-
-        <div class="my-story-chapter">
-  <h2>🎢 Juggling It All (And Loving It!)</h2>
-  <p>
-    Frontend. Android. UI/UX. Product thinking. DSA.<br>
-    It’s a lot - and no, it’s not always smooth sailing.
-  </p>
-  <p>
-    But curiosity has this weird grip on me - it never lets me sit still.<br>
-    So I keep learning, building, breaking, fixing... and then doing it all over again.
-  </p>
-  <p>
-    Along the way, I’ve learned something powerful: <strong>how to prioritize without burning out</strong> - giving space to each passion while still growing every day.
-  </p>
-  <p>
-  And hey, while you’re reading this,<br>
-  I might be behind the scenes, updating this very portfolio 🐥.<br>
-  So yeah - you might spot something new...<br>
-  or maybe notice a card, a link, or an element that’s not working (yet!).<br>
-  Just know - I’m probably in the background like a mechanic, fixing bugs and building stuff in real time. 🔧✨<br>
-  <strong>That’s how I juggle!</strong>
-</p>
-
-</div>
-
-
-       <div class="my-story-chapter">
-  <h2>💡 My Biggest Realization?</h2>
-  <p>
-    I may not be the “top” in one box - but I’m at peace. And proud.<br>
-    Why? Because I never stopped being curious.
-  </p>
-  <p>
-    I didn’t shut doors on myself with “you can’t.”<br>
-    I gave myself permission to explore, to fail, to grow - and to come back stronger.
-  </p>
-  <p>
-    That’s what makes me, *me* -<br>
-    A curious mind, a fast learner, and someone who’s always excited to figure things out.
-  </p>
-</div>
-
-       <div class="my-story-chapter">
-  <h2>🚀 And Hey... Isn’t That What Engineers Do?</h2>
-  <p>
-    Explore.<br>
-    Ask questions.<br>
-    Try things.<br>
-    Break stuff.<br>
-    Fix stuff.<br>
-    And yep... code. 😄
-  </p>
-  <p>
-    So maybe I’m not a master of one -<br>
-    But I’m a curious, ever-evolving, ever-building engineer.<br>
-    And honestly? I’m really proud of that.
-  </p>
-</div>
-
-        <div class="my-story-act-divider">
-          <span class="my-story-act-label">Act II - The Unseen Fight</span>
-          <h3>The chapter nobody posts on LinkedIn</h3>
-          <p>Nobody knows the person behind the resume - just a piece of paper with bullet points. Not the nights. Not the fear. Not the girl who kept going anyway.</p>
-          <p>Rejections. Silence. Self-doubt. And a decision that scared everyone - except the girl who made it.</p>
-        </div>
-
-        <div class="my-story-chapter my-story-finale">
-          <h2>⚖️ When I Chose the Harder Right</h2>
-          <blockquote class="my-story-quote">
-            “I always choose the harder right over the easier wrong.”
-            <span class="my-story-quote-tag">Not a quote I hang on a wall - a rule I live by, every single day.</span>
+      <article class="story-chapter" id="ch-right">
+        <span class="story-num">10</span>
+        <div class="story-chapter-copy">
+          <h2>When I chose the harder right</h2>
+          <blockquote class="story-pull">
+            "I always choose the harder right over the easier wrong."
+            <span class="story-pull-tag">Not a quote I hang on a wall - a rule I live by, every single day.</span>
           </blockquote>
-          <p>
-            Placement season arrived like a festival - companies on campus, seniors celebrating offers, everyone asking <em>“tumhara kya scene hai?”</em>
-            Companies did come. Doors did open.
-            But every time I looked closer, something in my chest said <strong>no</strong>.
-          </p>
-          <p>
-            Not enough learning. Not enough respect for someone who shows up hungry - someone who genuinely wants to <em>become</em> something, not just collect a salary slip.
-            I had zeal. Fire. The kind that doesn’t let you sleep peacefully if you know you’re settling.
-          </p>
-          <p class="my-story-emphasis">
-            So I took the scariest decision of my life: I chose <strong>not</strong> to sit for on-campus placements.
-          </p>
-          <p>
-            People thought I was crazy. Maybe I was - by their definition.
-            The “safe” path was sitting right there. I still walked past it.
-            My dreams? My discipline? My willingness to outwork the room?
-            <strong>Those were never up for compromise.</strong>
-          </p>
-          <p>
-            I knew the road would be lonely. Harder. Longer.
-            I chose it anyway - because compromising on my future felt heavier than any rejection ever could.
-          </p>
+          <p>Placement season arrived like a festival - companies on campus, seniors celebrating offers, everyone asking <em>"tumhara kya scene hai?"</em> Companies did come. Doors did open. But every time I looked closer, something in my chest said <strong>no</strong>.</p>
+          <p>Not enough learning. Not enough respect for someone who shows up hungry - someone who genuinely wants to <em>become</em> something, not just collect a salary slip. I had zeal. Fire. The kind that doesn't let you sleep peacefully if you know you're settling.</p>
+          <p class="story-emphasis">So I took the scariest decision of my life: I chose <strong>not</strong> to sit for on-campus placements.</p>
+          <p>People thought I was crazy. Maybe I was - by their definition. The "safe" path was sitting right there. I still walked past it. My dreams? My discipline? My willingness to outwork the room? <strong>Those were never up for compromise.</strong></p>
+          <p>I knew the road would be lonely. Harder. Longer. I chose it anyway - because compromising on my future felt heavier than any rejection ever could.</p>
         </div>
+      </article>
 
-        <div class="my-story-chapter my-story-finale">
-          <h2>🏘️ The Questions Everyone Keeps Asking</h2>
-          <p>
-            And then there was the other battle - the one that never showed up on my resume.
-            Relatives. Neighbors. That one uncle at every function.
-            <em>“Beta, job lag gayi?”</em> &nbsp; <em>“Placement hui?”</em> &nbsp; <em>“Ab kya plan hai?”</em>
-          </p>
-          <p>
-            Some asked with love. Some asked with curiosity.
-            And some - let’s be honest - asked like it was entertainment.
-            A little laugh here. A raised eyebrow there.
-            That phase was brutal in a way interviews never were - because you couldn’t prepare answers for shame.
-          </p>
-          <p>
-            On the outside, I smiled. On the inside, some days I felt like I was drowning in slow motion.
-            You learn to perform calm when your chest is tight and your future feels like a question mark.
-          </p>
-          <p class="my-story-emphasis">
-            But somewhere in that mess, I found something unexpected:
-            <strong>“Pressure is a privilege.”</strong>
-            Because pressure means you still have something worth fighting for - a dream that hasn’t let go of you yet.
-          </p>
+      <article class="story-chapter" id="ch-questions">
+        <span class="story-num">11</span>
+        <div class="story-chapter-copy">
+          <h2>The questions everyone keeps asking</h2>
+          <p>And then there was the other battle - the one that never showed up on my resume. Relatives. Neighbors. That one uncle at every function. <em>"Beta, job lag gayi?"</em> &nbsp; <em>"Placement hui?"</em> &nbsp; <em>"Ab kya plan hai?"</em></p>
+          <p>Some asked with love. Some asked with curiosity. And some - let's be honest - asked like it was entertainment. A little laugh here. A raised eyebrow there. That phase was brutal in a way interviews never were - because you couldn't prepare answers for shame.</p>
+          <p>On the outside, I smiled. On the inside, some days I felt like I was drowning in slow motion. You learn to perform calm when your chest is tight and your future feels like a question mark.</p>
+          <p class="story-emphasis">But somewhere in that mess, I found something unexpected: <strong>"Pressure is a privilege."</strong> Because pressure means you still have something worth fighting for - a dream that hasn't let go of you yet.</p>
         </div>
+      </article>
 
-        <div class="my-story-chapter my-story-finale">
-          <h2>🌧️ The Off-Campus Marathon</h2>
-          <p>
-            Off-campus? That’s a different world.
-            No hand-holding. No campus buffer. Just you, your resume, and the internet - and a whole lot of silence.
-            I applied everywhere I could - and only a handful ever called back.
-          </p>
-          <p>
-            And even then - I said no to many.
-            Because I wasn’t desperate for <em>a</em> job. I was fighting for the <em>right</em> one - where I could learn, grow, and feel seen.
-          </p>
-          <p>
-            Slowly, painfully, beautifully - I cracked strong internships. Did two of them. Grew sharper. Got hungrier.
-            Each one whispered: <em>“You’re on the right path. Keep going.”</em>
-          </p>
-          <p>
-            Then came the real storm: full-time job hunt after my last internship.
-            Product Management - competitive, brutal, unpredictable.
-            Some days I questioned everything. Some nights I cried and still opened my laptop.
-          </p>
-          <div class="my-story-marathon-grid">
-          <div class="my-story-aside">
-            <p>
-              <strong>Plot twist nobody warns you about:</strong> I practiced mock interviews every single day - out loud, serious, full sweat-mode.
-              My daily partner? <strong>Claude.</strong> Patient. Smart. Never once rolled its eyes at my "umm… let me think" moments. 😄
-            </p>
-            <p>
-              But you know what's funny? (And by funny, I mean <em>personally offensive</em>.)
-              The second things got real - peak prep week, actual interview tomorrow -
-              <strong>Claude's limit would exhaust.</strong> Done. Blocked. "Try again later."
-              There I'd be, mid-practice, emotionally ready to conquer the world… and my AI study buddy had clocked out.
-            </p>
-            <p>
-              Plan B? YouTube. Of course.
-              Except tutorial videos come with ads - and those ads hit at the <em>worst</em> possible time.
-              I'm in the middle of answering "How would you prioritize a roadmap?" with full confidence…
-              and suddenly it's a 15-second unskippable ad about something I absolutely do not need. 😭
-              Focus gone. Mood gone. Back to practicing. The hustle was real - the comedy was accidental.
-            </p>
-          </div>
-          <blockquote class="my-story-quote">
-            “Work so relentlessly that even 0.1% of your success becomes proof you’re still moving forward - because when you’ve poured your everything into the fight, no win is too small to matter. That’s not luck. That’s momentum you built with your own hands.”
+      <article class="story-chapter" id="ch-marathon">
+        <span class="story-num">12</span>
+        <div class="story-chapter-copy">
+          <h2>The off-campus marathon</h2>
+          <p>Off-campus? That's a different world. No hand-holding. No campus buffer. Just you, your resume, and the internet - and a whole lot of silence. I applied everywhere I could - and only a handful ever called back.</p>
+          <p>And even then - I said no to many. Because I wasn't desperate for <em>a</em> job. I was fighting for the <em>right</em> one - where I could learn, grow, and feel seen.</p>
+          <p>Slowly, painfully, beautifully - I cracked strong internships. Did two of them. Grew sharper. Got hungrier. Each one whispered: <em>"You're on the right path. Keep going."</em></p>
+          <p>Then came the real storm: full-time job hunt after my last internship. Product Management - competitive, brutal, unpredictable. Some days I questioned everything. Some nights I cried and still opened my laptop.</p>
+          <aside class="story-aside">
+            <p><strong>Plot twist nobody warns you about:</strong> I practiced mock interviews every single day - out loud, serious, full sweat-mode. My daily partner? <strong>Claude.</strong> Patient. Smart. Never once rolled its eyes at my "umm... let me think" moments. 😄</p>
+            <p>But you know what's funny? (And by funny, I mean <em>personally offensive</em>.) The second things got real - peak prep week, actual interview tomorrow - <strong>Claude's limit would exhaust.</strong> Done. Blocked. "Try again later." There I'd be, mid-practice, emotionally ready to conquer the world... and my AI study buddy had clocked out.</p>
+            <p>Plan B? YouTube. Of course. Except tutorial videos come with ads - and those ads hit at the <em>worst</em> possible time. I'm in the middle of answering "How would you prioritize a roadmap?" with full confidence... and suddenly it's a 15-second unskippable ad about something I absolutely do not need. 😭 Focus gone. Mood gone. Back to practicing. The hustle was real - the comedy was accidental.</p>
+          </aside>
+          <blockquote class="story-pull">
+            "Work so relentlessly that even 0.1% of your success becomes proof you're still moving forward - because when you've poured your everything into the fight, no win is too small to matter. That's not luck. That's momentum you built with your own hands."
           </blockquote>
-          </div>
-          <p>
-            But I never, <strong>never</strong> gave up.
-            I kept applying. Kept learning. Kept showing up when showing up was the hardest thing to do.
-            I got interviews at good companies - but the <strong>spark</strong> wasn’t there yet.
-            That gut feeling of <em>“yes… this is mine.”</em> Still waiting.
-          </p>
-          <p>
-            And through all of it - I didn’t break.
-            I bent. I bruised. I doubted.
-            But I didn’t quit.
-            <strong>That’s the part I’m most proud of.</strong>
-          </p>
+          <p>But I never, <strong>never</strong> gave up. I kept applying. Kept learning. Kept showing up when showing up was the hardest thing to do. I got interviews at good companies - but the <strong>spark</strong> wasn't there yet. That gut feeling of <em>"yes... this is mine."</em> Still waiting.</p>
+          <p>And through all of it - I didn't break. I bent. I bruised. I doubted. But I didn't quit. <strong>That's the part I'm most proud of.</strong></p>
         </div>
+      </article>
 
-        <div class="my-story-chapter my-story-finale my-story-spark">
-          <h2>✨ 9:34 PM - My First Spark</h2>
-          <div class="my-story-spark-layout">
-            <div class="my-story-moment">
-              <span class="my-story-clock">9:34 PM</span>
-              <span class="my-story-clock-label">evening sky · phone glow · heart racing · one message</span>
-            </div>
-            <div class="my-story-spark-copy">
-              <p>
-                And then - on what felt like just another exhausting evening - the universe finally whispered back.
-              </p>
-              <p>
-                An offer.
-                Not loud. Not dramatic. Just… real.
-                My first <strong>spark</strong> - the kind you feel in your bones before your brain even processes it.
-              </p>
-              <p>
-                Every rejection. Every “we’ll get back to you.” Every night I wondered if I made the wrong call by skipping placements.
-                All of it led to this one moment - and suddenly, it made sense.
-              </p>
-              <p>
-                Today, I’m here - learning, leading, discussing, communicating, building, changing.
-                I have the spark now. I’m holding it with both hands.
-              </p>
-            </div>
-          </div>
+      <article class="story-chapter story-chapter--spark" id="ch-spark">
+        <span class="story-num">13</span>
+        <div class="story-chapter-copy">
+          <h2>My first spark</h2>
+          <p class="story-clock">9:34 PM</p>
+          <p class="story-clock-label">evening sky · phone glow · heart racing · one message</p>
+          <p>And then - on what felt like just another exhausting evening - the universe finally whispered back.</p>
+          <p>An offer. Not loud. Not dramatic. Just... real. My first <strong>spark</strong> - the kind you feel in your bones before your brain even processes it.</p>
+          <p>Every rejection. Every "we'll get back to you." Every night I wondered if I made the wrong call by skipping placements. All of it led to this one moment - and suddenly, it made sense.</p>
+          <p>Today, I'm here - learning, leading, discussing, communicating, building, changing. I have the spark now. I'm holding it with both hands.</p>
         </div>
+      </article>
 
-        <div class="my-story-dream-close">
-          <h2>🌟 This Is Just the Beginning</h2>
-          <p>
-            If you’ve read this far - thank you. Truly.
-            You didn’t just read a portfolio story. You walked through the parts of my life I don’t always say out loud.
-          </p>
-          <p>
-            I’m not “done.” I’m not “arrived.”
-            This is only the start - and I have <strong>so many dreams</strong> left to turn real.
-            Bigger roles. Bigger impact. Bigger versions of the girl who once asked why the moon follows the car.
-          </p>
-          <p class="my-story-dream-line">
-            Watch me. I’m just getting started. 🔥
-          </p>
+      <article class="story-chapter" id="ch-begin">
+        <span class="story-num">14</span>
+        <div class="story-chapter-copy">
+          <h2>This is just the beginning</h2>
+          <p>If you've read this far - thank you. Truly. You didn't just read a portfolio story. You walked through the parts of my life I don't always say out loud.</p>
+          <p>I'm not "done." I'm not "arrived." This is only the start - and I have <strong>so many dreams</strong> left to turn real. Bigger roles. Bigger impact. Bigger versions of the girl who once asked why the moon follows the car.</p>
+          <p class="story-close-line">Watch me. I'm just getting started. 🔥</p>
         </div>
+      </article>
 
-        <div class="my-story-back-wrap">
-        <a href="index.html" class="btn btn-primary my-story-back-btn"><span style="font-size:1.2em;vertical-align:middle;">&#8592;</span> Back to Home</a>
-        </div>
-      </div>
-    </div>
+      <a class="story-back" href="index.html">← Back to the work</a>
     </div>
   </main>
+
+  <footer class="footer-section atelier-footer">
+    <div class="container">
+      <div class="atelier-footer-grid">
+        <div class="atelier-footer-brand">
+          <a href="index.html#home" class="atelier-footer-logo">P<span class="logo-brace">{ }</span></a>
+          <p>I blend tech, design, and product thinking to ship things people actually use.</p>
+        </div>
+        <div>
+          <p class="atelier-footer-label">Site</p>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="atelier-footer-label">Work</p>
+          <ul>
+            <li><a href="index.html#case-studies">Case studies</a></li>
+            <li><a href="index.html#design-projects">Design</a></li>
+            <li><a href="index.html#technical-projects">Projects</a></li>
+            <li><a href="my-story.html">Story</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="atelier-footer-label">Elsewhere</p>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
+            <li><a href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/Dubey1209" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:dubeydeepika1209@gmail.com">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="atelier-footer-bottom">
+        <p>© 2026 Deepika Dubey</p>
+        <a href="#main-content">Back to top</a>
+      </div>
+    </div>
+    <button class="scroll-top-btn" type="button" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  </footer>
+
   <script src="script.js" defer></script>
   <script src="theme-toggle.js" defer></script>
   <script src="my-story-reveal.js" defer></script>
   <script src="motion.js" defer></script>
 </body>
-</html> 
+</html>
