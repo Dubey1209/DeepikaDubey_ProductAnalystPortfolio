@@ -2595,6 +2595,216 @@ html.atelier body {
   overflow-x: clip;
 }
 
+html.atelier .portfolio-lock {
+  background: var(--paper) !important;
+  background-image: none !important;
+  color: var(--ink);
+  padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+}
+
+html.atelier .lock-mast {
+  position: absolute;
+  top: max(1.4rem, env(safe-area-inset-top));
+  left: max(1.5rem, env(safe-area-inset-left));
+}
+
+html.atelier .lock-mast .logo {
+  font-size: 1.35rem !important;
+  color: var(--ink) !important;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+html.atelier .atelier-gate {
+  width: min(100%, 32rem) !important;
+  max-width: 32rem;
+  padding: 2.35rem 2.1rem 1.9rem !important;
+  border: 1.5px solid var(--ink) !important;
+  border-radius: 1.15rem !important;
+  background: var(--card) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 10px 12px 0 var(--ink) !important;
+  overflow: visible !important;
+  animation: lockSheetIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html.atelier .atelier-gate::before,
+html.atelier .atelier-gate::after {
+  display: none !important;
+}
+
+html.atelier .lock-content {
+  text-align: left !important;
+  color: var(--ink) !important;
+}
+
+html.atelier .lock-title {
+  font-family: var(--serif) !important;
+  font-size: clamp(2.6rem, 8vw, 4.2rem) !important;
+  font-weight: 600 !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.04em;
+  margin: 0 0 0.85rem !important;
+  max-width: 10ch;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+html.atelier .lock-subtitle {
+  font-size: 1.12rem !important;
+  color: var(--muted) !important;
+  max-width: 22rem;
+  margin: 0 0 2.1rem !important;
+  opacity: 1 !important;
+  line-height: 1.55;
+}
+
+html.atelier .unlock-form {
+  gap: 1.25rem;
+}
+
+html.atelier .lock-input-label {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent) !important;
+  margin-bottom: 0.45rem !important;
+}
+
+html.atelier .portfolio-lock .form-group input,
+html.atelier .portfolio-lock #visitor-name {
+  width: 100%;
+  padding: 0.55rem 0 0.7rem !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1.5px solid var(--ink) !important;
+  border-radius: 0 !important;
+  color: var(--ink) !important;
+  font-family: var(--serif) !important;
+  font-size: 1.35rem !important;
+  box-shadow: none !important;
+}
+
+html.atelier .portfolio-lock .form-group input::placeholder,
+html.atelier .portfolio-lock #visitor-name::placeholder {
+  color: color-mix(in srgb, var(--muted) 70%, transparent) !important;
+  font-style: italic;
+}
+
+html.atelier .portfolio-lock .form-group input:focus,
+html.atelier .portfolio-lock #visitor-name:focus {
+  outline: none !important;
+  border-bottom-color: var(--accent) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.atelier .portfolio-lock .unlock-btn {
+  margin-top: 0.4rem;
+  width: 100%;
+  border-radius: 999px !important;
+  border: 1.5px solid var(--ink) !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  font-family: var(--sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  padding: 0.78rem 1.4rem !important;
+  box-shadow: none !important;
+  letter-spacing: 0.02em;
+}
+
+html.atelier .portfolio-lock .unlock-btn:hover:not(:disabled) {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  transform: translateY(-2px);
+}
+
+html.atelier .portfolio-lock .unlock-btn:disabled {
+  opacity: 0.55;
+  transform: none;
+}
+
+html.atelier .lock-note {
+  display: block;
+  margin: 1.35rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted) !important;
+  line-height: 1.5;
+}
+
+html.atelier .atelier-gate.is-opening {
+  animation: lockSheetOut 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+html.atelier .portfolio-lock.is-opening {
+  animation: lockPaperFade 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes lockSheetIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lockSheetOut {
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes lockPaperFade {
+  to { opacity: 0; }
+}
+
+html.atelier #site-shell.is-revealing {
+  animation: lockSiteIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes lockSiteIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html.atelier .lock-notification {
+  background: var(--card) !important;
+  color: var(--ink) !important;
+  border: 1.5px solid var(--ink) !important;
+  border-radius: 0.9rem !important;
+  box-shadow: 5px 6px 0 var(--ink) !important;
+  font-family: var(--sans) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+}
+
+html.atelier .lock-notification--success,
+html.atelier .lock-notification--error {
+  background: var(--card) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.atelier .atelier-gate,
+  html.atelier .atelier-gate.is-opening,
+  html.atelier .portfolio-lock.is-opening,
+  html.atelier #site-shell.is-revealing {
+    animation: none !important;
+  }
+}
+
 @media (hover: none) {
   html.atelier .atelier-do-card:hover,
   html.atelier .atelier-skill-card:hover,
@@ -2630,6 +2840,15 @@ html.atelier body {
   html.atelier .container {
     width: min(100% - 2rem, 1120px) !important;
     max-width: min(100% - 2rem, 1120px) !important;
+  }
+
+  html.atelier .lock-title {
+    font-size: clamp(2.4rem, 12vw, 3.2rem) !important;
+  }
+
+  html.atelier .lock-mast {
+    top: max(1.1rem, env(safe-area-inset-top));
+    left: max(1.15rem, env(safe-area-inset-left));
   }
 
   html.atelier main .section:not(.home-section),

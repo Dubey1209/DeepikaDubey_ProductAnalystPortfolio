@@ -50,12 +50,6 @@
     font-size: 0.9rem;
   }
   
-  /* About section improvements */
-  .about-cards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
   /* Base Typography */
   html {
     font-size: 14px;
@@ -270,24 +264,6 @@
     line-height: 1.6;
   }
   
-  .about-cards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .about-card {
-    padding: 1.5rem 1rem;
-  }
-  
-  .about-card-main {
-    font-size: 1.8rem;
-  }
-  
-  .about-card-label {
-    font-size: 0.85rem;
-  }
-  
   /* Projects Section */
   .projects-section, .case-studies-section {
     padding: 3rem 0;
@@ -437,7 +413,7 @@
   }
   
   /* Portfolio Lock */
-  .portfolio-lock .lock-container {
+  .portfolio-lock .atelier-gate {
     padding: 1.85rem 1.35rem 1.65rem;
   }
 
@@ -488,11 +464,6 @@
     width: 100%;
   }
   
-  .about-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
   .projects-cards-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -529,12 +500,6 @@
   /* Navigation adjustments */
   .nav-links {
     padding: 5rem 2rem 2rem;
-  }
-  
-  /* About section */
-  .about-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
   }
   
   .home-left {
@@ -589,11 +554,6 @@
     gap: 4rem;
   }
   
-  /* About cards for large screens */
-  .about-cards {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
   /* Maintain original project title size for desktop */
   .project-title, .case-study-title {
     font-size: 1.01rem !important;
@@ -618,16 +578,10 @@
 @media (max-height: 500px) and (orientation: landscape) {
   
   /* Better landscape layout */
-  .portfolio-lock .lock-container {
+  .portfolio-lock .atelier-gate {
     padding: 1.15rem 1.35rem;
     max-height: calc(100dvh - 1.5rem);
     overflow-y: auto;
-  }
-
-  .portfolio-lock .lock-icon-wrap {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 0.75rem;
   }
 
   .portfolio-lock .lock-subtitle {
@@ -760,12 +714,6 @@ table {
 
 /* ===== UNIFIED RESPONSIVE OVERRIDES (final pass) ===== */
 
-@media (max-width: 991px) {
-  .experience-rail-scroll {
-    scroll-snap-type: x mandatory;
-  }
-}
-
 @media (max-width: 767px) {
   .home-right {
     flex: none;
@@ -807,10 +755,6 @@ table {
     width: 100%;
   }
 
-  .about-cards {
-    grid-template-columns: 1fr !important;
-  }
-
   h2,
   .about-title,
   .skills-title,
@@ -821,11 +765,6 @@ table {
   .fun-facts-title,
   .experience-title {
     font-size: clamp(1.35rem, 5vw, 1.8rem) !important;
-  }
-
-  .fun-facts-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .contact-detail,
@@ -869,7 +808,7 @@ table {
   .portfolio-lock #visitor-name {
     font-size: 1rem;
     min-height: 44px;
-    padding: 0.95rem 1rem 0.95rem 2.75rem;
+    padding: 0.55rem 0;
   }
 
   .portfolio-lock .unlock-btn {
@@ -943,8 +882,7 @@ table {
 
   .projects-subtitle,
   .about-subtitle,
-  .contact-subtitle,
-  .fun-facts-subtitle {
+  .contact-subtitle {
     padding: 0 0.25rem;
     font-size: 0.92rem;
     line-height: 1.55;
@@ -960,8 +898,7 @@ table {
     font-size: 0.95rem !important;
   }
 
-  .project-card,
-  .fun-fact-card {
+  .project-card {
     padding: 1rem !important;
   }
 }
