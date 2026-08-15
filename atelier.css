@@ -34,6 +34,13 @@ html.atelier body {
   font-family: var(--sans);
 }
 
+html.atelier *,
+html.atelier *::before,
+html.atelier *::after {
+  font-family: inherit;
+  text-rendering: auto;
+}
+
 html.atelier h1,
 html.atelier h2,
 html.atelier h3,
@@ -47,6 +54,7 @@ html.atelier .education-title,
 html.atelier .experience-title,
 html.atelier .contact-title,
 html.atelier .fun-facts-title,
+html.atelier .writing-title,
 html.atelier .section-title,
 html.atelier .case-study-title {
   font-family: var(--serif) !important;
@@ -237,8 +245,7 @@ html.atelier .home-photo {
   background: var(--card) !important;
   animation: none !important;
   cursor: pointer;
-  will-change: transform;
-  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s ease;
 }
 
 html.atelier .home-photo:hover {
@@ -1207,6 +1214,158 @@ html.atelier .atelier-note p {
   }
 }
 
+html.atelier .atelier-writing {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1.15fr);
+  gap: 3rem 4rem;
+  align-items: start;
+}
+
+html.atelier .atelier-writing .writing-title {
+  margin: 0 0 1.15rem !important;
+}
+
+html.atelier .atelier-writing-lede {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+html.atelier .atelier-essay {
+  position: relative;
+  display: block;
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 1.15rem;
+  padding: 1.7rem 1.65rem 1.55rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 8px 10px 0 var(--ink);
+  transform: rotate(1.4deg);
+  transform-origin: center center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  overflow: hidden;
+}
+
+html.atelier .atelier-essay:hover,
+html.atelier .atelier-essay:focus-visible {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 10px 14px 0 var(--ink);
+}
+
+html.atelier .atelier-essay:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+html.atelier .atelier-essay-num {
+  position: absolute;
+  top: 0.7rem;
+  right: 1rem;
+  font-family: var(--serif);
+  font-size: 3.4rem;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+html.atelier .atelier-essay-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 0 0 1.1rem;
+  padding-right: 3.2rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+html.atelier .atelier-essay-leader {
+  flex: 1 1 auto;
+  min-width: 1.5rem;
+  border-bottom: 1.5px dotted color-mix(in srgb, var(--ink) 28%, transparent);
+  transform: translateY(-0.22rem);
+}
+
+html.atelier .atelier-essay h3 {
+  margin: 0 0 0.85rem;
+  max-width: 18ch;
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 2.05rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+html.atelier .atelier-essay-pull {
+  margin: 0 0 1rem;
+  max-width: 28rem;
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--spin);
+}
+
+html.atelier .atelier-essay-excerpt {
+  margin: 0 0 1.4rem;
+  max-width: 34rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+html.atelier .atelier-essay-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  padding: 0.62rem 1.15rem;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: transparent;
+}
+
+html.atelier .atelier-essay:hover .atelier-essay-cta,
+html.atelier .atelier-essay:focus-visible .atelier-essay-cta {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 900px) {
+  html.atelier .atelier-writing {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  html.atelier .atelier-essay {
+    transform: none;
+  }
+
+  html.atelier .atelier-essay:hover,
+  html.atelier .atelier-essay:focus-visible {
+    transform: translateY(-4px);
+  }
+
+  html.atelier .atelier-writing-lede {
+    max-width: none;
+  }
+}
+
 html.atelier main .section:not(.home-section) {
   padding-top: 4.5rem;
   padding-bottom: 3.5rem;
@@ -1219,6 +1378,7 @@ html.atelier h2.education-title,
 html.atelier h2.experience-title,
 html.atelier h2.contact-title,
 html.atelier .fun-facts-title,
+html.atelier .writing-title,
 html.atelier .section-title {
   font-size: clamp(2rem, 4vw, 3rem) !important;
   color: var(--ink) !important;
@@ -1667,6 +1827,7 @@ html.atelier .menu-icon::after {
 html.atelier .skills-section,
 html.atelier .experience-section,
 html.atelier .fun-facts-section,
+html.atelier .writing-section,
 html.atelier .certifications-section,
 html.atelier .education-section,
 html.atelier .about-section,
@@ -1674,6 +1835,16 @@ html.atelier .case-studies-section,
 html.atelier .contact-section {
   background: transparent !important;
   overflow: visible !important;
+}
+
+html.atelier .case-studies-section,
+html.atelier .projects-section,
+html.atelier .skills-section,
+html.atelier .education-section,
+html.atelier .fun-facts-section,
+html.atelier .contact-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
 }
 
 html.atelier .skills-section::before,
@@ -1686,6 +1857,7 @@ html.atelier .project-title,
 html.atelier .certifications-title,
 html.atelier .experience-title,
 html.atelier .fun-facts-title,
+html.atelier .writing-title,
 html.atelier .contact-title,
 html.atelier .skills-title {
   font-family: var(--serif) !important;
@@ -1724,8 +1896,15 @@ html.atelier .atelier-note {
   }
 
   html.atelier .home-photo,
-  html.atelier .atelier-about-photo {
+  html.atelier .atelier-about-photo,
+  html.atelier .atelier-essay {
     transition: none !important;
+  }
+
+  html.atelier .atelier-essay,
+  html.atelier .atelier-essay:hover,
+  html.atelier .atelier-essay:focus-visible {
+    transform: none !important;
   }
 
   html.atelier .home-photo:hover {
@@ -1969,8 +2148,7 @@ html.atelier .story-hero-photo {
   transform: rotate(-3deg) scale(1);
   transform-origin: center center;
   background: var(--card);
-  will-change: transform;
-  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s ease;
 }
 
 html.atelier .story-hero-frame:hover .story-hero-photo {
@@ -2451,6 +2629,7 @@ html.atelier body.dark-theme .projects-title,
 html.atelier body.dark-theme .education-title,
 html.atelier body.dark-theme .experience-title,
 html.atelier body.dark-theme .fun-facts-title,
+html.atelier body.dark-theme .writing-title,
 html.atelier body.dark-theme .certifications-title,
 html.atelier body.dark-theme .contact-title,
 html.atelier body.dark-theme .section-title,
@@ -2459,6 +2638,7 @@ html.atelier body.dark-theme .case-study-title,
 html.atelier body.dark-theme .project-title,
 html.atelier body.dark-theme .atelier-skill-card h3,
 html.atelier body.dark-theme .atelier-note h3,
+html.atelier body.dark-theme .atelier-essay h3,
 html.atelier body.dark-theme .atelier-exp-role,
 html.atelier body.dark-theme .atelier-edu-main h3 {
   color: var(--ink) !important;
@@ -2483,6 +2663,8 @@ html.atelier body.dark-theme .atelier-footer-label {
 }
 
 html.atelier body.dark-theme .atelier-skills-blurb,
+html.atelier body.dark-theme .atelier-writing-lede,
+html.atelier body.dark-theme .atelier-essay-excerpt,
 html.atelier body.dark-theme .atelier-note p,
 html.atelier body.dark-theme .atelier-skill-tags li,
 html.atelier body.dark-theme .atelier-exp-summary,
@@ -2880,6 +3062,8 @@ html.atelier .lock-notification--error {
   html.atelier h2.contact-title,
   html.atelier h2.fun-facts-title,
   html.atelier .fun-facts-title,
+  html.atelier h2.writing-title,
+  html.atelier .writing-title,
   html.atelier .section-title,
   html.atelier .atelier-do-lead,
   html.atelier h2.atelier-do-lead,

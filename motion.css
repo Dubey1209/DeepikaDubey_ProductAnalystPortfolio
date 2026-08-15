@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   z-index: 10050;
-  height: 3px;
+  height: 2px;
   width: 100%;
   transform: scaleX(var(--scroll-p, 0));
   transform-origin: left center;
@@ -19,55 +19,13 @@
 @media (prefers-reduced-motion: no-preference) {
   html.js-scroll-reveal main .section:not(#home):not(.reveal-in) {
     opacity: 0;
-    filter: blur(14px);
-    clip-path: inset(12% 0 0 0);
-    transform: none;
+    transform: translateY(16px);
   }
 
   html.js-scroll-reveal main .section:not(#home).reveal-in {
     opacity: 1;
-    filter: blur(0);
-    clip-path: inset(0);
     transform: none;
-    transition:
-      opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-      filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-      clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  html.js-scroll-reveal main .section.reveal-in .interactive-card,
-  html.js-scroll-reveal main .section.reveal-in .atelier-skill-card,
-  html.js-scroll-reveal main .section.reveal-in .atelier-cert-gallery,
-  html.js-scroll-reveal main .section.reveal-in .atelier-note {
-    animation: motionCardIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(1),
-  html.js-scroll-reveal main .section.reveal-in .atelier-skill-card:nth-child(1),
-  html.js-scroll-reveal main .section.reveal-in .atelier-note:nth-child(1) { animation-delay: 0.04s; }
-  html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(2),
-  html.js-scroll-reveal main .section.reveal-in .atelier-skill-card:nth-child(2),
-  html.js-scroll-reveal main .section.reveal-in .atelier-note:nth-child(2) { animation-delay: 0.1s; }
-  html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(3),
-  html.js-scroll-reveal main .section.reveal-in .atelier-skill-card:nth-child(3),
-  html.js-scroll-reveal main .section.reveal-in .atelier-note:nth-child(3) { animation-delay: 0.16s; }
-  html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(4),
-  html.js-scroll-reveal main .section.reveal-in .atelier-skill-card:nth-child(4),
-  html.js-scroll-reveal main .section.reveal-in .atelier-note:nth-child(4) { animation-delay: 0.22s; }
-  html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(5),
-  html.js-scroll-reveal main .section.reveal-in .atelier-note:nth-child(5) { animation-delay: 0.28s; }
-  html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(6),
-  html.js-scroll-reveal main .section.reveal-in .atelier-note:nth-child(6) { animation-delay: 0.34s; }
-}
-
-@keyframes motionCardIn {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 28px, 0) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 }
 

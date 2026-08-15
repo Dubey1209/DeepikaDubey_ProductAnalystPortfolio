@@ -1,27 +1,24 @@
-// Theme toggle logic for day/dark mode
-const toggleBtn = document.getElementById('theme-toggle');
-const icon = document.getElementById('theme-toggle-icon');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+(function () {
+  var toggleBtn = document.getElementById('theme-toggle');
+  var icon = document.getElementById('theme-toggle-icon');
 
-function setTheme(isDark) {
-  document.body.classList.toggle('dark-theme', isDark);
-  if (icon) icon.textContent = isDark ? '🌙' : '☀️';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
+  function isDark() {
+    return document.body.classList.contains('dark-theme');
+  }
 
-// Load theme on page load
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark' || (!saved && prefersDark)) {
-    setTheme(true);
-  } else {
-    setTheme(false);
+  function setTheme(dark) {
+    document.body.classList.toggle('dark-theme', dark);
+    if (icon) icon.textContent = dark ? '🌙' : '☀️';
+    try {
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    } catch (e) {}
+  }
+
+  if (icon) icon.textContent = isDark() ? '🌙' : '☀️';
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      setTheme(!isDark());
+    });
   }
 })();
-
-if (toggleBtn) {
-  toggleBtn.addEventListener('click', () => {
-    const isDark = !document.body.classList.contains('dark-theme');
-    setTheme(isDark);
-  });
-} 

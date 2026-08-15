@@ -4,16 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>My Story - Deepika Dubey | Product Professional</title>
+  <link rel="icon" type="image/jpeg" href="ProfilePhoto.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=clean7">
-  <link rel="stylesheet" href="responsive.css?v=clean7">
-  <link rel="stylesheet" href="polish.css?v=clean7">
-  <link rel="stylesheet" href="motion.css?v=clean6">
-  <link rel="stylesheet" href="atelier.css?v=cream6">
+  <link rel="preload" as="image" href="StoryPhoto.png">
+  <link rel="stylesheet" href="styles.css?v=fast1">
+  <link rel="stylesheet" href="responsive.css?v=fast1">
+  <link rel="stylesheet" href="polish.css?v=fast1">
+  <link rel="stylesheet" href="motion.css?v=fast1">
+  <link rel="stylesheet" href="atelier.css?v=fast1">
 </head>
 <body class="my-story-page">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.body.classList.add('dark-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
@@ -42,6 +54,7 @@
         <li><a href="index.html#certifications">Certifications</a></li>
         <li><a href="index.html#education">Education</a></li>
         <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
         <li><a href="index.html#fun-facts">Fun Facts</a></li>
         <li><a href="my-story.html">Story</a></li>
         <li><a href="index.html#contact">Contact</a></li>
@@ -82,7 +95,7 @@
           </nav>
         </div>
         <figure class="story-hero-frame">
-          <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="story-hero-photo" fetchpriority="high" decoding="async">
+          <img src="StoryPhoto.png" alt="Deepika Dubey" class="story-hero-photo" width="260" height="330" fetchpriority="high" decoding="async">
           <figcaption>The person behind the resume.</figcaption>
         </figure>
       </div>
@@ -286,6 +299,7 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#skills">Skills</a></li>
             <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#writing">Writing</a></li>
             <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </div>
@@ -304,6 +318,7 @@
             <li><a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
             <li><a href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener">LinkedIn</a></li>
             <li><a href="https://github.com/Dubey1209" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://medium.com/@dubeydeepika1209" target="_blank" rel="noopener">Medium</a></li>
             <li><a href="mailto:dubeydeepika1209@gmail.com">Email</a></li>
           </ul>
         </div>
@@ -316,9 +331,9 @@
     <button class="scroll-top-btn" type="button" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   </footer>
 
-  <script src="script.js" defer></script>
-  <script src="theme-toggle.js" defer></script>
-  <script src="my-story-reveal.js" defer></script>
-  <script src="motion.js" defer></script>
+  <script src="script.js?v=fast1" defer></script>
+  <script src="theme-toggle.js?v=fast1" defer></script>
+  <script src="my-story-reveal.js?v=fast1" defer></script>
+  <script src="motion.js?v=fast1" defer></script>
 </body>
 </html>

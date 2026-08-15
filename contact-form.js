@@ -64,10 +64,9 @@
             '<div class="success-message">Message sent. I will get back to you soon.</div>';
           form.reset();
         })
-        .catch(function (error) {
+        .catch(function () {
           formStatus.innerHTML =
             '<div class="error-message">Oops! Something went wrong. Please try again or email me directly at <a href="mailto:dubeydeepika1209@gmail.com">dubeydeepika1209@gmail.com</a></div>';
-          console.error('Failed to send message:', error);
         })
         .finally(function () {
           submitBtn.disabled = false;

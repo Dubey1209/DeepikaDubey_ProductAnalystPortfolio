@@ -13,6 +13,11 @@
     return;
   }
 
+  if (!('IntersectionObserver' in window)) {
+    revealAll();
+    return;
+  }
+
   var io = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
@@ -21,15 +26,16 @@
         io.unobserve(entry.target);
       });
     },
-    { rootMargin: '0px 0px -6% 0px', threshold: 0.05 }
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.04 }
   );
 
   sections.forEach(function (el) {
     io.observe(el);
   });
 
-  document.addEventListener('portfolio-unlocked', revealAll, { once: true });
-
-  /* Fallback if unlock event never fires (e.g. lock disabled) */
-  setTimeout(revealAll, 4000);
+  document.addEventListener('portfolio-unlocked', function () {
+    requestAnimationFrame(function () {
+      io.takeRecords();
+    });
+  }, { once: true });
 })();
