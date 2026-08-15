@@ -71,7 +71,7 @@ p, li, td, th, label, input, textarea, button, select {
 }
 
 /* Buttons */
-.btn, .btn-primary, .btn-outline, .cta-btn {
+.btn, .btn-primary, .btn-outline {
   font-weight: 600;
   letter-spacing: 0.5px;
   font-size: 1rem;
@@ -462,22 +462,6 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   transform: translateY(-2px) scale(1.04);
 }
 
-.cta-btn {
-  display: inline-block;
-  background: #2a7ae2;
-  color: #fff;
-  padding: 0.6rem 1.3rem;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 1rem;
-  transition: background 0.2s;
-}
-
-.cta-btn:hover {
-  background: #185a9d;
-}
-
 .project-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -586,9 +570,6 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
 }
 
 /* About Me Section */
-.about-container {
-  margin-top: 2rem;
-}
 .about-title {
   text-align: center;
   font-size: 1.7rem !important;
@@ -2193,7 +2174,6 @@ body.dark-theme .skills-title,
 body.dark-theme .percent,
 body.dark-theme .ai-list li,
 body.dark-theme .ai-desc,
-body.dark-theme .ai-highlight,
 body.dark-theme .cs-list,
 body.dark-theme .cs-list li {
   color: #f7fafd !important;
@@ -2234,15 +2214,6 @@ body.dark-theme .about-title {
 }
 body.dark-theme .about-subtitle {
   color: #cfd8e3 !important;
-}
-body.dark-theme .ai-highlight {
-  background: #23293a !important;
-  color: #f7fafd !important;
-  border-left: 4px solid #a259ff !important;
-}
-
-body.dark-theme #home {
-  background: url('Background.jpg') center center/cover no-repeat;
 }
 
 /* Certifications heading is styled in atelier.css */
@@ -2891,13 +2862,6 @@ body.dark-theme .project-category {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-}
-
-/* Pulse Animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
 }
 
 /* Fade In Animation */

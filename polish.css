@@ -191,11 +191,7 @@ body.dark-theme .theme-toggle-btn:focus-visible {
   outline-color: #60a5fa;
 }
 
-/* Read My Story — cute hover hint */
-.home-btns {
-  overflow: visible;
-}
-
+/* Read My Story hover hint */
 .story-btn-wrap {
   position: relative;
   display: inline-block;
@@ -365,8 +361,7 @@ body.dark-theme .project-card.interactive-card .project-category {
     max-width: min(96vw, 1100px) !important;
   }
 
-  .home-btns .btn-outline,
-  .home-btns .btn-primary {
+  .home-btns .btn-outline {
     font-size: 0.92rem;
     padding: 0.7rem 1rem !important;
   }
