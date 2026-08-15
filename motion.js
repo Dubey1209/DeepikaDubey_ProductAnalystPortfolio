@@ -35,9 +35,7 @@
     .querySelectorAll('.interactive-card, .fun-fact-card, .skill-interactive-card, .certification-card')
     .forEach(bindSpotlight);
 
-  var photo = document.querySelector('.home-photo');
-  if (photo) {
-    var wrap = photo.closest('.home-right') || photo;
+  function bindTilt(photo, wrap) {
     wrap.addEventListener(
       'pointermove',
       function (e) {
@@ -52,6 +50,11 @@
     wrap.addEventListener('pointerleave', function () {
       photo.style.transform = '';
     });
+  }
+
+  var homePhoto = document.querySelector('.home-photo');
+  if (homePhoto) {
+    bindTilt(homePhoto, homePhoto.closest('.home-right') || homePhoto);
   }
 
   document.querySelectorAll('.home-btns .btn').forEach(function (btn) {

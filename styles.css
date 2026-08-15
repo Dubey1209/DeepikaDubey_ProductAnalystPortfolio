@@ -1452,17 +1452,6 @@ body.dark-theme .project-actions {
   transform: translateY(-1px) scale(0.99);
 }
 
-/* Project-specific button styles */
-[data-project="inventory-mgmt"] .project-btn {
-  background: #ffd6e7 !important;
-  color: #333 !important;
-}
-
-[data-project="inventory-mgmt"] .project-btn:hover {
-  background: #ffb3d9 !important;
-}
-
-
 /* Hover Effects */
 .interactive-card:hover .project-front {
   transform: translateY(-60px);

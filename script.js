@@ -468,3 +468,61 @@ function initExperienceShowcase() {
   renderRail();
   renderSpotlight();
 }
+
+(function () {
+  var modal = document.getElementById('work-modal');
+  if (!modal) return;
+
+  var titleEl = modal.querySelector('.work-modal-title');
+  var tagsEl = modal.querySelector('.work-modal-tags');
+  var hookEl = modal.querySelector('.work-modal-hook');
+  var bodyEl = modal.querySelector('.work-modal-body');
+  var actionsEl = modal.querySelector('.work-modal-actions');
+  var lastFocus = null;
+
+  function closeWorkModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('work-modal-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function openWorkModal(card) {
+    lastFocus = document.activeElement;
+    var title = card.querySelector('.case-study-title, .project-title');
+    var meta = card.querySelector('.project-meta');
+    var hook = card.querySelector('.project-hook');
+    var more = card.querySelector('.project-more-content');
+    var actions = card.querySelector('.project-buttons');
+
+    titleEl.textContent = title ? title.textContent.trim() : '';
+    tagsEl.innerHTML = meta ? meta.innerHTML : '';
+    hookEl.textContent = hook ? hook.textContent.trim() : '';
+    bodyEl.innerHTML = more ? more.innerHTML : '';
+    actionsEl.innerHTML = actions ? actions.innerHTML : '';
+
+    modal.removeAttribute('hidden');
+    modal.classList.add('is-open');
+    document.body.classList.add('work-modal-open');
+    var closeBtn = modal.querySelector('.work-modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  document
+    .querySelectorAll('.case-studies-section .project-card, .projects-section .project-card')
+    .forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;
+        openWorkModal(card);
+      });
+    });
+
+  modal.addEventListener('click', function (e) {
+    if (e.target.closest('[data-work-close]')) closeWorkModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeWorkModal();
+  });
+})();
+
