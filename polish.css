@@ -810,6 +810,15 @@ body.dark-theme .skills-section .project-category {
   color: #60a5fa !important;
 }
 
+/* Project cards: same category color on every card */
+.project-card.interactive-card .project-category {
+  color: #2a7ae2 !important;
+}
+
+body.dark-theme .project-card.interactive-card .project-category {
+  color: #7eb6ff !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html.js-scroll-reveal .skills-section.reveal-in .skill-interactive-card {
     animation: skillCardIn 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
