@@ -15,6 +15,10 @@
   <meta name="twitter:description" content="Explore Deepika Dubey's journey in product management, analytics, strategy, and design. Projects, skills, certifications, and more.">
   <meta name="twitter:image" content="ProfilePhoto.jpeg">
   <link rel="icon" type="image/jpeg" href="ProfilePhoto.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap">
+  <link rel="preload" as="image" href="ProfilePhoto.jpeg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="polish.css">
@@ -155,7 +159,7 @@
         </div>
       </div>
       <div class="home-right">
-        <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="home-photo" loading="lazy">
+        <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="home-photo" fetchpriority="high" decoding="async">
       </div>
     </div>
   </section>
@@ -185,8 +189,8 @@
   
   <section id="case-studies" class="section case-studies-section">
     <div class="container">
-      <h2 class="projects-title" style="animation: fadeInUp 0.8s ease-out;">Product Work & Case Studies</h2>
-      <p class="projects-subtitle" style="animation: fadeInUp 1s ease-out;">Strategic product thinking in action: Problem identification, data-driven solutions, and measurable impact</p>
+      <h2 class="projects-title">Product Work & Case Studies</h2>
+      <p class="projects-subtitle">Strategic product thinking in action: Problem identification, data-driven solutions, and measurable impact</p>
       
       <div class="projects-cards-row">
         <!-- ProfileBoost Case Study -->
@@ -435,8 +439,8 @@
   
   <section id="design-projects" class="section projects-section">
     <div class="container">
-      <h2 class="projects-title" style="animation: fadeInUp 0.8s ease-out;">Product Design & User Experience</h2>
-      <p class="projects-subtitle" style="animation: fadeInUp 1s ease-out;">Creating user-centered products with focus on research, wireframing, and data-driven design decisions</p>
+      <h2 class="projects-title">Product Design & User Experience</h2>
+      <p class="projects-subtitle">Creating user-centered products with focus on research, wireframing, and data-driven design decisions</p>
       <div class="projects-cards-row">
         <div class="project-card interactive-card" style="--card-bg:#e6e6ff;" data-project="fempower">
           <div class="project-front">
@@ -501,12 +505,8 @@
                     <path d="M17 12C17 13.3807 15.8807 14.5 14.5 14.5C13.1193 14.5 12 13.3807 12 12V10H14.5C15.8807 10 17 11.1193 17 12Z" fill="white"/>
                     <path d="M12 12C12 13.3807 10.8807 14.5 9.5 14.5C8.11929 14.5 7 13.3807 7 12C7 10.6193 8.11929 9.5 9.5 9.5H12V12Z" fill="white"/>
                     <circle cx="12" cy="17" r="2" fill="white"/>
-                    <path d="M17 12C17 13.3807 15.8807 14.5 14.5 14.5C13.1193 14.5 12 13.3807 12 12V10H14.5C15.8807 10 17 11.1193 17 12Z" fill="white"/>
-                    <path d="M12 12C12 13.3807 10.8807 14.5 9.5 14.5C8.11929 14.5 7 13.3807 7 12C7 10.6193 8.11929 9.5 9.5 9.5H12V12Z" fill="white"/>
-                    <circle cx="12" cy="17" r="2" fill="white"/>
                   </svg>
                   View Figma Design
-                  <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 0.8em;"></i>
                 </a>
               </div>
             </div>
@@ -558,12 +558,13 @@
   
   <section id="technical-projects" class="section projects-section">
     <div class="container">
-      <h2 class="projects-title" style="animation: fadeInUp 0.8s ease-out;">Product Development & Execution</h2>
-      <p class="projects-subtitle" style="animation: fadeInUp 1s ease-out;">Building products end-to-end: From research and strategy to deployment and iteration</p>
+      <h2 class="projects-title">Product Development & Execution</h2>
+      <p class="projects-subtitle">Building products end-to-end: From research and strategy to deployment and iteration</p>
       <div class="projects-cards-row">
         <div class="project-card interactive-card" style="--card-bg:#f8e6ff;" data-project="brunchbliss">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web" style="color: #2a7ae2 !important;">BrunchBliss | Product + Engineering</span></div>
+            <h3 class="project-title">BrunchBliss — Canteen Ordering App</h3>
             <div class="project-desc">
               <ul>
                 <li><strong>Product Impact:</strong> Identified pain point in college canteen ordering, designed solution reducing wait time by 40%</li>
@@ -589,6 +590,7 @@
         <div class="project-card interactive-card" style="--card-bg:#ffe6f0;" data-project="animation">
           <div class="project-front">
             <div class="project-meta"><span class="project-category research" style="color: #2a7ae2 !important;">Animation | HTML, CSS</span></div>
+            <h3 class="project-title">Animation Playground</h3>
             <div class="project-desc">
               <ul>
                 <li>Developed and deployed a website offering simple animation options, improving user engagement through interactive design</li>
@@ -620,6 +622,7 @@
         <div class="project-card interactive-card" style="--card-bg:#e6f7ff;" data-project="hitthebox">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web">HitTheBox | HTML, CSS, Javascript</span></div>
+            <h3 class="project-title">HitTheBox</h3>
             <div class="project-desc">
               <ul>
                 <li>Designed and developed a browser-based game inspired by Angry Birds mechanics</li>
@@ -652,6 +655,7 @@
         <div class="project-card interactive-card" style="--card-bg:#e6ffe9;" data-project="runfinity">
           <div class="project-front">
             <div class="project-meta"><span class="project-category mobile" style="color: #2a7ae2 !important;">Runfinity | Product + Mobile</span></div>
+            <h3 class="project-title">Runfinity</h3>
             <div class="project-desc">
               <ul>
                 <li><strong>Product Vision:</strong> Created fitness tracking solution addressing user need for motivation and progress tracking</li>
@@ -677,6 +681,7 @@
         <div class="project-card interactive-card" style="--card-bg:#ffe4c4;" data-project="nostalgia">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web">Nostalgia | HTML</span></div>
+            <h3 class="project-title">Nostalgia</h3>
             <div class="project-desc">
               <ul>
                 <li>It is fully & purely based on HTML & it includes nostalgic vibe of cartoon.</li>
@@ -709,6 +714,7 @@
         <div class="project-card interactive-card" style="--card-bg:#fff7e6;" data-project="calculator">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web">Calculator Website | HTML, CSS, JS</span></div>
+            <h3 class="project-title">Calculator Website</h3>
             <div class="project-desc">
               <ul>
                 <li>Developed a responsive calculator website with basic arithmetic operations.</li>
@@ -741,6 +747,7 @@
         <div class="project-card interactive-card" style="--card-bg:#e6faff;" data-project="gallery">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web">PixelVault Studio | HTML, CSS, JS</span></div>
+            <h3 class="project-title">PixelVault Studio</h3>
             <div class="project-desc">
               <ul>
                 <li>Created a dynamic image gallery website with grid layout and modal previews.</li>
@@ -773,6 +780,7 @@
         <div class="project-card interactive-card" style="--card-bg:#e6f3ff;" data-project="gaming-dashboard">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web">Game Movement Intelligence Dashboard | Python, Streamlit</span><span class="project-tag" style="background: #ff6b6b; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; margin-left: 8px;">Company Assignment</span></div>
+            <h3 class="project-title">Game Movement Intelligence Dashboard</h3>
             <div class="project-desc">
               <ul>
                 <li><strong>Product Solution:</strong> Built data-driven analytics dashboard to analyze player movement patterns, engagement zones, and gameplay behavior for game designers</li>
@@ -806,6 +814,7 @@
         <div class="project-card interactive-card" style="--card-bg:#f0e6ff;" data-project="scientific-calculator">
           <div class="project-front">
             <div class="project-meta"><span class="project-category mobile">Scientific Calculator | Kotlin</span></div>
+            <h3 class="project-title">Scientific Calculator</h3>
             <div class="project-desc">
               <ul>
                 <li>Developed a feature-rich scientific calculator app using Kotlin.</li>
@@ -826,7 +835,6 @@
                 </a>
               </div>
             </div>
-          </div>
           </div>
         </div>
         <!-- New Projects End -->
@@ -1403,7 +1411,7 @@
           <ul class="contact-list">
             <li><a class="contact-link" href="mailto:dubeydeepika1209@gmail.com"><span class="contact-icon contact-icon-email"></span><span class="contact-heading">Email</span><span class="contact-detail">dubeydeepika1209@gmail.com</span></a></li>
             <li><a class="contact-link" href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener"><span class="contact-icon contact-icon-linkedin" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#e3f0fc;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">LinkedIn</span><span class="contact-detail">linkedin.com/in/deepika-dubey-6384a2255</span></a></li>
-            <li><a class="contact-link" href="https://github.com/Dubey1209" target="_blank" rel="noopener"><span class="contact-icon contact-icon-github" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#0A66C2;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#0A66C2"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">GitHub</span><span class="contact-detail">github.com/Dubey1209</span></a></li>
+            <li><a class="contact-link" href="https://github.com/Dubey1209" target="_blank" rel="noopener"><span class="contact-icon contact-icon-github" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#24292f;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">GitHub</span><span class="contact-detail">github.com/Dubey1209</span></a></li>
             <li><span class="contact-icon contact-icon-location"></span><span class="contact-heading">Location</span><span class="contact-detail">Greater Noida, Uttar Pradesh, India</span></li>
           </ul>
           <div class="contact-social-title">Connect on Social</div>
@@ -1412,7 +1420,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="https://github.com/Dubey1209" class="social-btn social-github" aria-label="GitHub" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#0A66C2"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="mailto:dubeydeepika1209@gmail.com" class="social-btn social-email" aria-label="Email">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#6c63ff"/><path d="M6 8l6 5 6-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="8" width="12" height="8" rx="2" stroke="white" stroke-width="1.5"/></svg>
@@ -1465,7 +1473,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="https://github.com/Dubey1209" class="social-btn social-github" aria-label="GitHub" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#0A66C2"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="mailto:dubeydeepika1209@gmail.com" class="social-btn social-email" aria-label="Email">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#6c63ff"/><path d="M6 8l6 5 6-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="8" width="12" height="8" rx="2" stroke="white" stroke-width="1.5"/></svg>
@@ -1507,10 +1515,9 @@
   </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="contact-form.js"></script>
-  <script src="theme-toggle.js"></script>
-  <script src="script.js"></script>
+  <script src="contact-form.js" defer></script>
+  <script src="theme-toggle.js" defer></script>
+  <script src="script.js" defer></script>
   <script src="scroll-reveal.js" defer></script>
 </body>
 </html>

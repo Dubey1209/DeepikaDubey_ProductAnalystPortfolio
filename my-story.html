@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>My Story - Deepika Dubey | Product Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="polish.css">
@@ -39,6 +42,7 @@
         <li><a href="index.html#skills">Skills</a></li>
         <li><a href="index.html#certifications">Certifications</a></li>
         <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
         <li><a href="index.html#contact">Contact</a></li>
         <li class="drawer-theme-toggle-li">
           <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
@@ -60,7 +64,7 @@
     <div class="container my-story-hero-content">
       <span class="my-story-hero-badge">✨ Read My Story</span>
       <div class="my-story-hero-img-wrapper">
-        <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="my-story-hero-img" loading="lazy" />
+        <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="my-story-hero-img" fetchpriority="high" decoding="async" />
       </div>
       <div class="my-story-hero-text">
         <h1 class="my-story-hero-title">💬 From a Curious Girl to an Engineer</h1>
@@ -401,8 +405,8 @@ And just when I thought things couldn’t get cooler... <b>Android walked into m
     </div>
     </div>
   </main>
-  <script src="script.js"></script>
-  <script src="theme-toggle.js"></script>
-  <script src="my-story-reveal.js"></script>
+  <script src="script.js" defer></script>
+  <script src="theme-toggle.js" defer></script>
+  <script src="my-story-reveal.js" defer></script>
 </body>
 </html> 

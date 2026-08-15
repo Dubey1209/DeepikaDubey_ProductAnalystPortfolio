@@ -1011,8 +1011,7 @@ table {
     flex-wrap: wrap;
   }
 
-  .scroll-top-btn,
-  .floating-contact-btn {
+  .scroll-top-btn {
     width: 44px;
     height: 44px;
     min-width: 44px;

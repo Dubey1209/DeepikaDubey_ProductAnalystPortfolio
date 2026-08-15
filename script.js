@@ -128,7 +128,7 @@ let resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 800) {
       closeMenu();
       document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
         dropdown.classList.remove('show');
