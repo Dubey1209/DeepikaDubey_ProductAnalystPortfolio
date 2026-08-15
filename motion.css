@@ -21,14 +21,12 @@
 /* Card spotlight — follows cursor, not a static hover lift */
 .interactive-card,
 .fun-fact-card,
-.skill-interactive-card,
 .certification-card {
   --mx: 50%;
   --my: 50%;
 }
 
 .interactive-card::after,
-.skill-interactive-card::after,
 .certification-card::after {
   content: '';
   position: absolute;
@@ -46,7 +44,6 @@
 }
 
 body.dark-theme .interactive-card::after,
-body.dark-theme .skill-interactive-card::after,
 body.dark-theme .certification-card::after {
   background: radial-gradient(
     420px circle at var(--mx) var(--my),
@@ -56,7 +53,6 @@ body.dark-theme .certification-card::after {
 }
 
 .interactive-card:hover::after,
-.skill-interactive-card:hover::after,
 .certification-card:hover::after {
   opacity: 1;
 }
@@ -118,34 +114,32 @@ body.dark-theme .certification-card::after {
   }
 
   html.js-scroll-reveal main .section.reveal-in .interactive-card,
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card,
+  html.js-scroll-reveal main .section.reveal-in .atelier-do-card,
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card,
   html.js-scroll-reveal main .section.reveal-in .certification-card {
     animation: motionCardIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(1),
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card:nth-child(1),
+  html.js-scroll-reveal main .section.reveal-in .atelier-do-card:nth-child(1),
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card:nth-child(1),
   html.js-scroll-reveal main .section.reveal-in .certification-card:nth-child(1) { animation-delay: 0.04s; }
   html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(2),
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card:nth-child(2),
+  html.js-scroll-reveal main .section.reveal-in .atelier-do-card:nth-child(2),
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card:nth-child(2),
   html.js-scroll-reveal main .section.reveal-in .certification-card:nth-child(2) { animation-delay: 0.1s; }
   html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(3),
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card:nth-child(3),
+  html.js-scroll-reveal main .section.reveal-in .atelier-do-card:nth-child(3),
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card:nth-child(3),
   html.js-scroll-reveal main .section.reveal-in .certification-card:nth-child(3) { animation-delay: 0.16s; }
   html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(4),
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card:nth-child(4),
+  html.js-scroll-reveal main .section.reveal-in .atelier-do-card:nth-child(4),
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card:nth-child(4),
   html.js-scroll-reveal main .section.reveal-in .certification-card:nth-child(4) { animation-delay: 0.22s; }
   html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(5),
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card:nth-child(5),
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card:nth-child(5),
   html.js-scroll-reveal main .section.reveal-in .certification-card:nth-child(5) { animation-delay: 0.28s; }
   html.js-scroll-reveal main .section.reveal-in .interactive-card:nth-child(6),
-  html.js-scroll-reveal main .section.reveal-in .skill-interactive-card:nth-child(6),
   html.js-scroll-reveal main .section.reveal-in .fun-fact-card:nth-child(6),
   html.js-scroll-reveal main .section.reveal-in .certification-card:nth-child(6) { animation-delay: 0.34s; }
 }

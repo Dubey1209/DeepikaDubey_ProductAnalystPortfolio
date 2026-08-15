@@ -287,6 +287,52 @@ html.atelier .atelier-do-card p {
   font-size: 0.95rem;
 }
 
+html.atelier h2.skills-title.atelier-do-lead {
+  left: auto !important;
+  transform: none !important;
+  display: block !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  text-shadow: none !important;
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+  font-weight: 560;
+  max-width: 40rem;
+  margin: 0 0 2.5rem !important;
+}
+
+html.atelier .atelier-skills-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+html.atelier .atelier-skills-grid .atelier-do-card {
+  min-height: 0;
+}
+
+html.atelier .atelier-skill-list {
+  list-style: none;
+  margin: 1.15rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.38rem 1rem;
+}
+
+html.atelier .atelier-skill-list li {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-family: var(--sans);
+}
+
+@media (max-width: 760px) {
+  html.atelier .atelier-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 html.atelier main .section:not(.home-section) {
   padding-top: 4.5rem;
   padding-bottom: 3.5rem;
@@ -483,7 +529,6 @@ html.atelier .section-header {
   text-align: left;
 }
 
-html.atelier .skill-title,
 html.atelier .project-title,
 html.atelier .certification-title,
 html.atelier .certifications-title,
@@ -494,14 +539,6 @@ html.atelier .education-degree {
   background: none !important;
 }
 
-html.atelier .skill-tag {
-  background: var(--paper) !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--line) !important;
-}
-
-html.atelier .skill-tags,
-html.atelier .skill-interactive-card,
 html.atelier .project-card {
   overflow: visible !important;
   height: auto !important;
@@ -638,7 +675,6 @@ html.atelier .contact-info-desc {
 /* —— Unify leftover old-portfolio cards to atelier —— */
 html.atelier .project-card,
 html.atelier .interactive-card,
-html.atelier .skill-interactive-card,
 html.atelier .certification-card,
 html.atelier .fun-fact-card,
 html.atelier .about-card,
@@ -653,7 +689,6 @@ html.atelier .education-card {
 
 html.atelier .project-card:nth-child(n):hover,
 html.atelier .interactive-card:nth-child(n):hover,
-html.atelier .skill-interactive-card:hover,
 html.atelier .fun-fact-card:hover,
 html.atelier .certification-card:hover,
 html.atelier .about-card:hover {
@@ -710,7 +745,6 @@ html.atelier .fun-fact-card::after,
 html.atelier .certification-card::before,
 html.atelier .certification-card::after,
 html.atelier .interactive-card::after,
-html.atelier .skill-interactive-card::after,
 html.atelier .project-card::before,
 html.atelier .project-card::after {
   display: none !important;
@@ -753,7 +787,6 @@ html.atelier .cert-img {
 }
 
 html.atelier .projects-cards-row,
-html.atelier .skills-cards-row,
 html.atelier .certifications-cards-row {
   gap: 1.1rem !important;
 }

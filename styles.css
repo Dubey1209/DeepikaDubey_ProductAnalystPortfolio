@@ -506,18 +506,6 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   margin-bottom: 0.7rem !important;
 }
 
-.skills-list {
-  list-style: none;
-  padding: 0;
-}
-
-.skills-list li {
-  background: #e3f0fc;
-  margin-bottom: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-}
-
 .contact-form {
   width: 100%;
   max-width: 100%;
@@ -940,79 +928,6 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   z-index: 0;
 }
 
-.skills-subtitle {
-  text-align: center;
-  color: #64748b;
-  font-size: 1.15rem;
-  margin: 1rem auto 3rem;
-  max-width: 700px;
-  font-weight: 500;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-
-.skills-cards-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.6rem;
-  justify-items: stretch;
-  align-items: stretch;
-  margin-bottom: 2.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.skill-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.skill-card-icon {
-  font-size: 2rem;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(42, 122, 226, 0.2);
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 0.5rem;
-}
-
-.skill-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: #2a7ae2;
-  background-color: rgba(42, 122, 226, 0.1);
-  border: 1px solid rgba(42, 122, 226, 0.2);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 2px 4px rgba(42, 122, 226, 0.08);
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0);
-}
-
-.skill-tag:hover {
-  background-color: rgba(42, 122, 226, 0.15);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 4px 8px rgba(42, 122, 226, 0.15);
-  border-color: rgba(42, 122, 226, 0.3);
-}
-
 body.dark-theme .skills-section {
   background: #0f172a;
 }
@@ -1051,41 +966,7 @@ body.dark-theme .project-card::before {
   background: linear-gradient(90deg, #60a5fa, #a78bfa, #60a5fa);
 }
 
-body.dark-theme .skill-card-header h3 {
-  color: #e2e8f0;
-  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-body.dark-theme .skill-tag {
-  color: #60a5fa;
-  background-color: rgba(96, 165, 250, 0.1);
-  border-color: rgba(96, 165, 250, 0.2);
-}
-
-body.dark-theme .skill-tag:hover {
-  background-color: rgba(96, 165, 250, 0.15);
-  border-color: rgba(96, 165, 250, 0.3);
-}
-
-
 /* Responsive styles */
-@media (max-width: 1100px) {
-  .skills-cards-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-cards-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 0.5rem;
-  }
-}
 
 .skills-title {
   text-align: center;
@@ -1103,12 +984,6 @@ body.dark-theme .skill-tag:hover {
   background-clip: text;
   letter-spacing: -0.5px;
   text-shadow: 0 2px 20px rgba(42, 122, 226, 0.2);
-}
-.skills-subtitle {
-  text-align: center;
-  color: #888;
-  font-size: 1.15rem;
-  margin-bottom: 2.5rem;
 }
 /* Featured Projects Section */
 .projects-section {
@@ -1472,7 +1347,7 @@ body.dark-theme .interactive-card:hover .project-actions {
   transform: scale(1.05);
 }
 
-/* Project cards: lift up on hover (skills use horizontal slide — see polish.css) */
+/* Project cards: lift on hover */
 .projects-section .interactive-card:hover,
 .case-studies-section .interactive-card:hover,
 #design-projects .interactive-card:hover,
@@ -2575,8 +2450,6 @@ body.dark-theme .education-coursework-title,
 body.dark-theme .education-coursework-list,
 body.dark-theme .achievement-desc,
 body.dark-theme .skills-title,
-body.dark-theme .skills-subtitle,
-body.dark-theme .skill-label,
 body.dark-theme .percent,
 body.dark-theme .ai-list li,
 body.dark-theme .ai-desc,
@@ -3398,7 +3271,7 @@ body.dark-theme .fun-facts-subtitle {
   .section {
     padding: 0.7rem 0 0.3rem 0 !important;
   }
-  .skills-chips-row, .about-cards {
+  .about-cards {
     gap: 0.5rem !important;
   }
   .about-title {
@@ -3420,11 +3293,6 @@ body.dark-theme .contact-list li {
 }
 body.dark-theme .contact-list a {
   color: #7bb6ff;
-}
-
-body.dark-theme .skill-card-header {
-  color: #7bb6ff;
-  border-bottom: 2px solid #2a7ae2;
 }
 
 body.dark-theme .education-info-box {
@@ -3449,7 +3317,7 @@ body.dark-theme .education-info-box .education-info-main {
 
 
 /* Section Headings & Subtitles Polished */
-.about-subtitle, .skills-subtitle, .projects-subtitle, .education-subtitle, .contact-subtitle {
+.about-subtitle, .projects-subtitle, .education-subtitle, .contact-subtitle {
   font-size: 1.13rem;
   color: #888;
   margin-bottom: 1.5rem;
@@ -3461,14 +3329,14 @@ body.dark-theme .education-info-box .education-info-main {
   .about-title, .skills-title, .projects-title, .education-title, .contact-title {
     font-size: 1.2rem !important;
   }
-  .about-subtitle, .skills-subtitle, .projects-subtitle, .education-subtitle, .contact-subtitle {
+  .about-subtitle, .projects-subtitle, .education-subtitle, .contact-subtitle {
     font-size: 0.98rem !important;
   }
 }
 body.dark-theme .about-title, body.dark-theme .skills-title, body.dark-theme .projects-title, body.dark-theme .education-title, body.dark-theme .contact-title {
   color: #7bb6ff !important;
 }
-body.dark-theme .about-subtitle, body.dark-theme .skills-subtitle, body.dark-theme .projects-subtitle, body.dark-theme .education-subtitle, body.dark-theme .contact-subtitle {
+body.dark-theme .about-subtitle, body.dark-theme .projects-subtitle, body.dark-theme .education-subtitle, body.dark-theme .contact-subtitle {
   color: #a3c9f7 !important;
 }
 
@@ -3941,9 +3809,7 @@ body.dark-theme .certification-category.se {
   }
 
   .about-cards,
-  .skills-cards-row,
   .projects-cards-row,
-  .skills-cards-grid,
   .certifications-cards-row,
   .fun-facts-grid {
     grid-template-columns: 1fr !important;
@@ -4080,10 +3946,7 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
 
   .section,
   .section.visible,
-  body.page-loaded .home-left > *,
-  html.js-scroll-reveal .skills-section .skill-tag,
-  html.js-scroll-reveal .skills-section.reveal-in .skill-tag,
-  .skills-section .skill-interactive-card {
+  body.page-loaded .home-left > * {
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;

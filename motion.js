@@ -32,7 +32,7 @@
   }
 
   document
-    .querySelectorAll('.interactive-card, .fun-fact-card, .skill-interactive-card, .certification-card')
+    .querySelectorAll('.interactive-card, .fun-fact-card, .certification-card')
     .forEach(bindSpotlight);
 
   function bindTilt(photo, wrap) {
