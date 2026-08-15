@@ -288,7 +288,8 @@ html.atelier .atelier-do-card p {
 }
 
 html.atelier h2.skills-title.atelier-do-lead,
-html.atelier h2.certifications-title.atelier-do-lead {
+html.atelier h2.certifications-title.atelier-do-lead,
+html.atelier h2.education-title.atelier-do-lead {
   left: auto !important;
   transform: none !important;
   display: block !important;
@@ -459,6 +460,123 @@ html.atelier .atelier-cert-index button.is-active span {
   }
 }
 
+html.atelier .atelier-edu {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.8rem 2.4rem;
+  align-items: start;
+  margin-bottom: 2.2rem;
+}
+
+html.atelier .atelier-edu-main h3 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.6rem, 3vw, 2.15rem) !important;
+  color: var(--ink) !important;
+  line-height: 1.15;
+}
+
+html.atelier .atelier-edu-spec {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+html.atelier .atelier-edu-meta {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+html.atelier .atelier-edu-note {
+  margin: 0;
+  max-width: 28rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+html.atelier .atelier-edu-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+html.atelier .atelier-edu-stat {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.15rem;
+  padding: 1.2rem 1.15rem 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+html.atelier .atelier-edu-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 8px 0 var(--ink);
+  border-color: var(--ink);
+}
+
+html.atelier .atelier-edu-stat strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 560;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+html.atelier .atelier-edu-stat span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+html.atelier .atelier-edu-course-label {
+  margin: 0 0 0.75rem;
+  font-family: var(--sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+
+html.atelier .atelier-edu-courses {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem 1.4rem;
+  margin: 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+html.atelier .atelier-edu-courses li {
+  margin: 0;
+  padding: 0.15rem 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  html.atelier .atelier-edu {
+    grid-template-columns: 1fr;
+  }
+
+  html.atelier .atelier-edu-courses {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  html.atelier .atelier-edu-stats,
+  html.atelier .atelier-edu-courses {
+    grid-template-columns: 1fr;
+  }
+}
+
 html.atelier main .section:not(.home-section) {
   padding-top: 4.5rem;
   padding-bottom: 3.5rem;
@@ -481,7 +599,6 @@ html.atelier .about-subtitle,
 html.atelier .projects-subtitle,
 html.atelier .contact-subtitle,
 html.atelier .fun-facts-subtitle,
-html.atelier .education-subtitle,
 html.atelier .section-description,
 html.atelier .section-subtitle {
   text-align: left !important;
@@ -656,8 +773,7 @@ html.atelier .section-header {
 }
 
 html.atelier .project-title,
-html.atelier .certifications-title,
-html.atelier .education-degree {
+html.atelier .certifications-title {
   font-family: var(--serif) !important;
   color: var(--ink) !important;
   -webkit-text-fill-color: var(--ink) !important;
@@ -689,21 +805,6 @@ html.atelier .fun-fact-card {
   max-width: none !important;
   height: auto !important;
   overflow: visible !important;
-}
-
-html.atelier .education-card,
-html.atelier .education-info-box,
-html.atelier .education-achievement {
-  background: var(--card) !important;
-  border: 1.5px solid var(--line) !important;
-  color: var(--ink) !important;
-  box-shadow: none !important;
-}
-
-html.atelier .education-college,
-html.atelier .education-info-label,
-html.atelier .achievement-desc {
-  color: var(--muted) !important;
 }
 
 html.atelier .exp-pill {
@@ -754,8 +855,7 @@ html.atelier .about-card-label {
   color: var(--muted) !important;
 }
 
-html.atelier .project-btn,
-html.atelier .edu-link {
+html.atelier .project-btn {
   color: var(--accent) !important;
 }
 
@@ -804,8 +904,7 @@ html.atelier .contact-info-desc {
 html.atelier .project-card,
 html.atelier .interactive-card,
 html.atelier .fun-fact-card,
-html.atelier .about-card,
-html.atelier .education-card {
+html.atelier .about-card {
   background: var(--card) !important;
   background-image: none !important;
   border: 1.5px solid var(--line) !important;

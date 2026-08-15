@@ -1581,191 +1581,10 @@ body.dark-theme .project-label-recent {
   }
 }
 
-/* Education & Background Section */
+/* Education heading is styled in atelier.css */
 .education-section {
-  background: #f7fafd;
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
-}
-.education-title {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #181c24;
-}
-.education-subtitle {
-  text-align: center;
-  color: #888;
-  font-size: 1.13rem;
-  margin-bottom: 2.5rem;
-}
-.education-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 1.5rem 1.5rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 1;
-  transform: translateZ(0);
-  will-change: auto;
-}
-.education-card:hover {
-  transform: scale(1.04) translateY(-8px);
-  box-shadow: 0 12px 36px 0 rgba(42,122,226,0.16), 0 0 32px 8px #3b82f644, 0 8px 32px rgba(33,118,255,0.13);
-  background: #f6faff;
-  z-index: 2;
-}
-.education-header {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-.education-icon {
-  font-size: 2.2rem;
-  color: #2a7ae2;
-  background: #e3f0fc;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.education-degree {
-  font-weight: 700;
-  font-size: 1.13rem;
-  color: #181c24;
-}
-.education-specialization {
-  font-size: 1.05rem;
-  color: #2a7ae2;
-  font-weight: 500;
-}
-.edu-link {
-  color: #2a7ae2;
-  text-decoration: underline;
-}
-.education-college {
-  font-size: 1.01rem;
-  color: #888;
-}
-.education-info-row {
-  display: flex;
-  gap: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-.education-info-box {
-  flex: 1 1 0;
-  background: #f1f6fd;
-  border-radius: 10px;
-  padding: 1.1rem 0.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
-}
-.cgpa-box {
-  background: #e6efff;
-}
-.duration-box {
-  background: #e6fff1;
-}
-.education-info-box:hover {
-  box-shadow: 0 8px 24px rgba(33,118,255,0.13);
-  transform: translateY(-4px) scale(1.03);
-}
-.education-info-main {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #2a7ae2;
-}
-.duration-box .education-info-main {
-  color: #22b573;
-}
-.education-info-label {
-  color: #2a7ae2;
-  font-weight: 500;
-  opacity: 0.95;
-}
-body.dark-theme .education-info-label {
-  color: #7bb6ff;
-}
-.education-coursework {
-  margin-top: 0.5rem;
-}
-.education-coursework-title {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-  color: #181c24;
-}
-.education-coursework-list {
-  display: flex;
-  gap: 2.5rem;
-}
-.education-coursework-list ul {
-  list-style: disc inside;
-  color: #2a7ae2;
-  font-size: 1.05rem;
-  margin: 0;
-  padding-left: 1.2rem;
-}
-.education-coursework-list li {
-  margin-bottom: 0.5rem;
-}
-.education-achievement {
-  background: #f7f0ff;
-  border-radius: 10px;
-  padding: 1.1rem 1.2rem;
-  margin-top: 1.2rem;
-  box-shadow: 0 2px 8px rgba(162,89,255,0.07);
-}
-.achievement-title {
-  font-weight: 700;
-  color: #2a7ae2;
-  font-size: 1.08rem;
-  margin-bottom: 0.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.achievement-icon {
-  font-size: 1.2rem;
-  color: #a259ff;
-}
-.achievement-subtitle {
-  font-weight: 600;
-  color: #181c24;
-  margin-bottom: 0.2rem;
-}
-.achievement-desc {
-  color: #e84393;
-  font-size: 1.01rem;
-}
-@media (max-width: 700px) {
-  .education-card {
-    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
-  }
-  .education-coursework-list {
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-  .education-info-row {
-    flex-direction: column;
-    gap: 0.7rem;
-  }
 }
 
 /* About Section Image Hover Effect */
@@ -2379,8 +2198,7 @@ body.dark-theme .btn-outline:hover {
   color: #fff;
 }
 body.dark-theme .project-card,
-body.dark-theme .about-card,
-body.dark-theme .education-card {
+body.dark-theme .about-card {
   background: #23293a !important;
   color: #f7fafd !important;
   box-shadow: 0 4px 24px rgba(42,122,226,0.10);
@@ -2445,10 +2263,6 @@ body.dark-theme .footer-desc,
 body.dark-theme .footer-title,
 body.dark-theme .footer-links a,
 body.dark-theme .footer-resources a,
-body.dark-theme .education-info-label,
-body.dark-theme .education-coursework-title,
-body.dark-theme .education-coursework-list,
-body.dark-theme .achievement-desc,
 body.dark-theme .skills-title,
 body.dark-theme .percent,
 body.dark-theme .ai-list li,
@@ -2483,17 +2297,6 @@ body.dark-theme .contact-subtitle {
 body.dark-theme .education-title {
   color: #fff !important;
 }
-body.dark-theme .education-subtitle,
-body.dark-theme .education-college {
-  color: #cfd8e3 !important;
-}
-body.dark-theme .education-degree {
-  color: #fff !important;
-}
-body.dark-theme .education-specialization,
-body.dark-theme .edu-link {
-  color: #3399ff !important;
-}
 body.dark-theme .projects-title {
   color: #fff !important;
 }
@@ -2510,9 +2313,6 @@ body.dark-theme .ai-highlight {
   background: #23293a !important;
   color: #f7fafd !important;
   border-left: 4px solid #a259ff !important;
-}
-body.dark-theme .achievement-desc {
-  color: #000 !important;
 }
 
 body.dark-theme #home {
@@ -2892,13 +2692,13 @@ body.dark-theme .fun-facts-subtitle {
 
 /* Project, Education, Contact, Footer: Stack and pad on mobile */
 @media (max-width: 768px) {
-  .projects-cards-row, .education-card, .contact-content-row, .footer-container {
+  .projects-cards-row, .contact-content-row, .footer-container {
     grid-template-columns: 1fr !important;
     display: grid !important;
     gap: 1.2rem !important;
     padding: 0 0.5rem !important;
   }
-  .project-card, .education-card, .contact-form-card, .footer-col {
+  .project-card, .contact-form-card, .footer-col {
     max-width: 100% !important;
     min-width: 0 !important;
     width: 100% !important;
@@ -2938,29 +2738,8 @@ body.dark-theme .contact-list a {
   color: #7bb6ff;
 }
 
-body.dark-theme .education-info-box {
-  background: #23293a !important;
-  color: #e3f0fc;
-  box-shadow: 0 2px 16px #2a7ae255, 0 1.5px 6px #a259ff33;
-  border: 1.5px solid #2a7ae2;
-}
-body.dark-theme .education-info-label,
-body.dark-theme .education-info-box.duration-box .education-info-label {
-  color: #e3f0fc !important;
-  opacity: 0.95;
-}
-
-body.dark-theme .education-info-main {
-  color: #fff !important;
-}
-
-body.dark-theme .education-info-box .education-info-main {
-  color: #fff !important;
-}
-
-
 /* Section Headings & Subtitles Polished */
-.about-subtitle, .projects-subtitle, .education-subtitle, .contact-subtitle {
+.about-subtitle, .projects-subtitle, .contact-subtitle {
   font-size: 1.13rem;
   color: #888;
   margin-bottom: 1.5rem;
@@ -2972,34 +2751,31 @@ body.dark-theme .education-info-box .education-info-main {
   .about-title, .skills-title, .projects-title, .education-title, .contact-title {
     font-size: 1.2rem !important;
   }
-  .about-subtitle, .projects-subtitle, .education-subtitle, .contact-subtitle {
+  .about-subtitle, .projects-subtitle, .contact-subtitle {
     font-size: 0.98rem !important;
   }
 }
 body.dark-theme .about-title, body.dark-theme .skills-title, body.dark-theme .projects-title, body.dark-theme .education-title, body.dark-theme .contact-title {
   color: #7bb6ff !important;
 }
-body.dark-theme .about-subtitle, body.dark-theme .projects-subtitle, body.dark-theme .education-subtitle, body.dark-theme .contact-subtitle {
+body.dark-theme .about-subtitle, body.dark-theme .projects-subtitle, body.dark-theme .contact-subtitle {
   color: #a3c9f7 !important;
 }
 
-body.dark-theme .about-card,
-body.dark-theme .education-info-box {
+body.dark-theme .about-card {
   background: #23293a !important;
   color: #f7fafd !important;
   box-shadow: 0 4px 24px #2a7ae255;
   border: 1.5px solid #2a7ae2;
 }
 body.dark-theme .about-card-label,
-body.dark-theme .education-info-label,
 body.dark-theme .project-meta,
 body.dark-theme .project-category {
   color: #e3f0fc !important;
   font-weight: 600 !important;
   opacity: 1 !important;
 }
-body.dark-theme .about-card-main,
-body.dark-theme .education-info-main {
+body.dark-theme .about-card-main {
   color: #fff !important;
   font-weight: 700 !important;
 }
