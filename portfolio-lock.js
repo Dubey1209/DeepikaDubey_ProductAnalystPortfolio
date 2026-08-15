@@ -1,4 +1,4 @@
-// Portfolio lock — smooth realistic glass shatter unlock
+// Portfolio lock - smooth realistic glass shatter unlock
 class PortfolioLock {
   constructor() {
     this.sessionKey = 'portfolio_unlocked';
@@ -89,7 +89,7 @@ class PortfolioLock {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           name,
-          message: `Portfolio visitor: ${name} — ${new Date().toLocaleString()}`,
+          message: `Portfolio visitor: ${name} - ${new Date().toLocaleString()}`,
           subject: 'New Portfolio Visitor! 🎉',
         }),
       });
@@ -349,7 +349,7 @@ class PortfolioLock {
     card.classList.add('is-charging');
 
     return new Promise((resolve) => {
-      /* Phase 1 — tension build */
+      /* Phase 1 - tension build */
       setTimeout(() => {
         card.classList.remove('is-charging');
         card.classList.add('is-impacted');
@@ -367,7 +367,7 @@ class PortfolioLock {
         fx.classList.add('is-active');
       }, 340);
 
-      /* Phase 2 — glass shatters into grid shards */
+      /* Phase 2 - glass shatters into grid shards */
       setTimeout(() => {
         card.classList.add('is-breaking', 'is-shattered');
         this.spawnGlassBreak(rect, shards);
@@ -375,7 +375,7 @@ class PortfolioLock {
         lock.classList.add('is-dissolving');
       }, 520);
 
-      /* Phase 3 — reveal portfolio */
+      /* Phase 3 - reveal portfolio */
       setTimeout(() => {
         shell.style.display = 'block';
         shell.classList.add('is-revealing');

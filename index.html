@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="atelier">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -17,11 +17,13 @@
   <link rel="icon" type="image/jpeg" href="ProfilePhoto.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap">
   <link rel="preload" as="image" href="ProfilePhoto.jpeg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="polish.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="atelier.css">
   <script>document.documentElement.classList.add('js-scroll-reveal');</script>
   <script src="portfolio-lock.js" defer></script>
 </head>
@@ -64,7 +66,7 @@
           </div>
 
           <h1 class="lock-title" id="lock-title">Portfolio Locked</h1>
-          <p class="lock-subtitle">Tell me your name — I'll unlock Deepika's product world for you.</p>
+          <p class="lock-subtitle">Tell me your name - I'll unlock Deepika's product world for you.</p>
 
           <form id="unlock-form" class="unlock-form">
             <div class="form-group lock-input-group">
@@ -89,7 +91,7 @@
 
           <p class="lock-note">
             <span class="lock-note-dot" aria-hidden="true"></span>
-            I'd love to know who stopped by — takes two seconds.
+            I'd love to know who stopped by - takes two seconds.
           </p>
         </div>
       </div>
@@ -100,7 +102,7 @@
       <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
-      <a href="#home" class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</a>
+      <a href="#home" class="logo" role="banner">P<span class="logo-brace">{ }</span></a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
         <span class="menu-icon"></span>
         <span class="sr-only">Menu</span>
@@ -112,10 +114,9 @@
             <span class="sr-only">Close menu</span>
           </button>
         </li>
-        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li class="dropdown">
-          <a href="#case-studies" class="dropbtn">Projects</a>
+          <a href="#case-studies" class="dropbtn">Work</a>
           <div class="dropdown-content">
             <a href="#case-studies">Product (Case Studies)</a>
             <a href="#design-projects">Design</a>
@@ -127,6 +128,7 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#fun-facts">Fun Facts</a></li>
+        <li><a href="my-story.html">Story</a></li>
         <li><a href="#contact">Contact</a></li>
         <li class="drawer-theme-toggle-li">
           <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn">
@@ -141,19 +143,31 @@
   </nav>
   <main id="main-content" role="main">
   <section id="home" class="section home-section">
-    <div class="home-bg"></div>
     <div class="container home-container">
       <div class="home-left">
-        <h1 class="home-title">Hi, I'm <span class="home-name home-name-blue">Deepika Dubey</span></h1>
-        <h2 class="home-subtitle">Product Professional | Building Products That Drive Impact</h2>
-        <div class="home-desc">I'm a product-obsessed engineer who transforms user problems into impactful solutions. With hands-on experience across product management, product analytics, and technical execution, I bridge the gap between vision and reality. I've built products from scratch, analyzed user behavior and metrics, and crafted roadmaps that drive growth. My superpower? Combining technical depth with product intuition to create experiences users love while delivering business results.</div>
+        <p class="home-kicker">Product Manager</p>
+        <h1 class="home-title">Hey.<br>I'm Deepika.</h1>
+        <h2 class="home-subtitle">
+          I turn messy user problems into products people
+          <span class="home-rotate" aria-hidden="true">
+            <span class="home-rotate-track">
+              <span>actually finish.</span>
+              <span>open twice.</span>
+              <span>don’t rage-quit.</span>
+              <span>actually finish.</span>
+            </span>
+          </span>
+          <span class="sr-only">actually finish.</span>
+        </h2>
+        <p class="home-desc">Engineer brain. Product heart. Allergic to unused features.<br>I ask “should we?” before “can we?”, then I ship.</p>
+        <a class="home-who" href="#about">Who am I? ↓</a>
         <div class="home-btns">
           <a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" class="btn btn-outline">Download Resume</a>
           <span class="story-btn-wrap">
             <a href="my-story.html" class="btn btn-outline story-btn">Read My Story</a>
             <span class="story-btn-hint" role="tooltip">
               <span class="story-btn-hint-emoji" aria-hidden="true">👀✨</span>
-              Wanna know the real me — beyond the resume?
+              Wanna know the real me - beyond the resume?
             </span>
           </span>
         </div>
@@ -163,6 +177,47 @@
       </div>
     </div>
   </section>
+
+  <section id="what-i-do" class="section atelier-do">
+    <div class="container">
+      <p class="atelier-label">What I do</p>
+      <h2 class="atelier-do-lead">I advise, build, and ship - from the messy first question to a product people can actually use.</h2>
+      <div class="atelier-do-grid">
+        <article class="atelier-do-card">
+          <h3>Product management</h3>
+          <p>Discovery, roadmaps, and calls that stay valuable, feasible, and usable - not just a pretty backlog.</p>
+        </article>
+        <article class="atelier-do-card">
+          <h3>Product analytics</h3>
+          <p>I don’t guess. Metrics, behaviour, and experiments tell us what to build next.</p>
+        </article>
+        <article class="atelier-do-card">
+          <h3>Technical depth</h3>
+          <p>AIML + engineering background, so I can sit with builders and still own the product story.</p>
+        </article>
+        <article class="atelier-do-card">
+          <h3>Strategy</h3>
+          <p>Clear bets. Clear why. A path from “we should” to something that ships this quarter.</p>
+        </article>
+        <article class="atelier-do-card">
+          <h3>Design sense</h3>
+          <p>Flows, UX, and the last 10% that makes a product feel considered instead of assembled.</p>
+        </article>
+        <article class="atelier-do-card">
+          <h3>MVPs that learn</h3>
+          <p>Lean experiments with real users. Prove the problem before we fall in love with the solution.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="atelier-ticker" aria-hidden="true">
+    <div class="atelier-ticker-track">
+      <span>Product Strategy</span><span>Roadmapping</span><span>User Research</span><span>Product Analytics</span><span>SQL</span><span>Python</span><span>Figma</span><span>AIML</span><span>A/B Testing</span><span>Go-to-Market</span><span>Kotlin</span><span>Bitbucket</span><span>Wireframing</span><span>Competitive Analysis</span>
+      <span>Product Strategy</span><span>Roadmapping</span><span>User Research</span><span>Product Analytics</span><span>SQL</span><span>Python</span><span>Figma</span><span>AIML</span><span>A/B Testing</span><span>Go-to-Market</span><span>Kotlin</span><span>Bitbucket</span><span>Wireframing</span><span>Competitive Analysis</span>
+    </div>
+  </div>
+
   <section id="about" class="section about-section">
     <div class="container about-container">
       <h2 class="about-title">About Me</h2>
@@ -173,7 +228,7 @@
         </div>
         <div class="about-details">
           <h3 class="about-headline">Product-First Mindset. Data-Driven Execution.</h3>
-          <p>Hey, I'm Deepika Dubey — a product professional with a unique blend of technical depth and product intuition. Currently in my final year at AKGEC (2022–2026, CGPA 8.3), I've spent the last few years building products, conducting user research, analyzing product metrics, and crafting strategies that solve real problems. What sets me apart? I don't just think like a product person — I've built products from scratch, designed user flows, analyzed metrics and data, created roadmaps that drive impact, and worked across product management, analytics, and strategy roles. My technical background gives me the ability to work closely with engineering teams, while my product mindset ensures we're always building the right thing. I'm passionate about turning user problems and business challenges into solutions that deliver value, and I'm ready to bring that energy to your team.</p>
+          <p>Hey, I'm Deepika Dubey - a product professional with a unique blend of technical depth and product intuition. Currently in my final year (2022-2026, CGPA 8.3), I've spent the last few years building products, conducting user research, analyzing product metrics, and crafting strategies that solve real problems. What sets me apart? I don't just think like a product person - I've built products from scratch, designed user flows, analyzed metrics and data, created roadmaps that drive impact, and worked across product management, analytics, and strategy roles. My technical background gives me the ability to work closely with engineering teams, while my product mindset ensures we're always building the right thing. I'm passionate about turning user problems and business challenges into solutions that deliver value, and I'm ready to bring that energy to your team.</p>
           <div class="about-cards">
             <div class="about-card"><span class="about-card-main">5+</span><br><span class="about-card-label">Product Case Studies</span></div>
             <div class="about-card"><span class="about-card-main">8+</span><br><span class="about-card-label">Products Built</span></div>
@@ -184,9 +239,7 @@
       </div>
     </div>
   </section>
-  
-  <!-- Fun Facts section moved to after Projects section -->
-  
+
   <section id="case-studies" class="section case-studies-section">
     <div class="container">
       <h2 class="projects-title">Product Work & Case Studies</h2>
@@ -371,7 +424,7 @@
                 <span class="project-tag">UX Audit & Growth Strategy</span>
               </div>
             </div>
-            <h3 class="case-study-title">Revitalizing Hawkins Cookers Limited — Product Strategy Case Study</h3>
+            <h3 class="case-study-title">Revitalizing Hawkins Cookers Limited - Product Strategy Case Study</h3>
             <div class="project-desc">
               <ul>
                 <li><strong>UX Audit:</strong> Identified 4 structural conversion barriers across the purchase flow</li>
@@ -408,12 +461,12 @@
                 <span class="project-tag">Fintech / UPI</span>
               </div>
             </div>
-            <h3 class="case-study-title">WhatsApp Pay — Why Growth Went Flat</h3>
+            <h3 class="case-study-title">WhatsApp Pay - Why Growth Went Flat</h3>
             <div class="project-desc">
               <ul>
-                <li><strong>Problem Diagnosis:</strong> Challenged the awareness narrative — identified zero marginal utility vs GPay/PhonePe and positive onboarding cost as core blockers behind ~1% UPI market share despite 500M+ Indian users</li>
+                <li><strong>Problem Diagnosis:</strong> Challenged the awareness narrative - identified zero marginal utility vs GPay/PhonePe and positive onboarding cost as core blockers behind ~1% UPI market share despite 500M+ Indian users</li>
                 <li><strong>Three-Layer Blocker Model:</strong> Mapped funnel drop-offs across re-registration fatigue, recipient confidence gaps, and lack of conversational payment context using persona research (urban UPI user + kirana merchant)</li>
-                <li><strong>Product Solutions:</strong> Prioritized UPI Bridge onboarding, in-chat recipient verification signals, and contextual payment triggers — RICE-scored and sequenced across a phased roadmap</li>
+                <li><strong>Product Solutions:</strong> Prioritized UPI Bridge onboarding, in-chat recipient verification signals, and contextual payment triggers - RICE-scored and sequenced across a phased roadmap</li>
                 <li><strong>User Flows & Metrics:</strong> Designed first-time setup, send-money-in-chat, and merchant QR flows with 6-month targets for onboarding completion (60%), Day-7 retention (55%), and chat-initiated transactions (35%)</li>
               </ul>
             </div>
@@ -564,10 +617,10 @@
         <div class="project-card interactive-card" style="--card-bg:#f8e6ff;" data-project="brunchbliss">
           <div class="project-front">
             <div class="project-meta"><span class="project-category web">BrunchBliss | Product + Engineering</span></div>
-            <h3 class="project-title">BrunchBliss — Canteen Ordering App</h3>
+            <h3 class="project-title">BrunchBliss - Canteen Ordering App</h3>
             <div class="project-desc">
               <ul>
-                <li><strong>Product Impact:</strong> Identified pain point in college canteen ordering, designed solution reducing wait time by 40%</li>
+                <li><strong>Product Impact:</strong> Identified pain point in canteen ordering, designed solution reducing wait time by 40%</li>
                 <li><strong>User-Centric Design:</strong> Built intuitive cart system with streamlined checkout flow, improving user satisfaction</li>
                 <li><strong>Technical Execution:</strong> Developed Kotlin-based app with focus on seamless user experience and transaction efficiency</li>
               </ul>
@@ -957,7 +1010,7 @@
             <div class="skill-persona-content">
               <span class="skill-persona-emoji" aria-hidden="true">💭</span>
               <h4>Skill Persona</h4>
-              <p>I'm the creative heartbeat! I help design beautiful, intuitive experiences users love — stunning visuals and smooth interactions.</p>
+              <p>I'm the creative heartbeat! I help design beautiful, intuitive experiences users love - stunning visuals and smooth interactions.</p>
             </div>
           </div>
         </div>
@@ -1055,7 +1108,7 @@
             <div class="skill-persona-content">
               <span class="skill-persona-emoji" aria-hidden="true">💭</span>
               <h4>Skill Persona</h4>
-              <p>I'm the time traveler! I track every change and keep collaboration seamless — the safety net for code evolution.</p>
+              <p>I'm the time traveler! I track every change and keep collaboration seamless - the safety net for code evolution.</p>
             </div>
           </div>
         </div>
@@ -1085,7 +1138,7 @@
             <div class="skill-persona-content">
               <span class="skill-persona-emoji" aria-hidden="true">💭</span>
               <h4>Skill Persona</h4>
-              <p>I'm the Swiss Army knife! From JIRA to Notion — everything needed to manage products like a pro.</p>
+              <p>I'm the Swiss Army knife! From JIRA to Notion - everything needed to manage products like a pro.</p>
             </div>
           </div>
         </div>
@@ -1258,7 +1311,7 @@
           <div>
             <div class="education-degree">Bachelor of Technology</div>
             <div class="education-specialization"><span class="edu-link">Artificial Intelligence &amp; Machine Learning</span></div>
-            <div class="education-college">Ajay Kumar Garg Engineering College</div>
+            <div class="education-college">Undergraduate program</div>
           </div>
         </div>
         <div class="education-info-row">
@@ -1403,7 +1456,7 @@
   <section id="contact" class="section contact-section">
     <div class="container contact-container">
       <h2 class="contact-title">Let's Connect</h2>
-      <p class="contact-subtitle">Ready to discuss opportunities, collaborate on projects, or just chat about product management</p>
+      <p class="contact-subtitle">Ready to discuss opportunities, collaborate on projects, or just chat about product management. Hiring for product? I can think and ship.</p>
       <div class="contact-content-row">
         <div class="contact-info">
           <h3 class="contact-info-title">Let's Build Something Great</h3>
@@ -1412,7 +1465,6 @@
             <li><a class="contact-link" href="mailto:dubeydeepika1209@gmail.com"><span class="contact-icon contact-icon-email"></span><span class="contact-heading">Email</span><span class="contact-detail">dubeydeepika1209@gmail.com</span></a></li>
             <li><a class="contact-link" href="https://www.linkedin.com/in/deepika-dubey-6384a2255/" target="_blank" rel="noopener"><span class="contact-icon contact-icon-linkedin" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#e3f0fc;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0A66C2"/><path d="M7.75 9.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.75" cy="7.75" r="1.25" fill="white"/><path d="M11.5 12.25V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 13.5C11.5 12.3954 12.3954 11.5 13.5 11.5C14.6046 11.5 15.5 12.3954 15.5 13.5V16.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">LinkedIn</span><span class="contact-detail">linkedin.com/in/deepika-dubey-6384a2255</span></a></li>
             <li><a class="contact-link" href="https://github.com/Dubey1209" target="_blank" rel="noopener"><span class="contact-icon contact-icon-github" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#24292f;border-radius:8px;margin-right:12px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#24292f"/><path d="M9.5 17c-4 1-4-2-5-2m10 4v-2.2c0-.6-.2-1-.6-1.4 2-.2 4-1 4-4.5 0-1-.3-1.7-.9-2.3.1-.2.4-1.1-.1-2.3 0 0-.8-.3-2.5 1a8.6 8.6 0 0 0-4.5 0c-1.7-1.3-2.5-1-2.5-1-.5 1.2-.2 2.1-.1 2.3-.6.6-.9 1.3-.9 2.3 0 3.5 2 4.3 4 4.5-.2.2-.4.6-.4 1.2V19" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-heading">GitHub</span><span class="contact-detail">github.com/Dubey1209</span></a></li>
-            <li><span class="contact-icon contact-icon-location"></span><span class="contact-heading">Location</span><span class="contact-detail">Greater Noida, Uttar Pradesh, India</span></li>
           </ul>
           <div class="contact-social-title">Connect on Social</div>
           <div class="contact-social-links">
@@ -1464,7 +1516,7 @@
       <div class="footer-col footer-brand">
         <div class="footer-logo">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</div>
         <div class="footer-desc">I’m always open to opportunities where I can blend tech, design, and product thinking to solve real problems.
-          If you're hiring for Product role & growth role  — let’s build something meaningful together!
+          If you're hiring for Product role & growth role  - let’s build something meaningful together!
           
           </div>
         <div class="footer-social-title">Connect on Social</div>
@@ -1497,8 +1549,6 @@
         <div class="footer-title">Resources</div>
         <ul>
           <li><a href="https://drive.google.com/file/d/1q-BRanJfNaPcUP6-kAbtws9cPe_kCsLr/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
-          <!-- <li><a href="#">Case Studies</a></li> -->
-          <!-- <li><a href="#">Blog</a></li> -->
           <li><a href="#certifications">Certifications</a></li>
         </ul>
       </div>
@@ -1508,16 +1558,12 @@
     </div>
     <button class="scroll-top-btn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   </footer>
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator">
-    <span class="scroll-text">Scroll Down</span>
-    <div class="scroll-arrow"></div>
-  </div>
   </div>
 
   <script src="contact-form.js" defer></script>
   <script src="theme-toggle.js" defer></script>
   <script src="script.js" defer></script>
   <script src="scroll-reveal.js" defer></script>
+  <script src="motion.js" defer></script>
 </body>
 </html>

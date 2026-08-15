@@ -1,0 +1,836 @@
+/* Atelier — Sam-inspired personal site, built for Deepika.
+   Loaded last so it can win the old card-portfolio styles. */
+
+html.atelier {
+  --paper: #f3eee4;
+  --ink: #1a1713;
+  --muted: #6b645b;
+  --line: rgba(26, 23, 19, 0.12);
+  --accent: #2457d6;
+  --card: #fffaf3;
+  --shadow: 10px 14px 0 #1a1713;
+  --sans: 'Outfit', sans-serif;
+  --serif: 'Fraunces', serif;
+}
+
+html.atelier body.dark-theme,
+html.atelier:has(body.dark-theme) {
+  --paper: #161310;
+  --ink: #f3eee4;
+  --muted: #b7aea3;
+  --line: rgba(243, 238, 228, 0.12);
+  --accent: #8bb0ff;
+  --card: #221c18;
+  --shadow: 10px 14px 0 #000;
+}
+
+html.atelier,
+html.atelier body {
+  background: var(--paper) !important;
+  background-image: none !important;
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+html.atelier h1,
+html.atelier h2,
+html.atelier h3,
+html.atelier h4,
+html.atelier .logo,
+html.atelier .home-title,
+html.atelier .about-title,
+html.atelier .skills-title,
+html.atelier .projects-title,
+html.atelier .education-title,
+html.atelier .contact-title,
+html.atelier .fun-facts-title,
+html.atelier .section-title,
+html.atelier .about-headline,
+html.atelier .case-study-title {
+  font-family: var(--serif) !important;
+  letter-spacing: -0.03em;
+}
+
+html.atelier .navbar {
+  background: rgba(243, 238, 228, 0.82) !important;
+  border-bottom: 1px solid var(--line) !important;
+  backdrop-filter: blur(18px);
+  box-shadow: none !important;
+}
+
+html.atelier body.dark-theme .navbar {
+  background: rgba(22, 19, 16, 0.82) !important;
+}
+
+html.atelier .logo {
+  font-size: 1.35rem !important;
+  color: var(--ink) !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+html.atelier .logo-brace {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+html.atelier .nav-links a,
+html.atelier .dropbtn {
+  color: var(--ink) !important;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.82rem;
+}
+
+html.atelier .container {
+  width: min(92vw, 1120px) !important;
+  max-width: min(92vw, 1120px) !important;
+}
+
+html.atelier .home-section {
+  background: transparent !important;
+}
+
+html.atelier .home-container {
+  min-height: calc(100vh - 4.5rem);
+  align-items: center;
+  gap: 4rem;
+  padding: 3rem 0 5rem !important;
+}
+
+html.atelier .home-kicker {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+html.atelier .home-title {
+  font-size: clamp(3.2rem, 8vw, 6.4rem) !important;
+  line-height: 0.92 !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  margin: 0 0 1.2rem !important;
+}
+
+html.atelier .home-subtitle {
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem) !important;
+  font-weight: 500 !important;
+  color: var(--muted) !important;
+  max-width: 34rem;
+  line-height: 1.45;
+  margin-bottom: 1.25rem !important;
+}
+
+html.atelier .home-rotate {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.4em;
+  vertical-align: bottom;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+html.atelier .home-rotate-track {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: homeWordSpin 9s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+html.atelier .home-rotate-track span {
+  display: block;
+  height: 1.4em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+@keyframes homeWordSpin {
+  0%, 22% { transform: translateY(0); }
+  33%, 55% { transform: translateY(-1.4em); }
+  66%, 88% { transform: translateY(-2.8em); }
+  100% { transform: translateY(-4.2em); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.atelier .home-rotate-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  html.atelier .home-rotate {
+    display: block;
+    margin-top: 0.2em;
+  }
+}
+
+html.atelier .home-desc {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 36rem;
+  font-size: 1.08rem !important;
+  line-height: 1.65;
+  color: var(--ink) !important;
+  animation: none !important;
+}
+
+html.atelier .home-who {
+  display: inline-flex;
+  margin-top: 0.35rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+html.atelier .home-who:hover {
+  text-decoration: underline;
+}
+
+html.atelier .home-btns .btn-outline {
+  border-radius: 999px;
+  border: 1.5px solid var(--ink) !important;
+  color: var(--ink) !important;
+  background: transparent !important;
+  font-family: var(--sans);
+  font-size: 0.95rem !important;
+  padding: 0.78rem 1.4rem;
+  box-shadow: none;
+}
+
+html.atelier .home-btns .btn-outline:hover,
+html.atelier .home-btns .story-btn:hover {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: none !important;
+}
+
+html.atelier .home-photo {
+  width: 300px !important;
+  height: 380px !important;
+  border-radius: 1.6rem !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  object-fit: cover;
+  transform: rotate(-3.5deg);
+  box-shadow: var(--shadow) !important;
+  background: var(--card) !important;
+  animation: none !important;
+}
+
+html.atelier .home-photo:hover {
+  transform: rotate(-1.5deg) scale(1.03) !important;
+  filter: none !important;
+}
+
+html.atelier .atelier-do {
+  padding: 5rem 0 4rem !important;
+}
+
+html.atelier .atelier-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 0 0.8rem;
+}
+
+html.atelier .atelier-do-lead {
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+  font-weight: 560;
+  line-height: 1.2;
+  color: var(--ink) !important;
+  max-width: 46rem;
+  margin: 0 0 2.5rem !important;
+  text-align: left !important;
+}
+
+html.atelier .atelier-do-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+html.atelier .atelier-do-card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.15rem;
+  padding: 1.4rem 1.3rem 1.5rem;
+  min-height: 180px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+html.atelier .atelier-do-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 8px 0 var(--ink);
+}
+
+html.atelier .atelier-do-card h3 {
+  font-size: 1.25rem !important;
+  color: var(--ink) !important;
+  margin: 0 0 0.55rem;
+}
+
+html.atelier .atelier-do-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+html.atelier main .section:not(.home-section) {
+  padding-top: 4.5rem;
+  padding-bottom: 3.5rem;
+}
+
+html.atelier h2.about-title,
+html.atelier h2.skills-title,
+html.atelier h2.projects-title,
+html.atelier h2.education-title,
+html.atelier h2.contact-title,
+html.atelier .fun-facts-title,
+html.atelier .section-title {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  color: var(--ink) !important;
+  text-align: left !important;
+  margin-bottom: 0.6rem !important;
+}
+
+html.atelier .about-subtitle,
+html.atelier .projects-subtitle,
+html.atelier .contact-subtitle,
+html.atelier .fun-facts-subtitle,
+html.atelier .education-subtitle,
+html.atelier .section-description,
+html.atelier .section-subtitle {
+  text-align: left !important;
+  margin-left: 0 !important;
+  color: var(--muted) !important;
+  max-width: 40rem;
+}
+
+html.atelier .project-card,
+html.atelier .interactive-card,
+html.atelier .skill-interactive-card,
+html.atelier .certification-card,
+html.atelier .fun-fact-card,
+html.atelier .about-card {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line) !important;
+  box-shadow: none !important;
+  border-radius: 1.2rem !important;
+}
+
+html.atelier .project-card:hover,
+html.atelier .fun-fact-card:hover,
+html.atelier .skill-interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 8px 10px 0 var(--ink) !important;
+}
+
+html.atelier .project-category,
+html.atelier .case-study-title,
+html.atelier .fun-fact-card h3 {
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+}
+
+html.atelier .fun-fact-card p {
+  display: block !important;
+  overflow: visible !important;
+  height: auto !important;
+  color: var(--muted) !important;
+}
+
+html.atelier .about-details p,
+html.atelier .contact-info-desc {
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+html.atelier .contact-section {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  border-radius: 2rem;
+  margin: 1rem auto 3rem;
+  width: min(92vw, 1120px);
+  padding: 4rem 2.5rem !important;
+}
+
+html.atelier .contact-title,
+html.atelier .contact-info-title,
+html.atelier body.dark-theme .contact-title {
+  color: var(--paper) !important;
+}
+
+html.atelier .contact-subtitle,
+html.atelier .contact-info-desc,
+html.atelier .contact-detail,
+html.atelier .contact-heading {
+  color: rgba(243, 238, 228, 0.78) !important;
+}
+
+html.atelier .contact-section input,
+html.atelier .contact-section textarea {
+  background: rgba(243, 238, 228, 0.08) !important;
+  border: 1px solid rgba(243, 238, 228, 0.2) !important;
+  color: var(--paper) !important;
+}
+
+html.atelier .contact-section .btn,
+html.atelier .contact-section button[type="submit"] {
+  background: var(--paper) !important;
+  color: #1a1713 !important;
+  border: 0 !important;
+  border-radius: 999px;
+}
+
+html.atelier .footer-section {
+  background: transparent !important;
+  color: var(--ink) !important;
+}
+
+html.atelier .footer-title,
+html.atelier .footer-copyright,
+html.atelier .footer-links a,
+html.atelier .footer-resources a {
+  color: var(--ink) !important;
+}
+
+html.atelier .scroll-top-btn {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}
+
+html.atelier .story-btn-hint {
+  font-family: var(--sans);
+}
+
+html.atelier .navbar-container {
+  max-width: min(96vw, 1280px) !important;
+  gap: 0.75rem;
+}
+
+html.atelier .nav-links {
+  flex-wrap: wrap;
+  row-gap: 0.2rem;
+}
+
+html.atelier .dropdown-content {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 6px 8px 0 var(--ink);
+}
+
+html.atelier .dropdown-content a {
+  color: var(--ink) !important;
+}
+
+html.atelier .dropdown-content a:hover {
+  background: var(--paper) !important;
+}
+
+html.atelier .theme-toggle-btn {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line) !important;
+  color: var(--ink) !important;
+}
+
+html.atelier .menu-icon,
+html.atelier .menu-icon::before,
+html.atelier .menu-icon::after {
+  background: var(--ink) !important;
+}
+
+html.atelier .atelier-ticker {
+  overflow: hidden;
+  border-top: 1.5px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
+  padding: 0.85rem 0;
+  background: var(--card);
+}
+
+html.atelier .atelier-ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 2.2rem;
+  animation: atelierTicker 32s linear infinite;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+html.atelier .atelier-ticker-track span::after {
+  content: " ·";
+  color: var(--accent);
+}
+
+@keyframes atelierTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html.atelier .skills-section,
+html.atelier .experience-section,
+html.atelier .fun-facts-section,
+html.atelier .certifications-section,
+html.atelier .education-section,
+html.atelier .about-section,
+html.atelier .case-studies-section {
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+html.atelier .skills-section::before,
+html.atelier .skills-section::after,
+html.atelier .section-divider {
+  display: none !important;
+}
+
+html.atelier .section-header {
+  text-align: left;
+}
+
+html.atelier .skill-title,
+html.atelier .project-title,
+html.atelier .certification-title,
+html.atelier .certifications-title,
+html.atelier .education-degree {
+  font-family: var(--serif) !important;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  background: none !important;
+}
+
+html.atelier .skill-tag {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+}
+
+html.atelier .skill-tags,
+html.atelier .skill-interactive-card,
+html.atelier .project-card {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+html.atelier .project-desc,
+html.atelier .project-desc ul,
+html.atelier .project-desc li,
+html.atelier .certification-desc {
+  display: block !important;
+  overflow: visible !important;
+  height: auto !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: none !important;
+  color: var(--muted) !important;
+  max-height: none !important;
+}
+
+html.atelier .fun-facts-grid {
+  grid-auto-rows: auto !important;
+}
+
+html.atelier .fun-fact-card {
+  max-width: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+html.atelier .education-card,
+html.atelier .education-info-box,
+html.atelier .education-achievement {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line) !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+
+html.atelier .education-college,
+html.atelier .education-info-label,
+html.atelier .achievement-desc {
+  color: var(--muted) !important;
+}
+
+html.atelier .exp-pill {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line) !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+
+html.atelier .exp-pill.is-active,
+html.atelier .exp-pill:hover {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  border-color: var(--ink) !important;
+}
+
+html.atelier .exp-rail-nav {
+  background: var(--card) !important;
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+}
+
+html.atelier .experience-spotlight,
+html.atelier .experience-rail-hint,
+html.atelier .section-description {
+  color: var(--muted) !important;
+}
+
+html.atelier .experience-spotlight {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line);
+  border-radius: 1.2rem;
+  padding: 1.4rem;
+}
+
+html.atelier .about-image img {
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+  border: 0 !important;
+}
+
+html.atelier .about-card-main {
+  font-family: var(--serif);
+  color: var(--accent) !important;
+}
+
+html.atelier .about-card-label {
+  color: var(--muted) !important;
+}
+
+html.atelier .certification-link,
+html.atelier .project-btn,
+html.atelier .edu-link {
+  color: var(--accent) !important;
+}
+
+html.atelier .contact-info-desc {
+  color: rgba(243, 238, 228, 0.82) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.atelier .atelier-ticker-track {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html.atelier .atelier-do-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html.atelier .home-photo {
+    width: 220px !important;
+    height: 280px !important;
+  }
+
+  html.atelier .home-title {
+    font-size: clamp(2.6rem, 12vw, 3.6rem) !important;
+  }
+
+  html.atelier h2.about-title,
+  html.atelier h2.projects-title,
+  html.atelier h2.contact-title,
+  html.atelier .section-title {
+    text-align: left !important;
+  }
+
+  html.atelier .contact-section {
+  padding: 2.4rem 1.2rem !important;
+  }
+}
+
+/* —— Unify leftover old-portfolio cards to atelier —— */
+html.atelier .project-card,
+html.atelier .interactive-card,
+html.atelier .skill-interactive-card,
+html.atelier .certification-card,
+html.atelier .fun-fact-card,
+html.atelier .about-card,
+html.atelier .education-card {
+  background: var(--card) !important;
+  background-image: none !important;
+  border: 1.5px solid var(--line) !important;
+  border-radius: 1.15rem !important;
+  box-shadow: none !important;
+  padding: 1.35rem 1.3rem 1.4rem !important;
+}
+
+html.atelier .project-card:nth-child(n):hover,
+html.atelier .interactive-card:nth-child(n):hover,
+html.atelier .skill-interactive-card:hover,
+html.atelier .fun-fact-card:hover,
+html.atelier .certification-card:hover,
+html.atelier .about-card:hover {
+  background: var(--card) !important;
+  background-image: none !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 7px 9px 0 var(--ink) !important;
+  border-color: var(--ink) !important;
+  filter: none !important;
+}
+
+html.atelier .interactive-card .project-front {
+  transform: none !important;
+}
+
+html.atelier .interactive-card .project-actions {
+  position: static !important;
+  transform: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0.85rem 0 0 !important;
+  color: var(--ink) !important;
+}
+
+html.atelier .project-actions h4 {
+  display: none !important;
+}
+
+html.atelier .project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start !important;
+}
+
+html.atelier .project-btn,
+html.atelier .certification-link {
+  border: 1.5px solid var(--ink) !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  border-radius: 999px !important;
+  padding: 0.42rem 0.95rem !important;
+  font-family: var(--sans) !important;
+  font-size: 0.82rem !important;
+  box-shadow: none !important;
+}
+
+html.atelier .project-btn:hover,
+html.atelier .certification-link:hover {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}
+
+html.atelier .skill-persona-panel {
+  display: none !important;
+}
+
+html.atelier .fun-fact-card::before,
+html.atelier .fun-fact-card::after,
+html.atelier .certification-card::before,
+html.atelier .certification-card::after,
+html.atelier .interactive-card::after,
+html.atelier .skill-interactive-card::after,
+html.atelier .project-card::before,
+html.atelier .project-card::after {
+  display: none !important;
+  opacity: 0 !important;
+  content: none !important;
+}
+
+html.atelier .project-category,
+html.atelier .project-tag,
+html.atelier .certification-category,
+html.atelier .certification-issuer {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 999px !important;
+  padding: 0.2rem 0.65rem !important;
+  font-size: 0.72rem !important;
+  font-family: var(--sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+}
+
+html.atelier .fun-fact-emoji {
+  background: var(--paper) !important;
+  box-shadow: none !important;
+  border: 1.5px solid var(--line);
+}
+
+html.atelier .certification-image,
+html.atelier .certification-image::after {
+  box-shadow: none !important;
+  background: var(--paper) !important;
+  border-radius: 0.8rem !important;
+}
+
+html.atelier .cert-img {
+  border-radius: 0.8rem !important;
+  filter: none !important;
+}
+
+html.atelier .projects-cards-row,
+html.atelier .skills-cards-row,
+html.atelier .certifications-cards-row {
+  gap: 1.1rem !important;
+}
+
+html.atelier .case-studies-section::before,
+html.atelier .case-studies-section::after,
+html.atelier .projects-section::before,
+html.atelier .projects-section {
+  background: transparent !important;
+}
+
+html.atelier body.dark-theme .skills-section,
+html.atelier body.dark-theme .case-studies-section,
+html.atelier body.dark-theme .projects-section,
+html.atelier body.dark-theme .fun-facts-section,
+html.atelier body.dark-theme .experience-section {
+  background: transparent !important;
+}
+
+/* Story page — same paper system */
+html.atelier .my-story-page,
+html.atelier body.my-story-page {
+  background: var(--paper) !important;
+}
+
+html.atelier .my-story-hero-mesh,
+html.atelier .my-story-hero-orbs {
+  display: none !important;
+}
+
+html.atelier .my-story-hero {
+  background: transparent !important;
+}
+
+html.atelier .my-story-hero-title,
+html.atelier .my-story-chapter h2 {
+  font-family: var(--serif) !important;
+  color: var(--ink) !important;
+}
+
+html.atelier .my-story-hero-tagline,
+html.atelier .my-story-chapter p {
+  color: var(--ink);
+}
+
+html.atelier .my-story-chapter,
+html.atelier .my-story-quote {
+  background: var(--card) !important;
+  border: 1.5px solid var(--line) !important;
+  border-radius: 1.2rem;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+}

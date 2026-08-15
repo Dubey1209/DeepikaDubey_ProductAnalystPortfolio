@@ -161,20 +161,20 @@ const experienceData = {
     company: 'Zyra',
     companyFull: 'Zyra',
     type: 'Technology & Software',
-    period: 'Jun 2026 – Present',
+    period: 'Jun 2026 - Present',
     periodShort: 'Now',
     emoji: '⚡',
     accent: '#6366f1',
     highlight: 'Shipping features end-to-end',
     tags: ['Technical PM', 'Rapid Prototyping', 'Team Lead'],
     summary:
-      'Currently leading the software team and working closely with PMs and engineers to ship new features — making product decisions with the CEO, writing code when needed, and building rapid prototypes to move fast.',
+      'Currently leading the software team and working closely with PMs and engineers to ship new features - making product decisions with the CEO, writing code when needed, and building rapid prototypes to move fast.',
     description: `
       <ul>
         <li><strong>Lead software delivery</strong> across the team, keeping builds focused, fast, and aligned with product priorities.</li>
         <li><strong>Collaborate daily with PMs and engineers</strong> to turn product goals into clear specs, unblock development, and ship new features from idea to release.</li>
         <li><strong>Work with the CEO on product decisions</strong>, bringing user context, technical feasibility, and trade-off analysis to shape what we build next.</li>
-        <li><strong>Write code when required</strong> — jump into the codebase to fix blockers, validate implementations, and keep momentum high on critical releases.</li>
+        <li><strong>Write code when required</strong> - jump into the codebase to fix blockers, validate implementations, and keep momentum high on critical releases.</li>
         <li><strong>Build rapid prototypes</strong> to test ideas early, gather feedback faster, and de-risk feature bets before full engineering investment.</li>
         <li><strong>Drive end-to-end feature shipping</strong>, coordinating discovery, scoping, development, and launch so new capabilities reach users reliably and on time.</li>
       </ul>
@@ -186,7 +186,7 @@ const experienceData = {
     company: 'Tnumber',
     companyFull: 'Tnumber',
     type: 'Communication Platform',
-    period: 'Jan 2026 – Apr 2026',
+    period: 'Jan 2026 - Apr 2026',
     periodShort: '2026',
     emoji: '📱',
     accent: '#2a7ae2',
@@ -210,7 +210,7 @@ const experienceData = {
     company: 'THATha',
     companyFull: 'THATha Business Development',
     type: 'Early-stage SaaS Startup',
-    period: 'Jul 2025 – Nov 2025',
+    period: 'Jul 2025 - Nov 2025',
     periodShort: '2025',
     emoji: '🚀',
     accent: '#a259ff',
@@ -237,7 +237,7 @@ const experienceData = {
     company: 'SDC SI',
     companyFull: 'Software Incubator (SDC SI)',
     type: 'Mobile Product Development',
-    period: 'Aug 2023 – Nov 2023',
+    period: 'Aug 2023 - Nov 2023',
     periodShort: '2023',
     emoji: '🤖',
     accent: '#43e97b',
