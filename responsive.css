@@ -850,17 +850,6 @@ table {
     font-size: clamp(1.35rem, 5vw, 1.8rem) !important;
   }
 
-  .certifications-cards-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0;
-  }
-
-  .certification-card {
-    max-width: 100%;
-    width: 100%;
-  }
-
   .fun-facts-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -994,7 +983,6 @@ table {
   .projects-subtitle,
   .about-subtitle,
   .contact-subtitle,
-  .certifications-subtitle,
   .fun-facts-subtitle {
     padding: 0 0.25rem;
     font-size: 0.92rem;
@@ -1012,7 +1000,6 @@ table {
   }
 
   .project-card,
-  .certification-card,
   .fun-fact-card {
     padding: 1rem !important;
   }

@@ -526,3 +526,46 @@ function initExperienceShowcase() {
   });
 })();
 
+(function () {
+  var pile = document.getElementById('cert-pile');
+  var index = document.getElementById('cert-index');
+  if (!pile || !index) return;
+
+  var sheets = pile.querySelectorAll('.atelier-cert-sheet');
+  var tabs = index.querySelectorAll('button');
+  var issuerEl = document.getElementById('cert-issuer');
+  var titleEl = document.getElementById('cert-title');
+  var linkEl = document.getElementById('cert-link');
+
+  function showCert(i) {
+    sheets.forEach(function (sheet, n) {
+      var on = n === i;
+      sheet.classList.toggle('is-active', on);
+      sheet.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    tabs.forEach(function (tab, n) {
+      tab.classList.toggle('is-active', n === i);
+    });
+    var tab = tabs[i];
+    if (tab && issuerEl) issuerEl.textContent = tab.getAttribute('data-issuer') || '';
+    if (tab && titleEl) titleEl.textContent = tab.getAttribute('data-title') || '';
+    if (linkEl) linkEl.href = sheets[i].getAttribute('data-href') || '#';
+  }
+
+  sheets.forEach(function (sheet, i) {
+    sheet.addEventListener('click', function () {
+      if (sheet.classList.contains('is-active')) {
+        var href = sheet.getAttribute('data-href');
+        if (href) window.open(href, '_blank', 'noopener');
+        return;
+      }
+      showCert(i);
+    });
+  });
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () {
+      showCert(i);
+    });
+  });
+})();
+

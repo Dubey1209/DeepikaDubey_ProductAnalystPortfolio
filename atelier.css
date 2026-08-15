@@ -287,7 +287,8 @@ html.atelier .atelier-do-card p {
   font-size: 0.95rem;
 }
 
-html.atelier h2.skills-title.atelier-do-lead {
+html.atelier h2.skills-title.atelier-do-lead,
+html.atelier h2.certifications-title.atelier-do-lead {
   left: auto !important;
   transform: none !important;
   display: block !important;
@@ -330,6 +331,131 @@ html.atelier .atelier-skill-list li {
 @media (max-width: 760px) {
   html.atelier .atelier-skills-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+html.atelier .atelier-cert-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(14rem, 1fr);
+  gap: 1.6rem 2.8rem;
+  align-items: start;
+  justify-content: start;
+}
+
+html.atelier .atelier-cert-pile {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  max-width: 22rem;
+  margin: 0 0 0.9rem;
+}
+
+html.atelier .atelier-cert-sheet {
+  position: absolute;
+  inset: 11% 13%;
+  padding: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--card);
+  box-shadow: 7px 9px 0 var(--ink);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html.atelier .atelier-cert-sheet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+html.atelier .atelier-cert-sheet:nth-child(1) { transform: rotate(-8deg) translate(-14px, 10px); z-index: 1; }
+html.atelier .atelier-cert-sheet:nth-child(2) { transform: rotate(7deg) translate(20px, -8px); z-index: 2; }
+html.atelier .atelier-cert-sheet:nth-child(3) { transform: rotate(-5deg) translate(10px, 16px); z-index: 3; }
+html.atelier .atelier-cert-sheet:nth-child(4) { transform: rotate(4deg) translate(-8px, -6px); z-index: 4; }
+
+html.atelier .atelier-cert-sheet.is-active {
+  transform: rotate(-1.4deg) translate(0, 0) scale(1.02);
+  z-index: 8;
+  box-shadow: 9px 11px 0 var(--ink);
+}
+
+html.atelier .atelier-cert-caption h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.35rem !important;
+  color: var(--ink) !important;
+  line-height: 1.15;
+}
+
+html.atelier .atelier-cert-issuer {
+  margin: 0 0 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+html.atelier .atelier-cert-cta {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+html.atelier .atelier-cert-cta:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+html.atelier .atelier-cert-index {
+  display: flex;
+  flex-direction: column;
+}
+
+html.atelier .atelier-cert-index button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  width: 100%;
+  padding: 0.95rem 0.2rem 0.95rem 0.9rem;
+  border: 0;
+  border-left: 2px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+html.atelier .atelier-cert-index button span {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+html.atelier .atelier-cert-index button:hover,
+html.atelier .atelier-cert-index button.is-active {
+  border-left-color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+html.atelier .atelier-cert-index button.is-active span {
+  color: var(--accent);
+}
+
+@media (max-width: 800px) {
+  html.atelier .atelier-cert-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
   }
 }
 
@@ -530,7 +656,6 @@ html.atelier .section-header {
 }
 
 html.atelier .project-title,
-html.atelier .certification-title,
 html.atelier .certifications-title,
 html.atelier .education-degree {
   font-family: var(--serif) !important;
@@ -546,8 +671,7 @@ html.atelier .project-card {
 
 html.atelier .project-desc,
 html.atelier .project-desc ul,
-html.atelier .project-desc li,
-html.atelier .certification-desc {
+html.atelier .project-desc li {
   display: block !important;
   overflow: visible !important;
   height: auto !important;
@@ -630,7 +754,6 @@ html.atelier .about-card-label {
   color: var(--muted) !important;
 }
 
-html.atelier .certification-link,
 html.atelier .project-btn,
 html.atelier .edu-link {
   color: var(--accent) !important;
@@ -643,6 +766,11 @@ html.atelier .contact-info-desc {
 @media (prefers-reduced-motion: reduce) {
   html.atelier .atelier-ticker-track {
     animation: none !important;
+  }
+
+  html.atelier .atelier-cert-sheet,
+  html.atelier .atelier-cert-sheet.is-active {
+    transform: none !important;
   }
 }
 
@@ -675,7 +803,6 @@ html.atelier .contact-info-desc {
 /* —— Unify leftover old-portfolio cards to atelier —— */
 html.atelier .project-card,
 html.atelier .interactive-card,
-html.atelier .certification-card,
 html.atelier .fun-fact-card,
 html.atelier .about-card,
 html.atelier .education-card {
@@ -690,7 +817,6 @@ html.atelier .education-card {
 html.atelier .project-card:nth-child(n):hover,
 html.atelier .interactive-card:nth-child(n):hover,
 html.atelier .fun-fact-card:hover,
-html.atelier .certification-card:hover,
 html.atelier .about-card:hover {
   background: var(--card) !important;
   background-image: none !important;
@@ -722,8 +848,7 @@ html.atelier .project-buttons {
   justify-content: flex-start !important;
 }
 
-html.atelier .project-btn,
-html.atelier .certification-link {
+html.atelier .project-btn {
   border: 1.5px solid var(--ink) !important;
   background: transparent !important;
   color: var(--ink) !important;
@@ -734,16 +859,13 @@ html.atelier .certification-link {
   box-shadow: none !important;
 }
 
-html.atelier .project-btn:hover,
-html.atelier .certification-link:hover {
+html.atelier .project-btn:hover {
   background: var(--ink) !important;
   color: var(--paper) !important;
 }
 
 html.atelier .fun-fact-card::before,
 html.atelier .fun-fact-card::after,
-html.atelier .certification-card::before,
-html.atelier .certification-card::after,
 html.atelier .interactive-card::after,
 html.atelier .project-card::before,
 html.atelier .project-card::after {
@@ -753,9 +875,7 @@ html.atelier .project-card::after {
 }
 
 html.atelier .project-category,
-html.atelier .project-tag,
-html.atelier .certification-category,
-html.atelier .certification-issuer {
+html.atelier .project-tag {
   background: var(--paper) !important;
   color: var(--ink) !important;
   -webkit-text-fill-color: var(--ink) !important;
@@ -774,20 +894,7 @@ html.atelier .fun-fact-emoji {
   border: 1.5px solid var(--line);
 }
 
-html.atelier .certification-image,
-html.atelier .certification-image::after {
-  box-shadow: none !important;
-  background: var(--paper) !important;
-  border-radius: 0.8rem !important;
-}
-
-html.atelier .cert-img {
-  border-radius: 0.8rem !important;
-  filter: none !important;
-}
-
-html.atelier .projects-cards-row,
-html.atelier .certifications-cards-row {
+html.atelier .projects-cards-row {
   gap: 1.1rem !important;
 }
 

@@ -1052,8 +1052,7 @@ body.dark-theme .project-card.interactive-card .project-category {
     min-width: 0;
   }
 
-  .projects-cards-row,
-  .certifications-cards-row {
+  .projects-cards-row {
     padding-left: 0;
     padding-right: 0;
   }
