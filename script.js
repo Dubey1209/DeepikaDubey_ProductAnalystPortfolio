@@ -48,6 +48,7 @@ function toggleDropdown(e) {
   if (window.innerWidth <= 800) {
     e.preventDefault();
     const dropdown = this.nextElementSibling;
+    if (!dropdown) return;
     const isOpen = !dropdown.classList.contains('show');
 
     document.querySelectorAll('.dropdown-content').forEach((item) => {
@@ -111,7 +112,7 @@ if (menuToggle && navLinks) {
         toggleDropdown.call(toggle, e);
       } else if (e.key === 'Escape') {
         const dropdown = toggle.nextElementSibling;
-        dropdown.classList.remove('show');
+        if (dropdown) dropdown.classList.remove('show');
         toggle.setAttribute('aria-expanded', 'false');
       }
     });

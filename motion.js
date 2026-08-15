@@ -36,6 +36,9 @@
     .forEach(bindSpotlight);
 
   function bindTilt(photo, wrap) {
+    wrap.addEventListener('pointerenter', function () {
+      photo.style.transition = 'none';
+    });
     wrap.addEventListener(
       'pointermove',
       function (e) {
@@ -43,11 +46,12 @@
         var dx = (e.clientX - r.left) / r.width - 0.5;
         var dy = (e.clientY - r.top) / r.height - 0.5;
         photo.style.transform =
-          'rotateX(' + (-dy * 10).toFixed(2) + 'deg) rotateY(' + (dx * 12).toFixed(2) + 'deg) scale(1.03)';
+          'rotate(-3.5deg) rotateX(' + (-dy * 8).toFixed(2) + 'deg) rotateY(' + (dx * 10).toFixed(2) + 'deg) scale(1.1)';
       },
       { passive: true }
     );
     wrap.addEventListener('pointerleave', function () {
+      photo.style.transition = '';
       photo.style.transform = '';
     });
   }
