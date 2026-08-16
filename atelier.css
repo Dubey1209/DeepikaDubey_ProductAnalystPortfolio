@@ -55,7 +55,6 @@ html.atelier .experience-title,
 html.atelier .contact-title,
 html.atelier .fun-facts-title,
 html.atelier .writing-title,
-html.atelier .section-title,
 html.atelier .case-study-title {
   font-family: var(--serif) !important;
   letter-spacing: -0.03em;
@@ -470,8 +469,7 @@ html.atelier h2.certifications-title.atelier-do-lead,
 html.atelier h2.education-title.atelier-do-lead,
 html.atelier h2.experience-title.atelier-do-lead,
 html.atelier h2.fun-facts-title.atelier-do-lead,
-html.atelier h2.contact-title.atelier-do-lead,
-html.atelier h2.section-title.atelier-do-lead {
+html.atelier h2.contact-title.atelier-do-lead {
   left: auto !important;
   transform: none !important;
   display: block !important;
@@ -1378,8 +1376,7 @@ html.atelier h2.education-title,
 html.atelier h2.experience-title,
 html.atelier h2.contact-title,
 html.atelier .fun-facts-title,
-html.atelier .writing-title,
-html.atelier .section-title {
+html.atelier .writing-title {
   font-size: clamp(2rem, 4vw, 3rem) !important;
   color: var(--ink) !important;
   -webkit-text-fill-color: var(--ink) !important;
@@ -1848,8 +1845,7 @@ html.atelier .contact-section {
 }
 
 html.atelier .skills-section::before,
-html.atelier .skills-section::after,
-html.atelier .section-divider {
+html.atelier .skills-section::after {
   display: none !important;
 }
 
@@ -1933,12 +1929,6 @@ html.atelier .atelier-note {
     gap: 2rem;
   }
 
-  html.atelier .story-hero-frame {
-    order: -1;
-    justify-self: center;
-    text-align: center;
-  }
-
   html.atelier .home-photo {
     width: 240px !important;
     height: 300px !important;
@@ -1950,8 +1940,7 @@ html.atelier .atelier-note {
 
   html.atelier h2.about-title,
   html.atelier h2.projects-title,
-  html.atelier h2.contact-title,
-  html.atelier .section-title {
+  html.atelier h2.contact-title {
     text-align: left !important;
   }
 }
@@ -2084,83 +2073,6 @@ html.atelier .story-hero-title {
   -webkit-text-fill-color: var(--ink) !important;
   margin: 0 0 1rem !important;
   max-width: 12ch;
-}
-
-html.atelier .story-hero-lede {
-  max-width: 28rem;
-  margin: 0 0 2rem;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-html.atelier .story-toc {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 1.4rem;
-  max-width: 36rem;
-}
-
-html.atelier .story-toc a {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  padding: 0.42rem 0;
-  border-top: 1px solid var(--line);
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.88rem;
-}
-
-html.atelier .story-toc a:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-html.atelier .story-toc a > span:first-child {
-  flex: 0 0 1.8rem;
-  font-family: var(--serif);
-  color: var(--accent);
-  font-weight: 560;
-}
-
-html.atelier .story-toc-leader {
-  flex: 1 1 auto;
-  min-width: 1.2rem;
-  border-bottom: 1.5px dotted color-mix(in srgb, var(--ink) 28%, transparent);
-  transform: translateY(-0.22rem);
-}
-
-html.atelier .story-toc a:hover {
-  color: var(--accent);
-}
-
-html.atelier .story-hero-frame {
-  margin: 0;
-}
-
-html.atelier .story-hero-photo {
-  display: block;
-  width: 260px;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 1.5rem;
-  box-shadow: var(--shadow);
-  transform: rotate(-3deg) scale(1);
-  transform-origin: center center;
-  background: var(--card);
-  transition: transform 0.45s ease;
-}
-
-html.atelier .story-hero-frame:hover .story-hero-photo {
-  transform: rotate(-3deg) scale(1.08);
-}
-
-html.atelier .story-hero-frame figcaption {
-  margin-top: 1rem;
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--muted);
-  font-size: 0.95rem;
 }
 
 html.atelier .story-body {
@@ -2339,20 +2251,6 @@ html.atelier .story-back {
 
 html.atelier .story-back:hover {
   text-decoration: underline;
-}
-
-html.js-scroll-reveal .story-chapter:not(.reveal-in),
-html.js-scroll-reveal .story-act:not(.reveal-in) {
-  opacity: 0;
-  transform: translate3d(0, 18px, 0);
-}
-
-html.js-scroll-reveal .story-chapter.reveal-in,
-html.js-scroll-reveal .story-act.reveal-in {
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.atelier .case-studies-section .projects-cards-row,
@@ -2632,7 +2530,6 @@ html.atelier body.dark-theme .fun-facts-title,
 html.atelier body.dark-theme .writing-title,
 html.atelier body.dark-theme .certifications-title,
 html.atelier body.dark-theme .contact-title,
-html.atelier body.dark-theme .section-title,
 html.atelier body.dark-theme .atelier-do-lead,
 html.atelier body.dark-theme .case-study-title,
 html.atelier body.dark-theme .project-title,
@@ -2671,9 +2568,7 @@ html.atelier body.dark-theme .atelier-exp-summary,
 html.atelier body.dark-theme .atelier-exp-co,
 html.atelier body.dark-theme .atelier-contact-copy > p:not(.atelier-contact-status),
 html.atelier body.dark-theme .atelier-contact-links a > span:last-child,
-html.atelier body.dark-theme .story-hero-lede,
 html.atelier body.dark-theme .story-chapter p:not(.story-clock):not(.story-close-line):not(.story-emphasis),
-html.atelier body.dark-theme .story-hero-frame figcaption,
 html.atelier body.dark-theme .story-act p,
 html.atelier body.dark-theme .story-aside p,
 html.atelier body.dark-theme .story-pull-tag,
@@ -2911,8 +2806,7 @@ html.atelier .lock-notification--error {
   html.atelier .project-card:nth-child(n):hover,
   html.atelier .interactive-card:nth-child(n):hover,
   html.atelier .home-photo:hover,
-  html.atelier .atelier-about-frame:hover .atelier-about-photo,
-  html.atelier .story-hero-frame:hover .story-hero-photo {
+  html.atelier .atelier-about-frame:hover .atelier-about-photo {
     transform: none !important;
     box-shadow: none !important;
   }
@@ -2923,10 +2817,6 @@ html.atelier .lock-notification--error {
 
   html.atelier .atelier-about-frame:hover .atelier-about-photo {
     transform: rotate(2.5deg) !important;
-  }
-
-  html.atelier .story-hero-frame:hover .story-hero-photo {
-    transform: rotate(-3deg) !important;
   }
 }
 
@@ -3064,7 +2954,6 @@ html.atelier .lock-notification--error {
   html.atelier .fun-facts-title,
   html.atelier h2.writing-title,
   html.atelier .writing-title,
-  html.atelier .section-title,
   html.atelier .atelier-do-lead,
   html.atelier h2.atelier-do-lead,
   html.atelier .atelier-skills-intro .skills-title {
@@ -3160,16 +3049,6 @@ html.atelier .lock-notification--error {
     padding: 1.3rem 0 0.6rem;
   }
 
-  html.atelier .story-hero-photo {
-    width: 168px;
-    height: 214px;
-  }
-
-  html.atelier .story-toc {
-    max-width: none;
-    grid-template-columns: 1fr;
-  }
-
   html.atelier .story-chapter {
     grid-template-columns: 2.5rem minmax(0, 1fr);
     gap: 0.7rem;
@@ -3232,6 +3111,10 @@ html.atelier .lock-notification--error {
     color: var(--ink);
     width: min(86vw, 22rem);
     max-width: 22rem;
+    border-right: none !important;
+    border-left: 1.5px solid var(--line);
+    box-shadow: -16px 0 40px color-mix(in srgb, var(--ink) 14%, transparent) !important;
+    backdrop-filter: none;
   }
 
   html.atelier .nav-links a,
@@ -3239,6 +3122,26 @@ html.atelier .lock-notification--error {
     color: var(--ink) !important;
     border-bottom-color: var(--line) !important;
     padding: 0.9rem 0;
+  }
+
+  html.atelier body.dark-theme .nav-links,
+  html.atelier body.dark-theme .nav-links.open {
+    background: var(--card) !important;
+    box-shadow: -18px 0 44px rgba(0, 0, 0, 0.55) !important;
+    border-left-color: color-mix(in srgb, var(--spin) 55%, transparent);
+  }
+
+  html.atelier body.dark-theme .nav-links > li > a,
+  html.atelier body.dark-theme .nav-links .dropbtn {
+    color: var(--ink) !important;
+    border-bottom-color: var(--line) !important;
+  }
+
+  html.atelier body.dark-theme .nav-links > li > a:hover,
+  html.atelier body.dark-theme .nav-links > li > a:focus,
+  html.atelier body.dark-theme .nav-links > li > a[aria-expanded="true"] {
+    background: color-mix(in srgb, var(--spin) 14%, transparent) !important;
+    color: var(--spin) !important;
   }
 
   html.atelier .dropdown-content {
@@ -3262,6 +3165,90 @@ html.atelier .lock-notification--error {
     bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
     width: 42px;
     height: 42px;
+  }
+}
+
+@media (max-width: 800px) {
+  html.atelier .nav-links,
+  html.atelier .nav-links.open {
+    background: var(--paper) !important;
+    box-shadow: -16px 0 40px color-mix(in srgb, var(--ink) 14%, transparent) !important;
+    border-right: none !important;
+    border-left: 1.5px solid var(--line);
+    backdrop-filter: none;
+  }
+
+  html.atelier body.dark-theme .nav-links,
+  html.atelier body.dark-theme .nav-links.open {
+    background: var(--card) !important;
+    box-shadow: -18px 0 44px rgba(0, 0, 0, 0.55) !important;
+    border-left-color: color-mix(in srgb, var(--spin) 55%, transparent);
+  }
+
+  html.atelier .nav-links > li > a,
+  html.atelier .nav-links .dropbtn {
+    color: var(--ink) !important;
+  }
+
+  html.atelier .nav-links > li > a:hover,
+  html.atelier .nav-links > li > a:focus,
+  html.atelier .nav-links li a:hover,
+  html.atelier .nav-links li a:focus {
+    background: color-mix(in srgb, var(--spin) 12%, transparent) !important;
+    color: var(--spin) !important;
+    transform: none;
+  }
+
+  html.atelier body.dark-theme .nav-links > li > a:hover,
+  html.atelier body.dark-theme .nav-links > li > a:focus,
+  html.atelier body.dark-theme .nav-links > li > a[aria-expanded="true"] {
+    background: color-mix(in srgb, var(--spin) 14%, transparent) !important;
+    color: var(--spin) !important;
+  }
+
+  html.atelier .drawer-close-btn {
+    background: var(--card) !important;
+    color: var(--ink) !important;
+    border: 1.5px solid var(--line) !important;
+    box-shadow: none !important;
+    border-radius: 10px;
+  }
+
+  html.atelier .drawer-close-btn:hover,
+  html.atelier .drawer-close-btn:focus {
+    background: var(--spin) !important;
+    color: var(--paper) !important;
+    box-shadow: none !important;
+    outline: 2px solid var(--spin);
+  }
+
+  html.atelier .drawer-theme-toggle-li .theme-toggle-btn,
+  html.atelier .drawer-theme-toggle-li .theme-toggle-btn:hover,
+  html.atelier .drawer-theme-toggle-li .theme-toggle-btn:focus,
+  html.atelier .drawer-theme-toggle-li .theme-toggle-btn:active {
+    background: var(--card) !important;
+    color: var(--ink) !important;
+    border: 1.5px solid var(--line) !important;
+    box-shadow: none !important;
+  }
+
+  html.atelier body.dark-theme .menu-toggle {
+    background: var(--card) !important;
+    box-shadow: none;
+  }
+
+  html.atelier body.dark-theme .dropdown-content {
+    background: var(--paper) !important;
+  }
+
+  html.atelier body.dark-theme .dropdown-content a {
+    color: var(--ink) !important;
+  }
+
+  html.atelier body.dark-theme .dropdown-content a:hover,
+  html.atelier body.dark-theme .dropdown-content a:focus {
+    background: color-mix(in srgb, var(--spin) 14%, transparent) !important;
+    color: var(--spin) !important;
   }
 }
 

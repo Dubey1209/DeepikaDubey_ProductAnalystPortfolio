@@ -40,33 +40,9 @@ main .section,
   scroll-margin-top: 0;
 }
 
-/* Soft ambient background */
-body {
-  background-color: #f9f9f9;
-  background-image:
-    radial-gradient(ellipse 130% 90% at 0% -30%, rgba(42, 122, 226, 0.09), transparent 55%),
-    radial-gradient(ellipse 100% 70% at 100% 0%, rgba(162, 89, 255, 0.07), transparent 50%),
-    radial-gradient(ellipse 90% 60% at 50% 110%, rgba(42, 122, 226, 0.05), transparent 55%);
-  background-attachment: fixed;
-}
-
-/* Layer gradients over existing dark base from styles.css */
-body.dark-theme {
-  background-color: #181c24;
-  background-image:
-    linear-gradient(180deg, #181c24 0%, #181c24 100%),
-    radial-gradient(ellipse 130% 90% at 0% -25%, rgba(42, 122, 226, 0.14), transparent 55%),
-    radial-gradient(ellipse 100% 70% at 100% 5%, rgba(162, 89, 255, 0.11), transparent 50%);
-  background-attachment: fixed;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  body {
-    background-attachment: scroll;
   }
 }
 
@@ -124,8 +100,7 @@ body.portfolio-is-locked {
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .interactive-card:hover .project-front {
+@media (hover: none) and (pointer: coarse) {.interactive-card:hover .project-front {
     transform: none !important;
   }
 
@@ -244,8 +219,7 @@ body.dark-theme .story-btn-hint::after {
   border-color: rgba(147, 197, 253, 0.38);
 }
 
-@media (hover: none) {
-  .story-btn-wrap:focus-within .story-btn-hint {
+@media (hover: none) {.story-btn-wrap:focus-within .story-btn-hint {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0) scale(1);
@@ -297,8 +271,7 @@ body.dark-theme .project-card.interactive-card .project-category {
 }
 
 /* —— Mobile polish (loads last) —— */
-@media (max-width: 767px) {
-  .home-container {
+@media (max-width: 767px) {.home-container {
     padding-bottom: 3rem;
     gap: 1.5rem;
   }
@@ -308,9 +281,7 @@ body.dark-theme .project-card.interactive-card .project-category {
     width: 100%;
   }
 
-  .about-content {
-    min-width: 0;
-  }
+  
 
   .projects-cards-row {
     padding-left: 0;
@@ -322,23 +293,14 @@ body.dark-theme .project-card.interactive-card .project-category {
     min-height: 280px;
   }
 
-  .contact-form-card,
-  .contact-info {
-    min-width: 0;
-    width: 100%;
-  }
+  
 
-  .my-story-hero-content {
-    padding: 0 0.25rem;
-  }
+  
 
-  .my-story-scroll-container {
-    padding: 0;
-  }
+  
 }
 
-@media (max-width: 480px) {
-  .container {
+@media (max-width: 480px) {.container {
     width: min(96vw, 1100px) !important;
     max-width: min(96vw, 1100px) !important;
   }

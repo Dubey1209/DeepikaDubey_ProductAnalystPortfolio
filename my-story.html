@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap">
   <link rel="preload" as="image" href="ProfilePhoto.jpeg">
-  <link rel="stylesheet" href="styles.css?v=fast1">
-  <link rel="stylesheet" href="responsive.css?v=fast1">
-  <link rel="stylesheet" href="polish.css?v=fast1">
-  <link rel="stylesheet" href="motion.css?v=fast1">
-  <link rel="stylesheet" href="atelier.css?v=fast1">
+  <link rel="stylesheet" href="styles.css?v=fast3">
+  <link rel="stylesheet" href="responsive.css?v=fast3">
+  <link rel="stylesheet" href="polish.css?v=fast2">
+  <link rel="stylesheet" href="atelier.css?v=fast3">
+  <link rel="stylesheet" href="motion.css?v=fx45">
 </head>
 <body class="my-story-page">
   <script>
@@ -76,30 +76,14 @@
         <div class="story-hero-copy">
           <p class="atelier-label">Story</p>
           <h1 class="story-hero-title">The long version.</h1>
-          <p class="story-hero-lede">Curiosity, a skipped safe path, and a quiet evening at 9:34 PM.</p>
-          <nav class="story-toc" aria-label="Chapters">
-            <a href="#ch-curious"><span>01</span><span class="story-toc-leader" aria-hidden="true"></span><span>Curious</span></a>
-            <a href="#ch-websites"><span>02</span><span class="story-toc-leader" aria-hidden="true"></span><span>Websites</span></a>
-            <a href="#ch-android"><span>03</span><span class="story-toc-leader" aria-hidden="true"></span><span>Android</span></a>
-            <a href="#ch-ui"><span>04</span><span class="story-toc-leader" aria-hidden="true"></span><span>UI/UX</span></a>
-            <a href="#ch-product"><span>05</span><span class="story-toc-leader" aria-hidden="true"></span><span>Product</span></a>
-            <a href="#ch-pressure"><span>06</span><span class="story-toc-leader" aria-hidden="true"></span><span>Pressure</span></a>
-            <a href="#ch-juggle"><span>07</span><span class="story-toc-leader" aria-hidden="true"></span><span>Juggling</span></a>
-            <a href="#ch-realize"><span>08</span><span class="story-toc-leader" aria-hidden="true"></span><span>Realization</span></a>
-            <a href="#ch-engineer"><span>09</span><span class="story-toc-leader" aria-hidden="true"></span><span>Engineer</span></a>
-            <a href="#ch-right"><span>10</span><span class="story-toc-leader" aria-hidden="true"></span><span>Harder right</span></a>
-            <a href="#ch-questions"><span>11</span><span class="story-toc-leader" aria-hidden="true"></span><span>The questions</span></a>
-            <a href="#ch-marathon"><span>12</span><span class="story-toc-leader" aria-hidden="true"></span><span>Off-campus</span></a>
-            <a href="#ch-spark"><span>13</span><span class="story-toc-leader" aria-hidden="true"></span><span>9:34 PM</span></a>
-            <a href="#ch-begin"><span>14</span><span class="story-toc-leader" aria-hidden="true"></span><span>Beginning</span></a>
-          </nav>
         </div>
-        <figure class="story-hero-frame">
-          <img src="ProfilePhoto.jpeg" alt="Deepika Dubey" class="story-hero-photo" width="260" height="330" fetchpriority="high" decoding="async">
-          <figcaption>The person behind the resume.</figcaption>
-        </figure>
       </div>
     </header>
+
+    <div class="container" id="story-book-mount"></div>
+    <div class="container">
+      <a class="story-back" href="index.html">← Back to the work</a>
+    </div>
 
     <div class="container story-body">
       <article class="story-chapter" id="ch-curious">
@@ -323,6 +307,7 @@
           </ul>
         </div>
       </div>
+      <p class="fx-footer-mark" aria-hidden="true"><span>Let's ship.</span></p>
       <div class="atelier-footer-bottom">
         <p>© 2026 Deepika Dubey</p>
         <a href="#main-content">Back to top</a>
@@ -331,9 +316,13 @@
     <button class="scroll-top-btn" type="button" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
   <script src="script.js?v=fast1" defer></script>
   <script src="theme-toggle.js?v=fast1" defer></script>
-  <script src="my-story-reveal.js?v=fast1" defer></script>
-  <script src="motion.js?v=fast1" defer></script>
+  <script src="motion.js?v=fx33" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js" defer></script>
+  <script src="story-book.js?v=fx45" defer></script>
 </body>
 </html>
