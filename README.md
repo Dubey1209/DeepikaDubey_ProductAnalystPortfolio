@@ -182,9 +182,77 @@ about before editing `tests/visual.mjs`:
   sub-pixel wobble in the hero cannot fail the suite while a genuine regression
   still does.
 
+### Known limitation: sensitivity on tall pages
+
+Failure is triggered by a *proportion* of changed pixels (0.2%), which on the
+full-page index capture (roughly 1584 × 11021) is about 35,000 pixels of
+allowance. A small change — a line of coloured text, a tag, an icon — can
+therefore pass unnoticed. The `.project-category` colour change in Phase 2 did
+exactly that.
+
+The proportional threshold exists to absorb a sub-pixel wobble in the hero
+photo that has resisted every attempt to pin it down. The right fix is to
+eliminate that instability and then tighten the threshold to an absolute pixel
+count; until then, treat "all scenarios pass" as strong evidence for layout and
+colour changes at component scale, and verify small text-level changes by
+reading the computed style directly.
+
+Clipping helps: `nav-dropdown-*` captures only the top 240 px, which excludes
+the hero entirely and makes those scenarios genuinely tight.
+
 `prefers-reduced-motion` is deliberately **not** used to calm the page down:
 all five stylesheets restyle the site under that media query, so it would
 capture a design real visitors never see.
+
+## Known bugs (found during the Phase 2 audit, not yet fixed)
+
+These are real, visible defects rather than tidiness issues. They are recorded
+here rather than fixed immediately because each one lives in a file that a
+later phase restructures, and because none of them is currently covered by a
+visual regression scenario — coverage has to come first.
+
+1. **`polish.css:241` defeats the token system.** `body.dark-theme
+   .project-card.interactive-card .project-category { color: #7eb6ff
+   !important }` has specificity 0-4-2, which beats every `atelier.css` rule
+   for `.project-category`. `polish.css` loads *before* `atelier.css`, but
+   specificity outranks order, so this hardcoded blue wins in dark mode. It is
+   the only `!important` colour in the codebase that overrides the palette.
+2. **Dark dropdown uses the old shadow.** `styles.css:219` sets `box-shadow: 0
+   8px 16px rgba(0,0,0,0.3)` on `.dropdown-content`, and `atelier.css:1812`
+   sets the intended `6px 8px 0 var(--ink)` at *lower* specificity without
+   `!important` — so the superseded shadow is what actually renders.
+3. **Dropdown hover leaks two properties.** `styles.css:230-231` and
+   `styles.css:244` (`color: #ffffff !important`, `border-left-color: #2a7ae2
+   !important`) survive because `atelier.css:1819` only sets `background`.
+4. **The success toast has no dark variant.** `polish.css:266` gives
+   `.lock-notification--success` a hardcoded `#1a1713` background, which stays
+   near-black in dark mode. Worth checking its text contrast.
+
+5. **Tapping "Work" in the mobile drawer also scrolls the page.**
+   `toggleDropdown` in `script.js` calls `preventDefault`, but the same file
+   separately binds a smooth-scroll handler to every `a[href^="#"]` — and one
+   listener calling `preventDefault` does not stop another listener on the same
+   element. Both run, so the submenu opens *and* the page jumps to Case
+   Studies.
+6. **Drawer items can become unreachable.** `atelier.css:1802` sets
+   `flex-wrap: wrap` on `.nav-links` globally. On mobile the drawer is a
+   fixed-height `flex-direction: column`, so when the items exceed the viewport
+   height — which happens as soon as the submenu expands — they wrap into a
+   second column beyond the drawer's width and are clipped off-screen. Story
+   and Contact are the casualties.
+
+Bugs 2 and 3 disappear on their own when `styles.css` is dismantled in Phase 3.
+Bugs 5 and 6 are now covered by the `nav-drawer-*` scenarios, so they can be
+fixed safely.
+
+### A trap to remember when tokenising
+
+`#1a1713` and `#f3eee4` are simultaneously light `--ink`/dark `--paper` and
+light `--paper`/dark `--ink` — the two tokens are exact swaps of each other. A
+hardcoded instance of either is therefore ambiguous, and substituting the wrong
+token inverts the colour in dark mode. Two places depend on staying hardcoded
+because they need *fixed* contrast against a `--spin` background:
+`motion.css:1126` and `atelier.css:2439`.
 
 ## Refactor status
 

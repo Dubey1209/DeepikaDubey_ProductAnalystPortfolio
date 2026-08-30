@@ -233,13 +233,14 @@ body.dark-theme .story-btn-hint::after {
     box-shadow 0.45s ease;
 }
 
-/* Project cards: same category color on every card */
+/* Project cards: same category colour on every card.
+   Was a hardcoded #2a7ae2 with a #7eb6ff dark twin. Both sat at specificity
+   0-4-2 with !important, which outranks every atelier.css rule for this
+   element regardless of load order -- so the category colour was the one place
+   in the site that ignored the palette outright. The token supplies both
+   themes, so the dark rule is no longer needed. */
 .project-card.interactive-card .project-category {
-  color: #2a7ae2 !important;
-}
-
-body.dark-theme .project-card.interactive-card .project-category {
-  color: #7eb6ff !important;
+  color: var(--accent) !important;
 }
 
 /* Unlock toast */

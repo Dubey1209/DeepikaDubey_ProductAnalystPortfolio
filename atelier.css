@@ -1,7 +1,13 @@
 /* Atelier — Sam-inspired personal site, built for Deepika.
    Loaded last so it can win the old card-portfolio styles. */
 
-html.atelier {
+/* Design tokens — the single source of truth for the palette.
+   Every value below is unchanged from when these lived on `html.atelier`;
+   only the selector moved. `html.atelier` IS the root element, so this is
+   visually identical today. The point is to decouple the theme from that
+   class, so the `html.atelier` prefixes can be removed when the stylesheets
+   are collapsed without taking the palette down with them. */
+:root {
   --paper: #f3eee4;
   --ink: #1a1713;
   --muted: #6b645b;
@@ -14,8 +20,13 @@ html.atelier {
   --serif: 'Fraunces', serif;
 }
 
-html.atelier body.dark-theme,
-html.atelier:has(body.dark-theme) {
+/* Dark palette. Declared twice on purpose, matching the previous behaviour:
+   the `:root` variant reaches elements outside `<body>` (the page background
+   itself), while `body.dark-theme` covers everything inside it and still works
+   in browsers without `:has()`. Only the eight colour tokens flip -- the two
+   font tokens are intentionally inherited from `:root`. */
+:root:has(body.dark-theme),
+body.dark-theme {
   --paper: #161310;
   --ink: #f3eee4;
   --muted: #b7aea3;
@@ -1413,8 +1424,7 @@ html.atelier .contact-section {
   padding-bottom: 3.5rem;
 }
 
-html.atelier .contact-title,
-html.atelier body.dark-theme .contact-title {
+html.atelier .contact-title {
   color: var(--ink) !important;
   -webkit-text-fill-color: var(--ink) !important;
 }
@@ -2482,10 +2492,6 @@ body.dark-theme .work-modal-close {
   line-height: 1.5;
 }
 
-body.dark-theme .work-modal-hook {
-  color: #b7aea3;
-}
-
 .work-modal-body ul {
   margin: 0;
   padding-left: 1.1rem;
@@ -2503,11 +2509,10 @@ body.dark-theme .work-modal-hook {
   gap: 0.5rem;
   margin-top: 1.35rem;
   padding-top: 1.1rem;
-  border-top: 1px solid rgba(26, 23, 19, 0.1);
-}
-
-body.dark-theme .work-modal-actions {
-  border-top-color: rgba(243, 238, 228, 0.12);
+  /* Was rgba(26, 23, 19, 0.1) with a dark-mode twin at 0.12. The 0.02 alpha
+     difference between the two looked like an oversight rather than intent,
+     so both collapse into the token. */
+  border-top: 1px solid var(--line);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3131,12 +3136,6 @@ html.atelier .lock-notification--error {
     border-left-color: color-mix(in srgb, var(--spin) 55%, transparent);
   }
 
-  html.atelier body.dark-theme .nav-links > li > a,
-  html.atelier body.dark-theme .nav-links .dropbtn {
-    color: var(--ink) !important;
-    border-bottom-color: var(--line) !important;
-  }
-
   html.atelier body.dark-theme .nav-links > li > a:hover,
   html.atelier body.dark-theme .nav-links > li > a:focus,
   html.atelier body.dark-theme .nav-links > li > a[aria-expanded="true"] {
@@ -3239,10 +3238,6 @@ html.atelier .lock-notification--error {
 
   html.atelier body.dark-theme .dropdown-content {
     background: var(--paper) !important;
-  }
-
-  html.atelier body.dark-theme .dropdown-content a {
-    color: var(--ink) !important;
   }
 
   html.atelier body.dark-theme .dropdown-content a:hover,

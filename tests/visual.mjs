@@ -274,6 +274,29 @@ async function preparePage(page, scenario) {
   await sleep(250);
 }
 
+/**
+ * Open the mobile drawer by setting the classes directly rather than clicking.
+ *
+ * Clicking is avoided for two reasons. It leaves focus artefacts in the
+ * screenshot (a focus ring, and the skip link becoming visible), and tapping
+ * "Work" also scrolls the page to Case Studies -- `toggleDropdown` calls
+ * `preventDefault`, but `script.js` binds a separate smooth-scroll handler to
+ * every `a[href^="#"]`, and one listener's preventDefault does not stop
+ * another on the same element. See the known-bugs list in the README.
+ *
+ * These scenarios exist to protect the drawer's CSS, so driving the classes is
+ * both more deterministic and closer to what is being tested.
+ */
+async function openDrawer(page, withDropdown) {
+  await page.evaluate((dropdown) => {
+    document.querySelector('.nav-links')?.classList.add('open');
+    document.querySelector('.drawer-overlay')?.classList.add('visible');
+    if (dropdown) document.querySelector('.dropdown-content')?.classList.add('show');
+    document.activeElement?.blur?.();
+  }, withDropdown);
+  await sleep(350);
+}
+
 function buildScenarios() {
   const scenarios = [];
 
@@ -336,6 +359,53 @@ function buildScenarios() {
     width: 375,
     height: 812,
     fullPage: false,
+  });
+
+  // Navigation states. These are closed in every other scenario, which left
+  // the dropdown and the mobile drawer entirely uncovered -- and that is
+  // exactly where the known dark-mode bugs live, so they cannot be fixed
+  // safely without these.
+  for (const theme of THEMES) {
+    scenarios.push({
+      name: `nav-dropdown-desktop-${theme}`,
+      path: '/index.html',
+      theme,
+      width: 1440,
+      height: 900,
+      fullPage: false,
+      // Clipped to the nav strip. The hero photo below it has a sub-pixel
+      // wobble between runs, and including it would drown out the thing this
+      // scenario actually exists to protect.
+      clip: { x: 0, y: 0, width: 1440, height: 240 },
+      action: async (page) => {
+        // Opened by CSS :hover on desktop, not by script.js. Hovering the
+        // centre keeps the magnetic-cursor offset at zero, so it stays
+        // deterministic.
+        await page.locator('.nav-links .dropbtn').first().hover();
+        await sleep(400);
+      },
+    });
+
+    scenarios.push({
+      name: `nav-drawer-mobile-${theme}`,
+      path: '/index.html',
+      theme,
+      width: 375,
+      height: 812,
+      fullPage: false,
+      action: (page) => openDrawer(page, false),
+    });
+  }
+
+  // The drawer's own dropdown, which is a separate set of rules again.
+  scenarios.push({
+    name: 'nav-drawer-dropdown-mobile-dark',
+    path: '/index.html',
+    theme: 'dark',
+    width: 375,
+    height: 812,
+    fullPage: false,
+    action: (page) => openDrawer(page, true),
   });
 
   // The work modal is fixed-position, so it is captured at viewport size.
@@ -426,7 +496,10 @@ async function main() {
     try {
       const page = await context.newPage();
       await preparePage(page, scenario);
-      return await page.screenshot({ fullPage: scenario.fullPage });
+      return await page.screenshot({
+        fullPage: scenario.fullPage,
+        ...(scenario.clip ? { clip: scenario.clip } : {}),
+      });
     } finally {
       await context.close();
     }
