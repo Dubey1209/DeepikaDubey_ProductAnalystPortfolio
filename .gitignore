@@ -1,0 +1,22 @@
+# Windows / OneDrive artifacts
+desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+
+# Dev tooling (verification harness only - the site itself has no build step)
+node_modules/
+package-lock.json
+
+# Visual regression output. Baselines in tests/baseline/ ARE committed;
+# these two directories are generated per-run and must not be.
+tests/current/
+tests/diff/
+
+# Editor / OS
+*.swp
+*~
+.idea/

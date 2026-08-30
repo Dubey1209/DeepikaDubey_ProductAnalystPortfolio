@@ -1,0 +1,17 @@
+{
+  "name": "deepikadubey-portfolio-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only visual regression harness. NOT a build step - the site deploys as plain static files.",
+  "scripts": {
+    "serve": "node tests/serve.mjs",
+    "baseline": "node tests/visual.mjs --update",
+    "test:visual": "node tests/visual.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0",
+    "pixelmatch": "^6.0.0",
+    "pngjs": "^7.0.0"
+  }
+}
