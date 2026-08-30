@@ -278,13 +278,18 @@ as of the Phase 3 merge.
    `atelier.css` rule for `.project-category`. It lived in `polish.css`, which
    loaded *before* `atelier.css`, but specificity outranks order, so the
    hardcoded blue won in dark mode. Now `var(--accent)`, at `atelier.css:255`.
-2. **Dark dropdown uses the old shadow.** `base.css:232` sets `box-shadow: 0
-   8px 16px rgba(0,0,0,0.3)` on `.dropdown-content`, and `atelier.css` sets the
-   intended `6px 8px 0 var(--ink)` at *lower* specificity without `!important`
-   — so the superseded shadow is what actually renders.
-3. **Dropdown hover leaks two properties.** `base.css:243-244` and
-   `base.css:257` (`color: #ffffff !important`, `border-left-color: #2a7ae2
+2. **The dropdown has no shadow at all.** `base.css:1466` sets `box-shadow: none
+   !important` on `.dropdown-content`, which beats the intended `6px 8px 0
+   var(--ink)` at `atelier.css:2139` however specific that rule is. Originally
+   recorded here as "dark mode renders the old `0 8px 16px rgba(0,0,0,0.3)`
+   shadow" — wrong: the prober found that rule inert and deleting it changed
+   nothing, because the `!important` none was already winning. Both themes get a
+   flat dropdown.
+3. **Dropdown hover leaks two properties.** `base.css:225-226` and
+   `base.css:236` (`color: #ffffff !important`, `border-left-color: #2a7ae2
    !important`) survive because the `atelier.css` rule only sets `background`.
+   These are `:hover` rules, which the prober reports as unverifiable, so they
+   need fixing by hand.
 4. **The success toast has no dark variant.** `atelier.css:278` gives
    `.lock-notification--success` a hardcoded `#1a1713` background, which stays
    near-black in dark mode. Worth checking its text contrast.
@@ -369,6 +374,11 @@ equivalent to deleting — the declarations stop applying while every other
 rule's specificity and order stay put — and the rule is restored either way, so
 one page load probes a whole stylesheet.
 
+It then does a second sweep that blanks the entire set of candidate deletions at
+once and compares a fixed property list across every element, putting rules back
+until the page is identical again. Per-rule verdicts cannot see two rules that
+cover for each other, and this is what catches them; see below.
+
 It exists because `npm run computed` takes six minutes, which is enough to
 answer "did this batch break anything" but not "which of these 44 rules is the
 problem". Bisecting with it would take hours; this answers per rule in
@@ -382,18 +392,53 @@ Verdicts:
 | `live` | Removing it changes something. Keep. |
 | `inert` | Matched and measured; every declaration is overridden. Safe to delete. |
 | `unmatched` | Matches nothing in any probed state. Not pruned by default — the element may be built by JavaScript. |
-| `unverifiable` | A `:hover`/`:focus`/`:active` rule. Nothing here enters that state, so it would look inert whatever it contains. |
+| `unverifiable` | A `:hover`/`:focus`/`:active` rule, or one whose media query never applied at any probed width. Either would look inert whatever it contains. |
 
 `prune-rules.mjs` deletes the `inert` rules, refusing to write if the braces
 stop balancing or two ranges overlap.
 
-### Four things that had to be got right
+### Eight things that had to be got right
 
-Each of these produced a confidently wrong answer first:
+Each of these produced a confidently wrong answer first, and each was caught by
+`npm run computed` after the deletions were applied:
 
 - **Probing at rest is not enough.** Without the drawer and modal states, every
   `.nav-links.open` rule looked unmatched — true of a still page and a terrible
   reason to delete them. The prober now uses the shared scenario list.
+- **Transitions hide the effect of a deletion.** Blanking a transitioned
+  property does not change the computed style; it starts animating towards the
+  new value, so an immediate read returns the old one.
+  `.theme-toggle-icon-wrapper { transform: translateX(0) }` — the only rule
+  providing that transform — was reported inert in all 22 states for this
+  reason. Ordinary properties are now measured with transitions suppressed,
+  where a deletion takes effect at once. But suppressing transitions rewrites
+  every `transition-*` to `none`, which hid changes to those properties and cost
+  the transitions on links and on `body` in an earlier attempt. So there are two
+  passes over every state, covering disjoint property sets: transitions off for
+  everything else, transitions on for `transition-*`, which is sound because
+  those properties are not themselves animated.
+- **A dormant media query proves nothing.** Blanking a rule inside a query that
+  does not currently match provably changes nothing, which says nothing about
+  the widths where it does match. With only 375/800/1440 probed, a rule inside
+  `(min-width: 992px) and (max-width: 1199px)` was dormant everywhere and read
+  as inert. The prober now checks `matchMedia` before judging a rule, sweeps a
+  width either side of every declared breakpoint, and reports a rule whose query
+  never applied as unverifiable rather than dead. This alone moved 32 rules out
+  of the delete list, 15 of them provably live.
+- **Both themes, every state.** Probing the drawer, lock screen and modal in
+  dark only meant any rule that a `body.dark-theme` rule happens to override was
+  measured inert while being the only thing styling that element in light mode.
+  That pruned the light drawer's position and its close button.
+- **Redundant pairs cannot be judged one at a time.** `base.css` hides
+  `.drawer-close-btn-li` on desktop in two separate rules, so each is inert on
+  its own and removing both leaves the button visible. Leaving inert rules
+  blanked so later rules are judged in context looks like the fix and is worse:
+  verdicts combine across states while the blanking happens within one, so
+  `.nav-links.open .drawer-close-btn-li` was judged inert with a rule blanked
+  ahead of it that is live with the drawer shut and survived the prune — hiding
+  the close button in the open drawer. Hence the batch validation pass, which
+  tests the set that will actually be deleted instead of reasoning about it. It
+  reinstated 5 of 144 candidates.
 - **`querySelectorAll` cannot match a pseudo-element.** `.foo::before` returned
   nothing and two decorative rules were declared dead while painting on screen.
   The pseudo is stripped for matching and passed to `getComputedStyle`.
@@ -408,17 +453,29 @@ Each of these produced a confidently wrong answer first:
 
 ### When the two harnesses disagree
 
-It happens, and the computed one wins. After this pruning `index-desktop-light`
-reported 0.34% of pixels changed while all 25 computed snapshots were
-byte-identical. The diff image was red over the hero and About photos only —
+It happens, and the computed one wins. `index-desktop-light` has reported 0.34%
+of pixels changed, and `index-desktop-dark` 0.21%, while all 25 computed
+snapshots were byte-identical. The diff image was red over the hero and About photos only —
 the GSAP wobble, whose inline-styled geometry the computed harness exempts by
 design. Re-running the scenario against the previous commit failed the same
 way, which settled it.
 
 Worth knowing: **the wobble can exceed the 0.2% threshold**, so a screenshot
 failure confined to those two photos is not evidence of anything on its own.
-Check `npm run computed`, and confirm by testing the same scenario without your
-change.
+Check `npm run computed`, and confirm by re-running the single scenario with
+`--filter=`, which is the quickest way to tell a flake from a regression.
+
+The computed harness has its own flake of the same origin, now handled: GSAP
+writes `transform-origin` inline next to the transforms it manages and on its
+own schedule, so the cards behind the work modal reported one value in one run
+and another in the next with the stylesheets untouched. It is exempted when held
+inline, as `transform` and `filter` already were.
+
+`tools/probe-one.mjs` is kept for when a verdict needs explaining: given a
+state, a selector and a property, it lists every rule in every stylesheet that
+sets that property on the element, and whether the selector and the media query
+apply. Reading the cascade for `.drawer-close-btn-li` is how the redundant-pair
+problem above was found.
 
 ## Refactor status
 
@@ -428,9 +485,13 @@ competing breakpoint systems, and design tokens scoped to `html.atelier`
 instead of `:root`. A phased refactor is underway.
 
 Phase 3 first moved those lines into three files without touching a single rule,
-then began pruning what the merge exposed. The CSS is now 8,207 lines: the
-reduction is small so far because it is being taken only where a rule has been
-measured to have no effect.
+then began pruning what the merge exposed. The CSS is now 7,624 lines and 772
+`!important`s, every deletion measured rather than reasoned about.
+
+`base.css` took the bulk of it: of its 417 measurable rules, 139 contributed
+nothing to any of the 38 probed states and are gone — 632 lines, a fifth of the
+file. 84 more are `:hover`/`:focus` rules that cannot be judged this way and 15
+match nothing at all, so they stay.
 
 One number is worth keeping in view. Of the 47 `body.dark-theme` rules in
 `base.css`, 44 turned out to contribute nothing — but the three that remained
@@ -447,8 +508,10 @@ mattered. That is the shape of this codebase, and why the phase is slow.
   - [x] computed-style harness, the oracle the pruning needs
   - [x] merged 5 files into 3, cascade-identical, no rules changed
   - [x] pruned 44 superseded dark-theme rules from `base.css` (167 lines)
-  - [ ] probe the rest of `base.css`, then `atelier.css` and `motion.css`
-  - [ ] fix bugs 2 and 3, which are deletions that *do* change the page
+  - [x] pruned the rest of `base.css`: 139 rules, 632 lines
+  - [ ] probe `atelier.css` and `motion.css`
+  - [ ] fix bugs 2 and 3 by hand — an `!important` and two `:hover` rules the
+        prober cannot judge, and all three change the page on purpose
 - [ ] **Phase 4** — unify breakpoints
 - [ ] **Phase 5** — extract content into a data layer
 - [ ] **Phase 6** — decide the future of the lock screen

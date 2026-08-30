@@ -292,8 +292,13 @@ const GEOMETRY_PROPS = ['transform', 'width', 'height', 'top', 'left', 'right', 
  * blur, and GSAP ends up in one of two equivalent resting states depending on
  * whether it cleared the inline style: `filter: blur(0px)` or `filter: none`.
  * Those render identically but do not compare equal as strings.
+ *
+ * `transform-origin` is here because GSAP writes it inline next to the
+ * transforms it manages, and does so on its own schedule: the project cards
+ * behind the work modal reported `transform-origin: 176.797px 174.719px` in one
+ * run and `0px 174.719px` in the next with the stylesheets untouched.
  */
-const JS_OWNED_PROPS = [...GEOMETRY_PROPS, 'filter'];
+const JS_OWNED_PROPS = [...GEOMETRY_PROPS, 'filter', 'transform-origin'];
 
 const NOISY_SELECTORS = [
   '.home-photo',
