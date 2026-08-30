@@ -16,6 +16,9 @@ package-lock.json
 tests/current/
 tests/diff/
 
+# Rule-probe output. A worklist for the edit in progress, not a record.
+probe-*.json
+
 # Computed-style snapshots. Unlike the screenshot baselines these are not
 # committed: they are a before/after reference for the edit in progress,
 # regenerated on demand, and would add megabytes of churn to every commit.

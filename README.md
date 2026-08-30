@@ -349,6 +349,77 @@ Two traps this tool hit, worth knowing before trusting a similar result:
 Both failure modes point the same way: a selector matching nothing *right now*
 is weak evidence. The tool is deliberately biased toward leaving rules alone.
 
+## Pruning workflow
+
+Since the waste is overridden declarations rather than unmatched selectors,
+finding it means measuring what each rule actually contributes.
+
+```bash
+node tools/rule-probe.mjs --sheet=base.css --json=probe.json
+node tools/prune-rules.mjs --probe=probe.json --dry
+node tools/prune-rules.mjs --probe=probe.json
+npm run computed          # the real proof
+npm run test:visual
+```
+
+`rule-probe.mjs` notes what each rule declares, blanks it through the CSSOM,
+and re-reads the same properties on the elements it targets and their
+descendants. Nothing moved means the rule was contributing nothing. Blanking is
+equivalent to deleting — the declarations stop applying while every other
+rule's specificity and order stay put — and the rule is restored either way, so
+one page load probes a whole stylesheet.
+
+It exists because `npm run computed` takes six minutes, which is enough to
+answer "did this batch break anything" but not "which of these 44 rules is the
+problem". Bisecting with it would take hours; this answers per rule in
+milliseconds, and the batch it produces is then confirmed once with the real
+harness.
+
+Verdicts:
+
+| Verdict | Meaning |
+| --- | --- |
+| `live` | Removing it changes something. Keep. |
+| `inert` | Matched and measured; every declaration is overridden. Safe to delete. |
+| `unmatched` | Matches nothing in any probed state. Not pruned by default — the element may be built by JavaScript. |
+| `unverifiable` | A `:hover`/`:focus`/`:active` rule. Nothing here enters that state, so it would look inert whatever it contains. |
+
+`prune-rules.mjs` deletes the `inert` rules, refusing to write if the braces
+stop balancing or two ranges overlap.
+
+### Four things that had to be got right
+
+Each of these produced a confidently wrong answer first:
+
+- **Probing at rest is not enough.** Without the drawer and modal states, every
+  `.nav-links.open` rule looked unmatched — true of a still page and a terrible
+  reason to delete them. The prober now uses the shared scenario list.
+- **`querySelectorAll` cannot match a pseudo-element.** `.foo::before` returned
+  nothing and two decorative rules were declared dead while painting on screen.
+  The pseudo is stripped for matching and passed to `getComputedStyle`.
+- **Lines are not a safe unit for deletion.** `base.css` had `@media
+  (max-width: 768px) {body.dark-theme .nav-links {` — a media query opening on
+  the same line as its first rule. Deleting by line took the `@media {` with it
+  and the orphaned brace swallowed an image reset 3,000 lines away. Cuts are
+  made by character offset.
+- **Repeated selectors need consistent numbering.** The prober counts
+  occurrences across the whole sheet; the pruner briefly counted them per media
+  block, and four rules failed to match.
+
+### When the two harnesses disagree
+
+It happens, and the computed one wins. After this pruning `index-desktop-light`
+reported 0.34% of pixels changed while all 25 computed snapshots were
+byte-identical. The diff image was red over the hero and About photos only —
+the GSAP wobble, whose inline-styled geometry the computed harness exempts by
+design. Re-running the scenario against the previous commit failed the same
+way, which settled it.
+
+Worth knowing: **the wobble can exceed the 0.2% threshold**, so a screenshot
+failure confined to those two photos is not evidence of anything on its own.
+Check `npm run computed`, and confirm by testing the same scenario without your
+change.
+
 ## Refactor status
 
 An architecture review identified the CSS layer as the main maintenance risk:
@@ -356,9 +427,18 @@ An architecture review identified the CSS layer as the main maintenance risk:
 competing breakpoint systems, and design tokens scoped to `html.atelier`
 instead of `:root`. A phased refactor is underway.
 
-The line count has not come down yet. Phase 3 has so far moved those lines into
-three files without touching a single rule, which is the safe half of the job;
-the reduction comes from the pruning still to do.
+Phase 3 first moved those lines into three files without touching a single rule,
+then began pruning what the merge exposed. The CSS is now 8,207 lines: the
+reduction is small so far because it is being taken only where a rule has been
+measured to have no effect.
+
+One number is worth keeping in view. Of the 47 `body.dark-theme` rules in
+`base.css`, 44 turned out to contribute nothing — but the three that remained
+included `body.dark-theme .navbar, .footer-section, .section`, whose colour
+every element that `atelier.css` does not explicitly recolour was inheriting.
+Deleting the 44 alongside it would have changed 4,000 properties per dark
+scenario, and no amount of reading the files had revealed which of the 47
+mattered. That is the shape of this codebase, and why the phase is slow.
 
 - [x] **Phase 0** — safety net: branch, `.gitignore`, this document, visual-regression baselines
 - [x] **Phase 1** — quick wins: cache-bust sync, `og:url` fix, WebP images, SEO files
@@ -366,7 +446,9 @@ the reduction comes from the pruning still to do.
 - [ ] **Phase 3** — collapse five stylesheets into three
   - [x] computed-style harness, the oracle the pruning needs
   - [x] merged 5 files into 3, cascade-identical, no rules changed
-  - [ ] prune the declarations the merge left behind (see below)
+  - [x] pruned 44 superseded dark-theme rules from `base.css` (167 lines)
+  - [ ] probe the rest of `base.css`, then `atelier.css` and `motion.css`
+  - [ ] fix bugs 2 and 3, which are deletions that *do* change the page
 - [ ] **Phase 4** — unify breakpoints
 - [ ] **Phase 5** — extract content into a data layer
 - [ ] **Phase 6** — decide the future of the lock screen

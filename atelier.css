@@ -10,7 +10,7 @@
    is unchanged.
    ============================================================ */
 
-/* Layout, safe areas, touch-friendly cards, subtle motion — loads after responsive.css */
+/* Layout, safe areas, touch-friendly cards, subtle motion — loads after base.css */
 
 *,
 *::before,
