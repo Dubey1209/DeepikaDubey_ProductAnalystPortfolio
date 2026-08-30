@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Page not found | Deepika Dubey</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/jpeg" href="/DeepikaDubey_ProductPortfolio/ProfilePhoto.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600&display=swap">
+  <!-- Deliberately self-contained. The main stylesheets are mid-refactor, and
+       an error page should not be able to break because of that work. -->
+  <style>
+    :root {
+      --paper: #f3eee4;
+      --ink: #1a1713;
+      --muted: #6b645b;
+      --accent: #2457d6;
+      --line: rgba(26, 23, 19, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #14120f;
+        --ink: #f3eee4;
+        --muted: #a29a8e;
+        --accent: #7d9bff;
+        --line: rgba(243, 238, 228, 0.16);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main { max-width: 34rem; }
+
+    .label {
+      margin: 0 0 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      align-items: center;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--line);
+    }
+
+    a {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--accent);
+      border-color: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">Error 404</p>
+    <h1>This page shipped without a URL.</h1>
+    <p>
+      Which is a polite way of saying it isn't here. The link may be old, or I
+      may have moved something. Either way, the work is still one click away.
+    </p>
+    <div class="links">
+      <a href="/DeepikaDubey_ProductPortfolio/">Back to the portfolio</a>
+      <a href="/DeepikaDubey_ProductPortfolio/my-story.html">Read my story</a>
+      <a href="mailto:dubeydeepika1209@gmail.com">Email me</a>
+    </div>
+  </main>
+</body>
+</html>

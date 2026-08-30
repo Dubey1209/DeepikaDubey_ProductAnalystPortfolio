@@ -240,8 +240,9 @@ async function preparePage(page, scenario) {
   // Before any reveal work, so ScrollTrigger measures final geometry.
   await awaitImages(page);
 
-  if (scenario.unlocked === false) {
-    // Lock screen: nothing to reveal, just let its intro animation land.
+  if (scenario.unlocked === false || scenario.quick) {
+    // Nothing to reveal: the lock screen only has its intro animation, and the
+    // 404 page is a single static screen.
     await sleep(1200);
   } else {
     await revealEverything(page);
@@ -307,6 +308,31 @@ function buildScenarios() {
     path: '/index.html',
     theme: 'light',
     unlocked: false,
+    width: 375,
+    height: 812,
+    fullPage: false,
+  });
+
+  // 404.html is standalone and themes itself from prefers-color-scheme rather
+  // than the site's .dark-theme class, so the scheme is emulated instead.
+  for (const scheme of ['light', 'dark']) {
+    scenarios.push({
+      name: `404-desktop-${scheme}`,
+      path: '/404.html',
+      theme: 'light',
+      colorScheme: scheme,
+      quick: true,
+      width: 1440,
+      height: 900,
+      fullPage: false,
+    });
+  }
+  scenarios.push({
+    name: '404-mobile-light',
+    path: '/404.html',
+    theme: 'light',
+    colorScheme: 'light',
+    quick: true,
     width: 375,
     height: 812,
     fullPage: false,
@@ -395,6 +421,7 @@ async function main() {
       // Pinned so date/locale rendering cannot drift between runs.
       locale: 'en-US',
       timezoneId: 'UTC',
+      colorScheme: scenario.colorScheme ?? 'light',
     });
     try {
       const page = await context.newPage();

@@ -223,7 +223,7 @@
         '<p class="sb-cover-kicker">The long version</p>' +
         '<h3 class="sb-cover-title"><span>Wanna know me</span><span>beyond resume?</span></h3>' +
         '<i class="sb-cover-mark" aria-hidden="true"></i>' +
-        '<figure class="sb-cover-photo"><img src="ProfilePhoto.jpeg" alt="Deepika" width="96" height="120" decoding="async"></figure>' +
+        '<figure class="sb-cover-photo"><img src="ProfilePhoto.webp" alt="Deepika" width="96" height="120" decoding="async"></figure>' +
       '</div>' +
     '</div>',
     { cover: true }

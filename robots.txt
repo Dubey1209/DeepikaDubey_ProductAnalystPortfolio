@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Development-only directories. Nothing here is part of the site.
+Disallow: /tests/
+Disallow: /tools/
+
+Sitemap: https://dubey1209.github.io/DeepikaDubey_ProductPortfolio/sitemap.xml

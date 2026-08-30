@@ -48,7 +48,22 @@ export function startServer(port = 4173) {
     }
   });
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    // Without this, a port clash leaves the promise pending forever and node
+    // exits with an unhelpful "unsettled top-level await".
+    server.once('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        reject(
+          new Error(
+            `Port ${port} is already in use -- is "npm run serve" running? ` +
+              `Stop it, or set PORT to something else.`
+          )
+        );
+        return;
+      }
+      reject(err);
+    });
+
     server.listen(port, '127.0.0.1', () => resolve(server));
   });
 }
