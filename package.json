@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Dev-only tooling: visual regression harness and image optimiser. NOT a build step - the site deploys as plain static files.",
+  "description": "Dev-only tooling: visual + computed-style regression harnesses and image optimiser. NOT a build step - the site deploys as plain static files.",
   "scripts": {
     "serve": "node tests/serve.mjs",
     "baseline": "node tests/visual.mjs --update",
     "test:visual": "node tests/visual.mjs",
+    "computed:save": "node tests/computed.mjs --save",
+    "computed": "node tests/computed.mjs",
     "images": "node tools/optimize-images.mjs",
     "images:report": "node tools/optimize-images.mjs --report"
   },

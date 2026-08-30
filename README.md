@@ -131,8 +131,13 @@ npm run baseline                  # accept current rendering as the new truth
 npm run test:visual -- --filter=index-desktop   # just one scenario
 ```
 
-20 scenarios: both pages × 375/800/1440 px × light/dark, plus the lock screen,
-the work modal, and `404.html`. A full run takes roughly three minutes.
+25 scenarios: both pages × 375/800/1440 px × light/dark, plus the lock screen,
+the work modal, the nav dropdown, the mobile drawer, and `404.html`. A full run
+takes roughly four minutes.
+
+Page setup, the determinism helpers and the scenario list live in
+`tests/harness.mjs`, shared with the computed-style harness below so the two
+can never drift apart or disagree about what they are looking at.
 
 The 404 scenarios emulate `prefers-color-scheme`, because that page themes
 itself from the media query rather than the site's `.dark-theme` class.
@@ -181,6 +186,10 @@ about before editing `tests/visual.mjs`:
 - **Differences are confirmed by a retry** before being reported, so a residual
   sub-pixel wobble in the hero cannot fail the suite while a genuine regression
   still does.
+- **An action can restart the animation layer.** Opening the work modal means
+  clicking a card, and that click scrolls the page, firing the reveals for
+  whatever came into view. Motion is therefore frozen a second time after any
+  scenario action.
 
 ### Known limitation: sensitivity on tall pages
 
@@ -191,14 +200,56 @@ therefore pass unnoticed. The `.project-category` colour change in Phase 2 did
 exactly that.
 
 The proportional threshold exists to absorb a sub-pixel wobble in the hero
-photo that has resisted every attempt to pin it down. The right fix is to
-eliminate that instability and then tighten the threshold to an absolute pixel
-count; until then, treat "all scenarios pass" as strong evidence for layout and
-colour changes at component scale, and verify small text-level changes by
-reading the computed style directly.
-
-Clipping helps: `nav-dropdown-*` captures only the top 240 px, which excludes
+photo that has resisted every attempt to pin it down. Clipping helps where it
+can be applied: `nav-dropdown-*` captures only the top 240 px, which excludes
 the hero entirely and makes those scenarios genuinely tight.
+
+**The computed-style harness below is the real answer to this**, and it is why
+that harness exists. Treat a passing screenshot run as strong evidence about
+layout and colour at component scale, and rely on `npm run computed` for
+anything smaller.
+
+## Computed-style regression harness
+
+Where the screenshots ask "does this still look right", this asks "did anything
+change at all" — and answers exactly, with no threshold.
+
+```bash
+npm run computed:save    # record tests/computed/ from the CSS as it stands
+# ...delete some CSS...
+npm run computed         # report every property that moved
+```
+
+It walks all ~1,200 elements of every scenario, reads ~120 computed properties
+on each (plus a smaller set on `::before` and `::after`), and compares string
+for string. A clean run means roughly 28,000 elements are provably untouched.
+
+This is the primary oracle for Phase 3, for three reasons:
+
+1. **No sensitivity floor.** The pixel threshold above cannot see a small
+   change on a tall page. This sees every change equally, wherever it is.
+2. **No blind spots.** A screenshot only shows what is painted. This also
+   covers `cursor`, `pointer-events`, `overflow`, `transition-*`, elements
+   hidden behind others, and elements outside a clipped capture.
+3. **It names the cause.** A pixel diff says "4,000 pixels moved somewhere in
+   an 11,000 px page". This says `.project-card line-height: 1.6 -> normal`.
+
+`tests/computed/` is **git-ignored**, unlike the screenshot baselines. It is a
+before/after reference for the edit in progress, not a historical record, and
+committing it would add megabytes of churn per phase. Save, edit, compare.
+
+Two deliberate differences from the screenshot harness:
+
+- **Transitions are left alive.** The screenshots kill them, which would rewrite
+  every `transition-*` to `none` and hide the removal of a rule that carries
+  one. The cost is having to outwait the transitions that `settleAtTop` starts,
+  which is why this harness takes about eight minutes rather than four.
+- **Properties JavaScript owns inline are exempt** — the geometry GSAP tweens,
+  and `filter`. An inline style beats every stylesheet, so CSS cannot affect
+  those values and there is nothing to protect; the exemption is detected by
+  asking whether the property is set inline rather than from a selector list,
+  so it keeps working as the animations change. Everything else about those
+  elements, including all colour and typography, is still compared exactly.
 
 `prefers-reduced-motion` is deliberately **not** used to calm the page down:
 all five stylesheets restyle the site under that media query, so it would
@@ -263,7 +314,7 @@ instead of `:root`. A phased refactor is underway.
 
 - [x] **Phase 0** — safety net: branch, `.gitignore`, this document, visual-regression baselines
 - [x] **Phase 1** — quick wins: cache-bust sync, `og:url` fix, WebP images, SEO files
-- [ ] **Phase 2** — design tokens moved to `:root`
+- [x] **Phase 2** — design tokens moved to `:root`, redundant dark rules removed
 - [ ] **Phase 3** — collapse five stylesheets into three
 - [ ] **Phase 4** — unify breakpoints
 - [ ] **Phase 5** — extract content into a data layer
