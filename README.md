@@ -36,11 +36,19 @@ Do not reorder these `<link>` tags.
 
 | # | File | Owns |
 | --- | --- | --- |
-| 1 | `styles.css` | Base reset, font stack, typography scale, form/link defaults — **plus** a superseded blue/white card design that `atelier.css` overrides. |
-| 2 | `responsive.css` | Breakpoint overrides on a Bootstrap-style ladder (575 / 767 / 991 / 1199). |
-| 3 | `polish.css` | Small patch layer: safe-area insets, `box-sizing`, overflow clipping, touch-target sizing. |
-| 4 | `atelier.css` | The current visual identity. Defines all design tokens and re-skins nearly every component, scoped under `html.atelier` to outrank `styles.css`. |
-| 5 | `motion.css` | Animation and scroll-interaction styling. |
+| 1 | `base.css` | Base reset, font stack, typography scale, form/link defaults — **plus** a superseded blue/white card design that `atelier.css` overrides, and a Bootstrap-style breakpoint ladder (575 / 767 / 991 / 1199) that disagrees with the one used elsewhere. |
+| 2 | `atelier.css` | The current visual identity. Defines all design tokens in `:root` and re-skins nearly every component, mostly scoped under `html.atelier` to outrank `base.css`. Opens with what was a small patch layer: safe-area insets, `box-sizing`, overflow clipping, touch-target sizing. |
+| 3 | `motion.css` | Animation and scroll-interaction styling. |
+
+Phase 3 merged these down from five files. `styles.css` + `responsive.css`
+became `base.css`, and `polish.css` + `atelier.css` became `atelier.css`; the
+files were concatenated in the exact order the browser already loaded them, so
+no rule moved relative to any other and the cascade is unchanged. Section
+banners inside each file mark where the old ones ended.
+
+The merge changed no rules at all, deliberately — pruning at the same time
+would have produced an unreviewable diff, and if the result had changed
+something there would have been no way to tell which half did it.
 
 ## Script load order
 
@@ -63,8 +71,12 @@ GSAP 3.12.7, ScrollTrigger 3.12.7, Lenis 1.1.20, page-flip 2.0.7, and
 ## Cache busting
 
 Every stylesheet and script is referenced with a **single shared** `?v=` token
-(currently `20260830`). When you change any CSS or JS file, bump that token —
+(currently `20260830-2`). When you change any CSS or JS file, bump that token —
 in both `index.html` and `my-story.html`.
+
+The `-2` suffix is there because the Phase 3 merge shipped on the same day as
+Phase 1: `atelier.css` changed content at a URL returning visitors already had
+cached, so the token had to move even though the date had not.
 
 It is one shared value on purpose. Per-asset tokens were used previously and
 drifted out of sync (`motion.css` reached `fx45` while `motion.js` sat at
@@ -255,46 +267,43 @@ Two deliberate differences from the screenshot harness:
 all five stylesheets restyle the site under that media query, so it would
 capture a design real visitors never see.
 
-## Known bugs (found during the Phase 2 audit, not yet fixed)
+## Known bugs (found during the Phase 2 audit)
 
-These are real, visible defects rather than tidiness issues. They are recorded
-here rather than fixed immediately because each one lives in a file that a
-later phase restructures, and because none of them is currently covered by a
-visual regression scenario — coverage has to come first.
+These are real, visible defects rather than tidiness issues. Line numbers are
+as of the Phase 3 merge.
 
-1. **`polish.css:241` defeats the token system.** `body.dark-theme
-   .project-card.interactive-card .project-category { color: #7eb6ff
-   !important }` has specificity 0-4-2, which beats every `atelier.css` rule
-   for `.project-category`. `polish.css` loads *before* `atelier.css`, but
-   specificity outranks order, so this hardcoded blue wins in dark mode. It is
-   the only `!important` colour in the codebase that overrides the palette.
-2. **Dark dropdown uses the old shadow.** `styles.css:219` sets `box-shadow: 0
-   8px 16px rgba(0,0,0,0.3)` on `.dropdown-content`, and `atelier.css:1812`
-   sets the intended `6px 8px 0 var(--ink)` at *lower* specificity without
-   `!important` — so the superseded shadow is what actually renders.
-3. **Dropdown hover leaks two properties.** `styles.css:230-231` and
-   `styles.css:244` (`color: #ffffff !important`, `border-left-color: #2a7ae2
-   !important`) survive because `atelier.css:1819` only sets `background`.
-4. **The success toast has no dark variant.** `polish.css:266` gives
+1. ~~**The token system was defeated by a hardcoded blue.**~~ **Fixed in Phase
+   2.** `body.dark-theme .project-card.interactive-card .project-category {
+   color: #7eb6ff !important }` had specificity 0-4-2, which beat every
+   `atelier.css` rule for `.project-category`. It lived in `polish.css`, which
+   loaded *before* `atelier.css`, but specificity outranks order, so the
+   hardcoded blue won in dark mode. Now `var(--accent)`, at `atelier.css:255`.
+2. **Dark dropdown uses the old shadow.** `base.css:232` sets `box-shadow: 0
+   8px 16px rgba(0,0,0,0.3)` on `.dropdown-content`, and `atelier.css` sets the
+   intended `6px 8px 0 var(--ink)` at *lower* specificity without `!important`
+   — so the superseded shadow is what actually renders.
+3. **Dropdown hover leaks two properties.** `base.css:243-244` and
+   `base.css:257` (`color: #ffffff !important`, `border-left-color: #2a7ae2
+   !important`) survive because the `atelier.css` rule only sets `background`.
+4. **The success toast has no dark variant.** `atelier.css:278` gives
    `.lock-notification--success` a hardcoded `#1a1713` background, which stays
    near-black in dark mode. Worth checking its text contrast.
-
 5. **Tapping "Work" in the mobile drawer also scrolls the page.**
    `toggleDropdown` in `script.js` calls `preventDefault`, but the same file
    separately binds a smooth-scroll handler to every `a[href^="#"]` — and one
    listener calling `preventDefault` does not stop another listener on the same
    element. Both run, so the submenu opens *and* the page jumps to Case
    Studies.
-6. **Drawer items can become unreachable.** `atelier.css:1802` sets
+6. **Drawer items can become unreachable.** `atelier.css:2134` sets
    `flex-wrap: wrap` on `.nav-links` globally. On mobile the drawer is a
    fixed-height `flex-direction: column`, so when the items exceed the viewport
    height — which happens as soon as the submenu expands — they wrap into a
    second column beyond the drawer's width and are clipped off-screen. Story
    and Contact are the casualties.
 
-Bugs 2 and 3 disappear on their own when `styles.css` is dismantled in Phase 3.
-Bugs 5 and 6 are now covered by the `nav-drawer-*` scenarios, so they can be
-fixed safely.
+Bugs 2 and 3 are dead declarations in `base.css` that only survive on
+specificity; they are prime candidates for the Phase 3 pruning. Bugs 5 and 6
+are covered by the `nav-drawer-*` scenarios, so they can be fixed safely.
 
 ### A trap to remember when tokenising
 
@@ -303,7 +312,42 @@ light `--paper`/dark `--ink` — the two tokens are exact swaps of each other. A
 hardcoded instance of either is therefore ambiguous, and substituting the wrong
 token inverts the colour in dark mode. Two places depend on staying hardcoded
 because they need *fixed* contrast against a `--spin` background:
-`motion.css:1126` and `atelier.css:2439`.
+`motion.css:1126` and `atelier.css:2770`.
+
+`atelier.css:279` is a third hardcoded instance, and it is bug 4 above rather
+than a deliberate exception.
+
+## Dead-rule audit
+
+```bash
+node tools/css-audit.mjs            # summary per file
+node tools/css-audit.mjs --list     # every unmatched selector
+```
+
+Loads both pages at three viewports, applies the state classes that JavaScript
+would (`.fx-in`, `.dark-theme`, drawer open, modal open, and so on), and reports
+selectors that match no element anywhere.
+
+**The headline result is that almost nothing is dead this way: 14 selectors out
+of 1,159, about 1%** — and they are nearly all resets for elements the markup
+does not contain (`table`, `iframe`, `select`, `td`). So there is no easy win
+here, and the Phase 3 pruning has to go after *overridden declarations*
+instead, which is a much harder question and needs `npm run computed` to
+answer.
+
+Two traps this tool hit, worth knowing before trusting a similar result:
+
+- **Runtime classes.** A page sitting still has no `.fx-in` on anything, so
+  every reveal rule in `motion.css` looked dead — 51 selectors. Those classes
+  are now applied before the audit runs.
+- **Class names built by string concatenation.** `portfolio-lock.js` creates its
+  toast with `lock-notification--${type}`, so the literal
+  `lock-notification--success` appears nowhere and the rule looked dead while
+  being perfectly live. The audit now also searches the scripts for prefixes a
+  name could have been assembled from, and treats any hit as "still in use".
+
+Both failure modes point the same way: a selector matching nothing *right now*
+is weak evidence. The tool is deliberately biased toward leaving rules alone.
 
 ## Refactor status
 
@@ -312,10 +356,17 @@ An architecture review identified the CSS layer as the main maintenance risk:
 competing breakpoint systems, and design tokens scoped to `html.atelier`
 instead of `:root`. A phased refactor is underway.
 
+The line count has not come down yet. Phase 3 has so far moved those lines into
+three files without touching a single rule, which is the safe half of the job;
+the reduction comes from the pruning still to do.
+
 - [x] **Phase 0** — safety net: branch, `.gitignore`, this document, visual-regression baselines
 - [x] **Phase 1** — quick wins: cache-bust sync, `og:url` fix, WebP images, SEO files
 - [x] **Phase 2** — design tokens moved to `:root`, redundant dark rules removed
 - [ ] **Phase 3** — collapse five stylesheets into three
+  - [x] computed-style harness, the oracle the pruning needs
+  - [x] merged 5 files into 3, cascade-identical, no rules changed
+  - [ ] prune the declarations the merge left behind (see below)
 - [ ] **Phase 4** — unify breakpoints
 - [ ] **Phase 5** — extract content into a data layer
 - [ ] **Phase 6** — decide the future of the lock screen
